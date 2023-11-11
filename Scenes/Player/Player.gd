@@ -9,6 +9,7 @@ var mouse_position = null;
 var direction;
 
 var hold_right_button = false;
+var counter = 1;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,13 +30,18 @@ func _physics_process(delta):
 	if is_on_floor():
 		if hold_right_button:
 			apply_zero_friction();
+			ball_bounce(counter);
+			counter += 1;
 		else:
 			apply_friction();
+			counter = 0;
 	
 	if Input.is_action_pressed("hold_right_button"):
 		hold_right_button = true;
+		$AnimatedSprite2D.animation = "Rolling";
 	elif Input.is_action_just_released("hold_right_button"):
 		hold_right_button = false;
+		$AnimatedSprite2D.animation = "Idle";
 	
 	
 	set_velocity(velocity)
@@ -53,3 +59,6 @@ func apply_friction():
 
 func apply_zero_friction():
 	velocity.x = move_toward(velocity.x, 10, 0);
+	
+func ball_bounce(counter):
+	velocity.y = move_toward(-JUMP_FORCE_MAX, 0, 60 * counter);
