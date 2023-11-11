@@ -31,3 +31,4 @@ func apply_gravity():
 func apply_friction():
 	pass;
 	
+ 
