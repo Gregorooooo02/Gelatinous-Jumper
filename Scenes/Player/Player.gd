@@ -8,7 +8,7 @@ extends CharacterBody2D;
 var mouse_position = null;
 var direction;
 
-var fast_fell = false;
+var hold_right_button = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,10 +27,15 @@ func _physics_process(delta):
 			velocity.y += ADDITIONAL_GRAVITY;
 	
 	if is_on_floor():
-		apply_friction();
+		if hold_right_button:
+			apply_zero_friction();
+		else:
+			apply_friction();
 	
-	if Input.is_mouse_button_pressed(2):
-		apply_zero_friction();
+	if Input.is_action_pressed("hold_right_button"):
+		hold_right_button = true;
+	elif Input.is_action_just_released("hold_right_button"):
+		hold_right_button = false;
 	
 	
 	set_velocity(velocity)
