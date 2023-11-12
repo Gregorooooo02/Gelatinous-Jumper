@@ -1,60 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://fwnn56twd157"]
 
-[ext_resource type="PackedScene" uid="uid://b5y17ieh3frmg" path="res://Scenes/Block.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://gtxqcnfsnfx0" path="res://Scenes/Player/Player.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://c4plp2qkytvvd" path="res://Scenes/FirstLevel.tscn" id="2_asc81"]
 
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("2")]
 position = Vector2(27, 122)
 
-[node name="Block" parent="." instance=ExtResource("1")]
-position = Vector2(9, 171)
-
-[node name="Block2" parent="." instance=ExtResource("1")]
-position = Vector2(27, 171)
-
-[node name="Block3" parent="." instance=ExtResource("1")]
-position = Vector2(45, 171)
-
-[node name="Block4" parent="." instance=ExtResource("1")]
-position = Vector2(63, 171)
-
-[node name="Block5" parent="." instance=ExtResource("1")]
-position = Vector2(135, 171)
-
-[node name="Block6" parent="." instance=ExtResource("1")]
-position = Vector2(153, 171)
-
-[node name="Block7" parent="." instance=ExtResource("1")]
-position = Vector2(171, 171)
-
-[node name="Block8" parent="." instance=ExtResource("1")]
-position = Vector2(189, 171)
-
-[node name="Block9" parent="." instance=ExtResource("1")]
-position = Vector2(207, 171)
-
-[node name="Block10" parent="." instance=ExtResource("1")]
-position = Vector2(225, 171)
-
-[node name="Block11" parent="." instance=ExtResource("1")]
-position = Vector2(225, 153)
-
-[node name="Block12" parent="." instance=ExtResource("1")]
-position = Vector2(243, 153)
-
-[node name="Block13" parent="." instance=ExtResource("1")]
-position = Vector2(243, 135)
-
-[node name="Block14" parent="." instance=ExtResource("1")]
-position = Vector2(261, 135)
-
-[node name="Block15" parent="." instance=ExtResource("1")]
-position = Vector2(279, 135)
-
-[node name="Block16" parent="." instance=ExtResource("1")]
-position = Vector2(297, 135)
-
-[node name="Block17" parent="." instance=ExtResource("1")]
-position = Vector2(315, 135)
+[node name="Level Tiles" parent="." instance=ExtResource("2_asc81")]

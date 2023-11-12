@@ -30,11 +30,16 @@ func _physics_process(delta):
 	if is_on_floor():
 		if hold_right_button:
 			apply_zero_friction();
-			ball_bounce(counter);
+			ball_bounce_of_floor(counter);
 			counter += 1;
 		else:
 			apply_friction();
 			counter = 0;
+			
+	if is_on_wall():
+		if hold_right_button:
+			ball_bounce_of_wall(counter);
+			counter += 1;
 	
 	if Input.is_action_pressed("hold_right_button"):
 		hold_right_button = true;
@@ -53,6 +58,7 @@ func _physics_process(delta):
 
 func apply_gravity():
 	velocity.y += GRAVITY;
+	velocity.y = min(velocity.y, 300);
 
 func apply_friction():
 	velocity.x = move_toward(velocity.x, 0, FRICTION);
@@ -60,5 +66,8 @@ func apply_friction():
 func apply_zero_friction():
 	velocity.x = move_toward(velocity.x, 10, 0);
 	
-func ball_bounce(counter):
+func ball_bounce_of_floor(counter):
 	velocity.y = move_toward(-JUMP_FORCE_MAX, 0, 60 * counter);
+	
+func ball_bounce_of_wall(counter):
+	velocity.x = move_toward(- JUMP_FORCE_MAX, 0, 60 * counter);
