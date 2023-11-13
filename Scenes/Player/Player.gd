@@ -6,18 +6,18 @@ extends CharacterBody2D;
 @export var ADDITIONAL_GRAVITY: int = 3;
 @export var WALL_SLIDING_GRAVITY = 5;
 
+var is_mouse_in_box = false;
 var mouse_position = null;
 var direction;
-var collide;
 
 var hold_right_button = false;
-var counter = 1;
 
 var is_wall_sliding = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass;
+	
 
 func _physics_process(delta):
 	apply_gravity();
@@ -30,16 +30,17 @@ func _physics_process(delta):
 		hold_right_button = false;
 		$AnimatedSprite2D.animation = "Idle";
 	
-	if is_on_floor():
-		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			jumping_movement();
-		elif hold_right_button:
-			apply_zero_friction();
+	if is_mouse_in_box:
+		if is_on_floor():
+			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+				jumping_movement();
+			elif hold_right_button:
+				apply_zero_friction();
+			else:
+				apply_friction();
 		else:
-			apply_friction();
-	else:
-		if velocity.y > 0:
-			velocity.y += ADDITIONAL_GRAVITY;
+			if velocity.y > 0:
+				velocity.y += ADDITIONAL_GRAVITY;
 	
 	if is_on_wall() and !Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		is_wall_sliding = true;
@@ -72,3 +73,9 @@ func apply_wall_slide():
 			jumping_movement();
 	else:
 		pass;
+
+func _on_area_2d_mouse_entered():
+	is_mouse_in_box = true;
+
+func _on_area_2d_mouse_exited():
+	is_mouse_in_box = false;
