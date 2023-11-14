@@ -1,10 +1,10 @@
 extends CharacterBody2D;
 
-@export var JUMP_FORCE_MAX: int = 250;
+@export var JUMP_FORCE_MAX: int = 220;
 @export var FRICTION: int = 10;
 @export var GRAVITY: int = 10;
 @export var ADDITIONAL_GRAVITY: int = 3;
-@export var WALL_SLIDING_GRAVITY = 5;
+@export var WALL_SLIDING_GRAVITY: int = 5;
 
 var is_mouse_in_box = false;
 var mouse_position = null;
@@ -17,7 +17,6 @@ var is_wall_sliding = false;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass;
-	
 
 func _physics_process(delta):
 	apply_gravity();
@@ -32,7 +31,7 @@ func _physics_process(delta):
 	
 	if is_mouse_in_box:
 		if is_on_floor():
-			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			if Input.is_action_just_pressed("left_click"):
 				jumping_movement();
 			elif hold_right_button:
 				apply_zero_friction();
@@ -69,7 +68,7 @@ func apply_wall_slide():
 	if is_wall_sliding:
 		velocity.y += WALL_SLIDING_GRAVITY;
 		velocity.y = min(velocity.y, WALL_SLIDING_GRAVITY * 1.5);
-		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		if Input.is_action_just_pressed("left_click"):
 			jumping_movement();
 	else:
 		pass;

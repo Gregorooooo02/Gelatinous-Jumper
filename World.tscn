@@ -7,5 +7,7 @@
 
 [node name="Player" parent="." instance=ExtResource("2")]
 position = Vector2(27, 122)
+slide_on_ceiling = false
+safe_margin = 0.1
 
 [node name="Level Tiles" parent="." instance=ExtResource("2_asc81")]
