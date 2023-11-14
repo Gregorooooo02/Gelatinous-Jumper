@@ -31,7 +31,7 @@ animations = [{
 size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5num"]
-size = Vector2(182, 112)
+size = Vector2(234, 157)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(4, -4)
@@ -53,7 +53,7 @@ one_way_collision_margin = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 visible = false
-position = Vector2(-4, -52)
+position = Vector2(-4, -74.5)
 shape = SubResource("RectangleShape2D_w5num")
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
