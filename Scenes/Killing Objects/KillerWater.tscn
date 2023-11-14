@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bum0r06ehf2yk"]
+
+[ext_resource type="Script" path="res://Scenes/Killing Objects/KillerWater.gd" id="1_1y73v"]
+[ext_resource type="Texture2D" uid="uid://bmbul56uftfw5" path="res://Textures/tilemap.png" id="2_0hbwv"]
+
+[node name="KillerWater" type="Area2D"]
+script = ExtResource("1_1y73v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_0hbwv")
+region_enabled = true
+region_rect = Rect2(247, 38, 18, 18)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-0.0713997, 0.160378)
+polygon = PackedVector2Array(-8.9286, -7.16038, -8.9286, 8.83962, 9.0714, 8.83962, 9.0714, -7.16038, 6.0714, -5.16038, 3.0714, -7.16038, 0.0713997, -5.16038, -2.9286, -7.16038, -5.9286, -5.16038)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

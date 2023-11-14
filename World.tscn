@@ -1,13 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://fwnn56twd157"]
+[gd_scene load_steps=4 format=3 uid="uid://fwnn56twd157"]
 
 [ext_resource type="PackedScene" uid="uid://gtxqcnfsnfx0" path="res://Scenes/Player/Player.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://c4plp2qkytvvd" path="res://Scenes/FirstLevel.tscn" id="2_asc81"]
+[ext_resource type="PackedScene" uid="uid://bum0r06ehf2yk" path="res://Scenes/Killing Objects/KillerWater.tscn" id="3_hwwk5"]
 
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("2")]
-position = Vector2(32, 152)
+position = Vector2(32, 149)
 slide_on_ceiling = false
 safe_margin = 0.1
 
 [node name="Level Tiles" parent="." instance=ExtResource("2_asc81")]
+
+[node name="KillerWater" parent="." instance=ExtResource("3_hwwk5")]
+position = Vector2(117, 171)
+
+[node name="KillerWater2" parent="." instance=ExtResource("3_hwwk5")]
+position = Vector2(135, 171)
+
+[node name="KillerWater3" parent="." instance=ExtResource("3_hwwk5")]
+position = Vector2(207, 171)

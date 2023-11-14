@@ -1,4 +1,5 @@
 extends CharacterBody2D;
+class_name Player;
 
 const JUMP_FORCE_MAX: int = 250;
 const JUMP_TIME_START: float = 0.1;
