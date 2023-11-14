@@ -35,8 +35,13 @@ func _physics_process(delta):
 				jumping_movement();
 			elif hold_right_button:
 				apply_zero_friction();
+				if velocity.x > 0:
+					$AnimatedSprite2D.rotate(0.25);
+				elif velocity.x < 0:
+					$AnimatedSprite2D.rotate(-0.25);
 			else:
 				apply_friction();
+				$AnimatedSprite2D.rotation = 0;
 		else:
 			if velocity.y > 0:
 				velocity.y += ADDITIONAL_GRAVITY;
