@@ -107,7 +107,8 @@ func apply_wall_slide(delta):
 			jumping_movement();
 
 func change_jump_cursor():
-	$JumpCursor.animation = "default";
+	if is_on_floor() or is_on_wall():
+		$JumpCursor.animation = "default";
 	if current_jump_time > 0.2 and current_jump_time < 0.4:
 		$JumpCursor.animation = "jump1";
 	if current_jump_time > 0.4 and current_jump_time < 0.6:
