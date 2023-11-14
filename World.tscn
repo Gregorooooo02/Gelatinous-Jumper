@@ -6,7 +6,7 @@
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("2")]
-position = Vector2(27, 122)
+position = Vector2(32, 152)
 slide_on_ceiling = false
 safe_margin = 0.1
 

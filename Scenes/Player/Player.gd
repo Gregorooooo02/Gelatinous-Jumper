@@ -1,7 +1,7 @@
 extends CharacterBody2D;
 
 const JUMP_FORCE_MAX: int = 250;
-const JUMP_TIME_START: float = 0.2;
+const JUMP_TIME_START: float = 0.1;
 const JUMP_TIME_MAX: float = 1.0;
 const FRICTION: int = 10;
 const GRAVITY: int = 10;
@@ -56,8 +56,10 @@ func _physics_process(delta):
 		else:
 			if velocity.y > 0:
 				velocity.y += ADDITIONAL_GRAVITY;
+	elif !is_mouse_in_box:
+		pass;
 	
-	if is_on_wall() and !Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+	if is_on_wall_only() and !Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		is_wall_sliding = true;
 		$CollisionShape2D.shape.extents = Vector2(8, 4);
 		$AnimatedSprite2D.rotation = 0;
@@ -65,7 +67,7 @@ func _physics_process(delta):
 	else:
 		is_wall_sliding = false;
 		$CollisionShape2D.shape.extents = Vector2(8, 8);
-		
+	
 	if velocity.x > 0:
 		$AnimatedSprite2D.flip_h = false;
 	elif velocity.x < 0:
@@ -73,8 +75,8 @@ func _physics_process(delta):
 	else:
 		pass;
 	
-	#look_at(mouse_position);
 	move_and_slide();
+	change_jump_cursor();
 
 func jumping_movement():
 	direction = global_position.direction_to(mouse_position);
@@ -104,6 +106,16 @@ func apply_wall_slide(delta):
 			is_charging_jump = false;
 			jumping_movement();
 
+func change_jump_cursor():
+	$JumpCursor.animation = "default";
+	if current_jump_time > 0.2 and current_jump_time < 0.4:
+		$JumpCursor.animation = "jump1";
+	if current_jump_time > 0.4 and current_jump_time < 0.6:
+		$JumpCursor.animation = "jump2";
+	if current_jump_time > 0.6 and current_jump_time < 0.9:
+		$JumpCursor.animation = "jump3";
+	if current_jump_time > 0.9 and current_jump_time <= 1.0:
+		$JumpCursor.animation = "jump4";
 func _on_area_2d_mouse_entered():
 	is_mouse_in_box = true;
 

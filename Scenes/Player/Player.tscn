@@ -1,11 +1,60 @@
-[gd_scene load_steps=8 format=3 uid="uid://gtxqcnfsnfx0"]
+[gd_scene load_steps=15 format=3 uid="uid://gtxqcnfsnfx0"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://dlr5pyxsqpffi" path="res://Textures/player_slime.png" id="2_klxgi"]
-[ext_resource type="Texture2D" uid="uid://vgbxue5mbh2n" path="res://Textures/player_slime_ball.png" id="3_71niv"]
+[ext_resource type="Texture2D" uid="uid://dmvwaos0oxk6o" path="res://Textures/Cursor/cursor_idle.png" id="2_6qjep"]
+[ext_resource type="Texture2D" uid="uid://017njlb26wpk" path="res://Textures/Cursor/jump1.png" id="3_7bdhp"]
+[ext_resource type="Script" path="res://Scenes/Player/JumpCursor.gd" id="3_bnetg"]
+[ext_resource type="Texture2D" uid="uid://dffirwh58mo7x" path="res://Textures/Cursor/jump2.png" id="4_5p635"]
+[ext_resource type="Texture2D" uid="uid://e6u86dhq168i" path="res://Textures/Cursor/jump3.png" id="5_d0ktl"]
+[ext_resource type="Texture2D" uid="uid://dpc3p10gmctoh" path="res://Textures/Cursor/jump4.png" id="6_u3h3e"]
+[ext_resource type="Texture2D" uid="uid://dlr5pyxsqpffi" path="res://Textures/Player/player_slime.png" id="8_c1nhm"]
+[ext_resource type="Texture2D" uid="uid://vgbxue5mbh2n" path="res://Textures/Player/player_slime_ball.png" id="9_1q6ph"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oxajl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6qjep")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7bdhp")
+}],
+"loop": true,
+"name": &"jump1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_5p635")
+}],
+"loop": true,
+"name": &"jump2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_d0ktl")
+}],
+"loop": true,
+"name": &"jump3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_u3h3e")
+}],
+"loop": true,
+"name": &"jump4",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ypo8p"]
-atlas = ExtResource("2_klxgi")
+atlas = ExtResource("8_c1nhm")
 region = Rect2(0, 0, 24, 24)
 
 [sub_resource type="SpriteFrames" id="2"]
@@ -20,7 +69,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_71niv")
+"texture": ExtResource("9_1q6ph")
 }],
 "loop": true,
 "name": &"Rolling",
@@ -37,6 +86,13 @@ size = Vector2(234, 157)
 position = Vector2(4, -4)
 script = ExtResource("2")
 
+[node name="JumpCursor" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(-4, -36)
+scale = Vector2(0.666667, 0.666667)
+sprite_frames = SubResource("SpriteFrames_oxajl")
+script = ExtResource("3_bnetg")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_as_relative = false
 position = Vector2(-4, 4)
@@ -49,12 +105,11 @@ position = Vector2(-4, 4)
 shape = SubResource("3")
 one_way_collision_margin = 2.0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="MouseBox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseBox"]
 position = Vector2(-4, -74.5)
 shape = SubResource("RectangleShape2D_w5num")
 
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="MouseBox" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="MouseBox" to="." method="_on_area_2d_mouse_exited"]
