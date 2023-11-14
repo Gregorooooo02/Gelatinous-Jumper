@@ -52,6 +52,7 @@ one_way_collision_margin = 2.0
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(-4, -52)
 shape = SubResource("RectangleShape2D_w5num")
 

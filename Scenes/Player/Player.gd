@@ -4,7 +4,7 @@ extends CharacterBody2D;
 @export var FRICTION: int = 10;
 @export var GRAVITY: int = 10;
 @export var ADDITIONAL_GRAVITY: int = 3;
-@export var WALL_SLIDING_GRAVITY: int = 5;
+@export var WALL_SLIDING_GRAVITY: int = 6;
 
 var is_mouse_in_box = false;
 var mouse_position = null;
@@ -43,9 +43,18 @@ func _physics_process(delta):
 	
 	if is_on_wall() and !Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		is_wall_sliding = true;
+		$CollisionShape2D.shape.extents = Vector2(8, 4);
 		apply_wall_slide();
 	else:
 		is_wall_sliding = false;
+		$CollisionShape2D.shape.extents = Vector2(8, 8);
+		
+	if velocity.x > 0:
+		$AnimatedSprite2D.flip_h = false;
+	elif velocity.x < 0:
+		$AnimatedSprite2D.flip_h = true;
+	else:
+		pass;
 	
 	#look_at(mouse_position);
 	move_and_slide();
@@ -67,7 +76,7 @@ func apply_zero_friction():
 func apply_wall_slide():
 	if is_wall_sliding:
 		velocity.y += WALL_SLIDING_GRAVITY;
-		velocity.y = min(velocity.y, WALL_SLIDING_GRAVITY * 1.5);
+		velocity.y = min(velocity.y, WALL_SLIDING_GRAVITY * 3);
 		if Input.is_action_just_pressed("left_click"):
 			jumping_movement();
 	else:
