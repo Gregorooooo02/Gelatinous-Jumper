@@ -50,17 +50,19 @@ func _physics_process(delta):
 				jumping_movement();
 			if hold_right_button:
 				apply_zero_friction();
-				if get_slide_collision_count() > 0:
-					var collision = get_slide_collision(0);
-					if collision != null:
-						velocity.y -= JUMP_FORCE_MAX * (elastic);
-						elastic -= sub_elastic;
+				if velocity.x != 0:
+					if get_slide_collision_count() > 0:
+						var collision = get_slide_collision(0);
+						if collision != null:
+							velocity.y -= JUMP_FORCE_MAX * (elastic);
+							elastic -= sub_elastic;
 				if velocity.x > 0:
 					$AnimatedSprite2D.rotate(0.25);
 				elif velocity.x < 0:
 					$AnimatedSprite2D.rotate(-0.25);
 			else:
-				apply_friction();	
+				apply_friction();
+				elastic = 0.99;
 				$AnimatedSprite2D.rotation = 0;
 		else:
 			if velocity.y > 0:
