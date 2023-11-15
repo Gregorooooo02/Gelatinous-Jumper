@@ -16,6 +16,9 @@ var is_mouse_in_box = false;
 var mouse_position = null;
 var direction;
 
+var elastic = 0.99;
+var sub_elastic = 0.09;
+
 var hold_right_button = false;
 
 var is_wall_sliding = false;
@@ -47,6 +50,11 @@ func _physics_process(delta):
 				jumping_movement();
 			if hold_right_button:
 				apply_zero_friction();
+				if get_slide_collision_count() > 0:
+					var collision = get_slide_collision(0);
+					if collision != null:
+						velocity.y -= JUMP_FORCE_MAX * (elastic);
+						elastic -= sub_elastic;
 				if velocity.x > 0:
 					$AnimatedSprite2D.rotate(0.25);
 				elif velocity.x < 0:
