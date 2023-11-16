@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c4plp2qkytvvd"]
 
-[ext_resource type="Texture2D" uid="uid://bmbul56uftfw5" path="res://Textures/tilemap.png" id="1_8mjar"]
-[ext_resource type="Texture2D" uid="uid://lu60apvxqde5" path="res://Textures/tilemap-backgrounds.png" id="2_upaa6"]
+[ext_resource type="Texture2D" uid="uid://bmbul56uftfw5" path="res://textures/tilemap.png" id="1_8mjar"]
+[ext_resource type="Texture2D" uid="uid://lu60apvxqde5" path="res://textures/tilemap-backgrounds.png" id="2_upaa6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ssq3s"]
 
