@@ -23,6 +23,8 @@ var hold_right_button = false;
 
 var is_wall_sliding = false;
 
+var dash_mode = false;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass;
@@ -49,13 +51,14 @@ func _physics_process(delta):
 				is_charging_jump = false;
 				jumping_movement();
 			if hold_right_button:
-				apply_zero_friction();
-				if velocity.x != 0:
-					if get_slide_collision_count() > 0:
-						var collision = get_slide_collision(0);
-						if collision != null:
-							velocity.y -= JUMP_FORCE_MAX * (elastic);
-							elastic -= sub_elastic;
+				if !dash_mode:
+					apply_zero_friction();
+					if velocity.x != 0:
+						if get_slide_collision_count() > 0:
+							var collision = get_slide_collision(0);
+							if collision != null:
+								velocity.y -= JUMP_FORCE_MAX * (elastic);
+								elastic -= sub_elastic;
 				if velocity.x > 0:
 					$AnimatedSprite2D.rotate(0.25);
 				elif velocity.x < 0:
