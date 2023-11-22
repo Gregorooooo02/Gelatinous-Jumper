@@ -11,6 +11,7 @@ class_name Player;
 @onready var sprite = $Sprite2D;
 @onready var ball_sprite = $Sprite2D2;
 @onready var base_scale: Vector2 = sprite.scale;
+@onready var base_ball_scale: Vector2 = ball_sprite.scale;
 
 const FRICTION: int = 10;
 const GRAVITY: int = 10;
@@ -128,6 +129,8 @@ func _physics_process(delta):
 func scale_based_on_velocity() -> void:
 	if animation_player.is_playing(): return;
 	sprite.scale = lerp(base_scale, base_scale * Vector2(0.5, 1.4), velocity.length()/MAX_VELOCITY);
+	ball_sprite.scale = lerp(base_ball_scale, base_ball_scale * Vector2(1.4, 0.5), velocity.length()/MAX_VELOCITY);
+	ball_sprite.rotation = velocity.angle();
 
 func jumping_movement() -> void:
 	velocity = direction * JUMP_FORCE_MAX * (current_jump_time / JUMP_TIME_MAX);
