@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://gtxqcnfsnfx0"]
+[gd_scene load_steps=18 format=3 uid="uid://gtxqcnfsnfx0"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://dmvwaos0oxk6o" path="res://Textures/Cursor/cursor_idle.png" id="2_6qjep"]
@@ -53,28 +53,126 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ypo8p"]
-atlas = ExtResource("8_c1nhm")
-region = Rect2(0, 0, 24, 24)
+[sub_resource type="Animation" id="Animation_u8pbf"]
+resource_name = "charge_jump"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(-4, 4), Vector2(-4, 7.86)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0.666667, 0.666667), Vector2(1.017, 0.347)]
+}
 
-[sub_resource type="SpriteFrames" id="2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ypo8p")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_1q6ph")
-}],
-"loop": true,
-"name": &"Rolling",
-"speed": 5.0
-}]
+[sub_resource type="Animation" id="Animation_6gj8h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.666667, 0.666667)]
+}
+
+[sub_resource type="Animation" id="Animation_6htsi"]
+resource_name = "release_jump"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(-4, 7.86), Vector2(-4, -0.08), Vector2(-4, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(1.017, 0.347), Vector2(0.422, 1.007), Vector2(0.667, 0.667)]
+}
+
+[sub_resource type="Animation" id="Animation_0slqs"]
+resource_name = "landing"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.15),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(-4, 4), Vector2(-4, 7.86), Vector2(-4, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.15),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0.422, 0.667), Vector2(1.017, 0.347), Vector2(0.667, 0.667)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hr7bb"]
+_data = {
+"RESET": SubResource("Animation_6gj8h"),
+"charge_jump": SubResource("Animation_u8pbf"),
+"landing": SubResource("Animation_0slqs"),
+"release_jump": SubResource("Animation_6htsi")
+}
 
 [sub_resource type="RectangleShape2D" id="3"]
 size = Vector2(16, 16)
@@ -93,12 +191,21 @@ scale = Vector2(0.666667, 0.666667)
 sprite_frames = SubResource("SpriteFrames_oxajl")
 script = ExtResource("3_bnetg")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_as_relative = false
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-4, 4)
 scale = Vector2(0.666667, 0.666667)
-sprite_frames = SubResource("2")
-animation = &"Idle"
+texture = ExtResource("8_c1nhm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-4, 4)
+scale = Vector2(0.666667, 0.666667)
+texture = ExtResource("9_1q6ph")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hr7bb")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 4)
