@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://fwnn56twd157"]
+[gd_scene load_steps=4 format=3 uid="uid://fwnn56twd157"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_6amy7"]
 [ext_resource type="PackedScene" uid="uid://gtxqcnfsnfx0" path="res://Scenes/Player/Player.tscn" id="2"]
-[ext_resource type="PackedScene" uid="uid://co1yenm6ipds8" path="res://Scenes/Levels/Level1/Section1_Level1.tscn" id="3_gxnhi"]
+[ext_resource type="PackedScene" uid="uid://co1yenm6ipds8" path="res://Scenes/Levels/Level1/Level1_Section1.tscn" id="3_gxnhi"]
 
 [node name="World" type="Node2D" groups=["world"]]
+script = ExtResource("1_6amy7")
 
 [node name="Player" parent="." instance=ExtResource("2")]
 position = Vector2(56, 176)
 slide_on_ceiling = false
 safe_margin = 0.1
 
-[node name="Section1_Level1" parent="." instance=ExtResource("3_gxnhi")]
+[node name="Level1_Section1" parent="." instance=ExtResource("3_gxnhi")]

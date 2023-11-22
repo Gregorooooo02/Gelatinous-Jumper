@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bum0r06ehf2yk"]
 
-[ext_resource type="Script" path="res://Scenes/Killing Objects/KillerWater.gd" id="1_1y73v"]
+[ext_resource type="Script" path="res://Scenes/Killing Objects/Water/KillerWater.gd" id="1_1y73v"]
 [ext_resource type="Texture2D" uid="uid://bmbul56uftfw5" path="res://Textures/tilemap.png" id="2_0hbwv"]
 
 [node name="KillerWater" type="Area2D"]

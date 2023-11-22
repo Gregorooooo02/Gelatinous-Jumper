@@ -823,7 +823,7 @@ texture_region_size = Vector2i(24, 24)
 tile_size = Vector2i(24, 24)
 sources/0 = SubResource("TileSetAtlasSource_qqc5t")
 
-[node name="Section1_Level1" type="Node2D"]
+[node name="Level1_Section1" type="Node2D"]
 
 [node name="LevelTiles" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_n1hvl")
