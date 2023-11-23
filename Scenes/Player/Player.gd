@@ -33,7 +33,7 @@ var hold_right_button = false;
 
 var is_wall_sliding = false;
 
-var dash_mode = false;
+var dash_mode = true;
 var dash_count = 1;
 
 # Called when the node enters the scene tree for the first time.
@@ -129,6 +129,7 @@ func _physics_process(delta):
 func scale_based_on_velocity() -> void:
 	if animation_player.is_playing(): return;
 	sprite.scale = lerp(base_scale, base_scale * Vector2(0.5, 1.4), velocity.length()/MAX_VELOCITY);
+	
 	ball_sprite.scale = lerp(base_ball_scale, base_ball_scale * Vector2(1.4, 0.5), velocity.length()/MAX_VELOCITY);
 	
 	if velocity.y != 0:

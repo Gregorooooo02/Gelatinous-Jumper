@@ -14,13 +14,17 @@ config/name="Gelatinous Jumper"
 run/main_scene="res://World.tscn"
 config/features=PackedStringArray("4.1")
 
+[autoload]
+
+Events="*res://Scripts/Events.gd"
+
 [display]
 
 window/size/viewport_width=480
 window/size/viewport_height=270
 window/size/extend_to_title=true
-window/size/window_width_override=3200
-window/size/window_height_override=1800
+window/size/window_width_override=3360
+window/size/window_height_override=1890
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 mouse_cursor/custom_image="res://Textures/Cursor/cursor_idle.png"

@@ -178,10 +178,11 @@ _data = {
 size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5num"]
-size = Vector2(296, 198)
+size = Vector2(576, 378)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(4, -4)
+collision_layer = 2
 script = ExtResource("2")
 
 [node name="JumpCursor" type="AnimatedSprite2D" parent="."]
@@ -215,7 +216,8 @@ one_way_collision_margin = 2.0
 [node name="MouseBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseBox"]
-position = Vector2(-4, -95)
+visible = false
+position = Vector2(-4, -185)
 shape = SubResource("RectangleShape2D_w5num")
 
 [connection signal="mouse_entered" from="MouseBox" to="." method="_on_area_2d_mouse_entered"]
