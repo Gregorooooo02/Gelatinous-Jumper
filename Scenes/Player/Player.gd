@@ -33,7 +33,7 @@ var hold_right_button = false;
 
 var is_wall_sliding = false;
 
-var dash_mode = true;
+var dash_mode = false;
 var dash_count = 1;
 
 # Called when the node enters the scene tree for the first time.
@@ -178,6 +178,9 @@ func change_jump_cursor() -> void:
 		$JumpCursor.animation = "jump3";
 	if current_jump_time > 0.9 and current_jump_time <= 1.0:
 		$JumpCursor.animation = "jump4";
+
+func change_to_dash():
+	dash_mode = true;
 
 func _on_area_2d_mouse_entered():
 	is_mouse_in_box = true;
