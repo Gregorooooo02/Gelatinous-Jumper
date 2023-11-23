@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://fwnn56twd157"]
+[gd_scene load_steps=9 format=3 uid="uid://fwnn56twd157"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_5subr"]
 [ext_resource type="PackedScene" uid="uid://gtxqcnfsnfx0" path="res://Scenes/Player/Player.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://co1yenm6ipds8" path="res://Scenes/Levels/Level1/Level1_Section1.tscn" id="3_gxnhi"]
 [ext_resource type="PackedScene" uid="uid://cxjl73dsiuqkp" path="res://Scenes/Levels/Level1/Level1_Section2.tscn" id="4_fq1ua"]
-[ext_resource type="Script" path="res://end_box.gd" id="6_031ox"]
+[ext_resource type="Script" path="res://Scenes/Levels/Screens/end_box.gd" id="6_a7igx"]
 [ext_resource type="Script" path="res://Scenes/Camera/Camera2D.gd" id="6_geose"]
+[ext_resource type="PackedScene" uid="uid://dpywnvgjgpexn" path="res://Scenes/Levels/Screens/End_Screen.tscn" id="7_sucmj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5usd"]
 size = Vector2(10.7534, 1.95233)
@@ -31,9 +32,19 @@ script = ExtResource("6_geose")
 [node name="end_box" type="Area2D" parent="."]
 position = Vector2(922, 46)
 scale = Vector2(10.6178, -133.292)
-script = ExtResource("6_031ox")
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("6_a7igx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="end_box"]
 position = Vector2(1.03601, 0)
 scale = Vector2(0.25, 0.25)
 shape = SubResource("RectangleShape2D_a5usd")
+
+[node name="End_Screen" parent="." instance=ExtResource("7_sucmj")]
+
+[node name="Label" parent="End_Screen" index="0"]
+offset_left = 666.0
+offset_right = 783.0
+
+[editable path="End_Screen"]

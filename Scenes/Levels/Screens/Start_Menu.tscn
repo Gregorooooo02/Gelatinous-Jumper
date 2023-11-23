@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://by88c0fse0bjf"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Screens/Button_Start.gd" id="1_hgdtd"]
+[ext_resource type="Script" path="res://Scenes/Levels/Screens/Button_Exit.gd" id="2_emjs0"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 162.0
+offset_top = 56.0
+offset_right = 306.0
+offset_bottom = 82.0
+text = "Gelatinous Jumper"
+
+[node name="Button_Start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 121.0
+offset_right = 270.0
+offset_bottom = 152.0
+text = "Play"
+script = ExtResource("1_hgdtd")
+
+[node name="Button_Exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 180.0
+offset_right = 270.0
+offset_bottom = 211.0
+text = "Exit"
+script = ExtResource("2_emjs0")
+
+[connection signal="pressed" from="Button_Start" to="Button_Start" method="_on_pressed"]
+[connection signal="pressed" from="Button_Exit" to="Button_Exit" method="_on_pressed"]
