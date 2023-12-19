@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://co1yenm6ipds8"]
 
 [ext_resource type="Texture2D" uid="uid://4x4v25mpxcu1" path="res://Textures/tilemap_nature.png" id="1_dx0dr"]
-[ext_resource type="Script" path="res://Scenes/Levels/Level1/Level_Section.gd" id="1_jcfkd"]
+[ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/Level_Section.gd" id="1_jcfkd"]
 [ext_resource type="Texture2D" uid="uid://lu60apvxqde5" path="res://Textures/tilemap-backgrounds.png" id="2_ye6mc"]
 [ext_resource type="PackedScene" uid="uid://spwxqcspg5y0" path="res://Scenes/Levels/Entrance.tscn" id="4_554t8"]
 

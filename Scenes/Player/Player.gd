@@ -13,6 +13,8 @@ class_name Player;
 @onready var base_scale: Vector2 = sprite.scale;
 @onready var base_ball_scale: Vector2 = ball_sprite.scale;
 
+@onready var player_arrow = $PlayerArrow;
+
 const FRICTION: int = 10;
 const GRAVITY: int = 10;
 const ADDITIONAL_GRAVITY: int = 3;
@@ -38,7 +40,10 @@ var dash_count = 1;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass;
+	player_arrow.visible = false;
+
+func _process(delta):
+	rotate_player_arrow();
 
 func _physics_process(delta):
 	apply_gravity();
@@ -65,8 +70,10 @@ func _physics_process(delta):
 					current_jump_time += delta * 2;
 					current_jump_time = clamp(current_jump_time, JUMP_TIME_START, JUMP_TIME_MAX);
 					animation_player.play("charge_jump");
+					player_arrow.visible = true;
 			if Input.is_action_just_released("left_click"):
 				is_charging_jump = false;
+				player_arrow.visible = false;
 				animation_player.play("release_jump");
 				jumping_movement();
 			if hold_right_button:
@@ -187,3 +194,7 @@ func _on_area_2d_mouse_entered():
 
 func _on_area_2d_mouse_exited():
 	is_mouse_in_box = false;
+
+func rotate_player_arrow():
+	mouse_position = get_global_mouse_position();
+	player_arrow.look_at(mouse_position);

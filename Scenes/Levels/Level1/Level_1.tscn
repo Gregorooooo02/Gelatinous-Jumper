@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_5subr"]
 [ext_resource type="PackedScene" uid="uid://gtxqcnfsnfx0" path="res://Scenes/Player/Player.tscn" id="2"]
-[ext_resource type="PackedScene" uid="uid://co1yenm6ipds8" path="res://Scenes/Levels/Level1/Level1_Section1.tscn" id="3_gxnhi"]
-[ext_resource type="PackedScene" uid="uid://cxjl73dsiuqkp" path="res://Scenes/Levels/Level1/Level1_Section2.tscn" id="4_fq1ua"]
+[ext_resource type="PackedScene" uid="uid://co1yenm6ipds8" path="res://Scenes/Levels/Level1/Sections/Level1_Section1.tscn" id="3_gxnhi"]
+[ext_resource type="PackedScene" uid="uid://cxjl73dsiuqkp" path="res://Scenes/Levels/Level1/Sections/Level1_Section2.tscn" id="4_fq1ua"]
 [ext_resource type="Script" path="res://Scenes/Levels/Screens/end_box.gd" id="6_a7igx"]
 [ext_resource type="Script" path="res://Scenes/Camera/Camera2D.gd" id="6_geose"]
 

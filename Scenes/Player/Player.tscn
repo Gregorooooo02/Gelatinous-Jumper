@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://gtxqcnfsnfx0"]
+[gd_scene load_steps=19 format=3 uid="uid://gtxqcnfsnfx0"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://dmvwaos0oxk6o" path="res://Textures/Cursor/cursor_idle.png" id="2_6qjep"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://e6u86dhq168i" path="res://Textures/Cursor/jump3.png" id="5_d0ktl"]
 [ext_resource type="Texture2D" uid="uid://dpc3p10gmctoh" path="res://Textures/Cursor/jump4.png" id="6_u3h3e"]
 [ext_resource type="Texture2D" uid="uid://dlr5pyxsqpffi" path="res://Textures/Player/player_slime.png" id="8_c1nhm"]
+[ext_resource type="Texture2D" uid="uid://c6fy3bqsvah62" path="res://Textures/Player/player_arrow.png" id="8_wfwo2"]
 [ext_resource type="Texture2D" uid="uid://vgbxue5mbh2n" path="res://Textures/Player/player_slime_ball.png" id="9_1q6ph"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oxajl"]
@@ -187,10 +188,17 @@ script = ExtResource("2")
 
 [node name="JumpCursor" type="AnimatedSprite2D" parent="."]
 z_index = 1
-position = Vector2(-4, -36)
+position = Vector2(-4, -50)
 scale = Vector2(0.666667, 0.666667)
 sprite_frames = SubResource("SpriteFrames_oxajl")
 script = ExtResource("3_bnetg")
+
+[node name="PlayerArrow" type="Sprite2D" parent="."]
+position = Vector2(-4, 12)
+rotation = -0.000224142
+scale = Vector2(1, 0.948)
+texture = ExtResource("8_wfwo2")
+offset = Vector2(24, 2.08165e-12)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-4, 4)
