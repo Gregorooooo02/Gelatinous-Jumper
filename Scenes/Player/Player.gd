@@ -16,7 +16,7 @@ class_name Player;
 @onready var player_arrow = $PlayerArrow;
 
 const FRICTION: int = 10;
-const GRAVITY: int = 10;
+const GRAVITY: int = 9;
 const ADDITIONAL_GRAVITY: int = 3;
 const WALL_SLIDING_GRAVITY: int = 6;
 
@@ -62,48 +62,45 @@ func _physics_process(delta):
 	
 	scale_based_on_velocity();
 	
-	if is_mouse_in_box:
-		if is_on_floor():
-			if Input.is_action_pressed("left_click"):
-				is_charging_jump = true;
-				if is_charging_jump:
-					current_jump_time += delta * 2;
-					current_jump_time = clamp(current_jump_time, JUMP_TIME_START, JUMP_TIME_MAX);
-					animation_player.play("charge_jump");
-					player_arrow.visible = true;
-			if Input.is_action_just_released("left_click"):
-				is_charging_jump = false;
-				player_arrow.visible = false;
-				animation_player.play("release_jump");
-				jumping_movement();
-			if hold_right_button:
-				if !dash_mode:
-					apply_zero_friction();
-					if velocity.x != 0:
-						if get_slide_collision_count() > 0:
-							var collision = get_slide_collision(0);
-							if collision != null:
-								velocity.y -= JUMP_FORCE_MAX * (elastic);
-								elastic -= sub_elastic;
-				if velocity.x > 0:
-					ball_sprite.rotate(0.25);
-				elif velocity.x < 0:
-					ball_sprite.rotate(-0.25);
-			else:
-				apply_friction();
-				elastic = 0.99;
-				ball_sprite.rotation = 0;
+	if is_on_floor():
+		if Input.is_action_pressed("left_click"):
+			is_charging_jump = true;
+			player_arrow.visible = true;
+			if is_charging_jump:
+				current_jump_time += delta * 2;
+				current_jump_time = clamp(current_jump_time, JUMP_TIME_START, JUMP_TIME_MAX);
+				animation_player.play("charge_jump");
+		if Input.is_action_just_released("left_click"):
+			is_charging_jump = false;
+			animation_player.play("release_jump");
+			jumping_movement();
+			player_arrow.visible = false;
+		if hold_right_button:
+			if !dash_mode:
+				apply_zero_friction();
+				if velocity.x != 0:
+					if get_slide_collision_count() > 0:
+						var collision = get_slide_collision(0);
+						if collision != null:
+							velocity.y -= JUMP_FORCE_MAX * (elastic);
+							elastic -= sub_elastic;
+			if velocity.x > 0:
+				ball_sprite.rotate(0.25);
+			elif velocity.x < 0:
+				ball_sprite.rotate(-0.25);
 		else:
-			if velocity.y > 0:
-				velocity.y += ADDITIONAL_GRAVITY;
-		if dash_mode and dash_count != 0:
-			if Input.is_action_just_pressed("hold_right_button"):
-				dash_movement();
-				dash_count = 0;
-		if is_on_floor() or is_on_wall():
-			dash_count = 1;
-	elif !is_mouse_in_box:
-		pass;
+			apply_friction();
+			elastic = 0.99;
+			ball_sprite.rotation = 0;
+	else:
+		if velocity.y > 0:
+			velocity.y += ADDITIONAL_GRAVITY;
+	if dash_mode and dash_count != 0:
+		if Input.is_action_just_pressed("hold_right_button"):
+			dash_movement();
+			dash_count = 0;
+	if is_on_floor() or is_on_wall():
+		dash_count = 1;
 	
 	if is_on_wall_only() and !Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		is_wall_sliding = true;
@@ -143,7 +140,7 @@ func scale_based_on_velocity() -> void:
 		ball_sprite.rotation = velocity.angle();
 
 func jumping_movement() -> void:
-	velocity = direction * JUMP_FORCE_MAX * (current_jump_time / JUMP_TIME_MAX);
+	velocity = lerp(velocity, Vector2(direction * JUMP_FORCE_MAX * (current_jump_time / JUMP_TIME_MAX)), 1.0);
 	current_jump_time = JUMP_TIME_START;
 
 func dash_movement() -> void:
@@ -153,7 +150,7 @@ func dash_movement() -> void:
 func apply_gravity() -> void:
 	if not is_on_floor():
 		velocity.y += GRAVITY;
-		velocity.y = min(velocity.y, 200);
+		velocity.y = min(velocity.y, 150);
 
 func apply_friction() -> void:
 	velocity.x = move_toward(velocity.x, 0, FRICTION);
@@ -167,11 +164,13 @@ func apply_wall_slide(delta) -> void:
 		velocity.y = min(velocity.y, WALL_SLIDING_GRAVITY * 3);
 		if Input.is_action_pressed("left_click"):
 			is_charging_jump = true;
+			player_arrow.visible = true;
 			if is_charging_jump:
 				current_jump_time += delta * 2;
 				current_jump_time = clamp(current_jump_time, JUMP_TIME_START, JUMP_TIME_MAX);
 		if Input.is_action_just_released("left_click"):
 			is_charging_jump = false;
+			player_arrow.visible = false;
 			jumping_movement();
 
 func change_jump_cursor() -> void:
