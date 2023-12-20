@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://gtxqcnfsnfx0"]
+[gd_scene load_steps=22 format=3 uid="uid://gtxqcnfsnfx0"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://dmvwaos0oxk6o" path="res://Textures/Cursor/cursor_idle.png" id="2_6qjep"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dlr5pyxsqpffi" path="res://Textures/Player/player_slime.png" id="8_c1nhm"]
 [ext_resource type="Texture2D" uid="uid://c6fy3bqsvah62" path="res://Textures/Player/player_arrow.png" id="8_wfwo2"]
 [ext_resource type="Texture2D" uid="uid://vgbxue5mbh2n" path="res://Textures/Player/player_slime_ball.png" id="9_1q6ph"]
+[ext_resource type="Texture2D" uid="uid://cytke8c2fx5yr" path="res://Textures/Player/player_eyes.png" id="11_8f5nb"]
 [ext_resource type="Texture2D" uid="uid://cfxj3owj7ullt" path="res://Textures/Player/player_chunk.png" id="11_40380"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oxajl"]
@@ -60,7 +61,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("MainBody:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -72,7 +73,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/path = NodePath("MainBody:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -89,7 +90,7 @@ loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("MainBody:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -101,7 +102,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/path = NodePath("MainBody:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -118,7 +119,7 @@ step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("MainBody:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -130,7 +131,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/path = NodePath("MainBody:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -146,7 +147,7 @@ length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("MainBody:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -158,7 +159,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/path = NodePath("MainBody:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -228,16 +229,28 @@ scale = Vector2(1, 0.948)
 texture = ExtResource("8_wfwo2")
 offset = Vector2(24, 2.08165e-12)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="MainBody" type="Sprite2D" parent="."]
 position = Vector2(-4, 4)
 scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("8_c1nhm")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="PlayerEyes" type="Sprite2D" parent="MainBody"]
+position = Vector2(-3, 3)
+scale = Vector2(1.375, 1.375)
+texture = ExtResource("11_8f5nb")
+offset = Vector2(2.18182, -2.18182)
+
+[node name="BallBody" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(-4, 4)
 scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("9_1q6ph")
+
+[node name="PlayerEyes" type="Sprite2D" parent="BallBody"]
+position = Vector2(-3, 3)
+scale = Vector2(1.375, 1.375)
+texture = ExtResource("11_8f5nb")
+offset = Vector2(2.18182, -2.18182)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -245,6 +258,7 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-4, 4)
 shape = SubResource("3")
 one_way_collision_margin = 2.0

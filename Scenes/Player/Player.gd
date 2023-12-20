@@ -9,8 +9,10 @@ class_name Player;
 @export var MAX_VELOCITY: float = 750.0;
 
 @onready var animation_player = $AnimationPlayer;
-@onready var sprite = $Sprite2D;
-@onready var ball_sprite = $Sprite2D2;
+@onready var sprite = $MainBody;
+@onready var ball_sprite = $BallBody;
+@onready var sprite_eyes_body = $MainBody/PlayerEyes;
+@onready var sprite_eyes_ball = $BallBody/PlayerEyes;
 @onready var base_scale: Vector2 = sprite.scale;
 @onready var base_ball_scale: Vector2 = ball_sprite.scale;
 @onready var player_arrow = $PlayerArrow;
@@ -24,10 +26,10 @@ const WALL_SLIDING_GRAVITY: int = 6;
 var is_charging_jump = false;
 var current_jump_time = JUMP_TIME_START;
 
-var is_mouse_in_box = false;
 var mouse_position = null;
 var direction;
 var on_ground = false;
+var can_jump = true;
 
 var elastic = 0.99;
 var sub_elastic = 0.09;
@@ -38,6 +40,8 @@ var is_wall_sliding = false;
 
 var dash_mode = false;
 var dash_count = 1;
+
+var follow_speed = 5;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -51,20 +55,24 @@ func _physics_process(delta):
 	mouse_position = get_global_mouse_position();
 	direction = global_position.direction_to(mouse_position);
 	ball_sprite.visible = false;
+	sprite_eyes_body.position = sprite_eyes_body.position.lerp(sprite.position, delta * follow_speed);
+	sprite_eyes_ball.position = sprite_eyes_ball.position.lerp(ball_sprite.position, delta * follow_speed);
 	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		hold_right_button = true;
 		ball_sprite.visible = true;
 		sprite.visible = false;
+		can_jump = false;
 	else:
 		hold_right_button = false;
 		ball_sprite.visible = false;
 		sprite.visible = true;
+		can_jump = true;
 	
 	scale_based_on_velocity();
 	
 	if is_on_floor():
-		if Input.is_action_pressed("left_click"):
+		if Input.is_action_pressed("left_click") and can_jump:
 			is_charging_jump = true;
 			player_arrow.visible = true;
 			if is_charging_jump:
@@ -115,9 +123,13 @@ func _physics_process(delta):
 	if velocity.x > 0:
 		sprite.flip_h = false;
 		ball_sprite.flip_h = false;
+		sprite_eyes_body.flip_h = false;
+		sprite_eyes_ball.flip_h = false;
 	elif velocity.x < 0:
 		sprite.flip_h = true;
 		ball_sprite.flip_h = true;
+		sprite_eyes_body.flip_h = true;
+		sprite_eyes_ball.flip_h = true;
 	else:
 		pass;
 	
@@ -189,12 +201,6 @@ func change_jump_cursor() -> void:
 
 func change_to_dash():
 	dash_mode = true;
-
-func _on_area_2d_mouse_entered():
-	is_mouse_in_box = true;
-
-func _on_area_2d_mouse_exited():
-	is_mouse_in_box = false;
 
 func rotate_player_arrow():
 	mouse_position = get_global_mouse_position();

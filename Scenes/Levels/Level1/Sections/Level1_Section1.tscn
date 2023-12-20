@@ -829,7 +829,7 @@ sources/0 = SubResource("TileSetAtlasSource_qqc5t")
 size = Vector2(450, 216)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o0gr2"]
-size = Vector2(18, 54)
+size = Vector2(20, 54)
 
 [node name="Level1_Section1" type="Node2D"]
 script = ExtResource("1_jcfkd")
@@ -893,7 +893,7 @@ debug_color = Color(0.886275, 0, 0.698039, 0.203922)
 position = Vector2(531, 225)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entrance"]
-position = Vector2(477, 207)
+position = Vector2(476, 207)
 shape = SubResource("RectangleShape2D_o0gr2")
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

@@ -830,7 +830,7 @@ sources/0 = SubResource("TileSetAtlasSource_qqc5t")
 size = Vector2(450, 216)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0s326"]
-size = Vector2(18, 54)
+size = Vector2(20, 54)
 
 [node name="Level1_Section2" type="Node2D"]
 script = ExtResource("1_soryn")
@@ -894,7 +894,7 @@ debug_color = Color(0.886275, 0, 0.698039, 0.203922)
 position = Vector2(-45, 225)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entrance"]
-position = Vector2(9, 207)
+position = Vector2(10, 207)
 shape = SubResource("RectangleShape2D_0s326")
 
 [node name="Dash_PowerUp" parent="." instance=ExtResource("5_6rw3f")]
