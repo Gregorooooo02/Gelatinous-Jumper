@@ -28,7 +28,7 @@ window/size/window_width_override=3360
 window/size/window_height_override=1890
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-mouse_cursor/custom_image="res://Textures/Cursor/cursor_idle.png"
+mouse_cursor/custom_image="res://Textures/Cursor/cursor.png"
 mouse_cursor/custom_image_hotspot=Vector2(12, 12)
 
 [gui]

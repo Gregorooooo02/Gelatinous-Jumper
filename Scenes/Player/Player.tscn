@@ -1,60 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://gtxqcnfsnfx0"]
+[gd_scene load_steps=15 format=3 uid="uid://gtxqcnfsnfx0"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://dmvwaos0oxk6o" path="res://Textures/Cursor/cursor_idle.png" id="2_6qjep"]
-[ext_resource type="Texture2D" uid="uid://017njlb26wpk" path="res://Textures/Cursor/jump1.png" id="3_7bdhp"]
-[ext_resource type="Script" path="res://Scenes/Player/JumpCursor.gd" id="3_bnetg"]
-[ext_resource type="Texture2D" uid="uid://dffirwh58mo7x" path="res://Textures/Cursor/jump2.png" id="4_5p635"]
-[ext_resource type="Texture2D" uid="uid://e6u86dhq168i" path="res://Textures/Cursor/jump3.png" id="5_d0ktl"]
-[ext_resource type="Texture2D" uid="uid://dpc3p10gmctoh" path="res://Textures/Cursor/jump4.png" id="6_u3h3e"]
 [ext_resource type="Texture2D" uid="uid://dlr5pyxsqpffi" path="res://Textures/Player/player_slime.png" id="8_c1nhm"]
 [ext_resource type="Texture2D" uid="uid://c6fy3bqsvah62" path="res://Textures/Player/player_arrow.png" id="8_wfwo2"]
 [ext_resource type="Texture2D" uid="uid://vgbxue5mbh2n" path="res://Textures/Player/player_slime_ball.png" id="9_1q6ph"]
 [ext_resource type="Texture2D" uid="uid://cytke8c2fx5yr" path="res://Textures/Player/player_eyes.png" id="11_8f5nb"]
 [ext_resource type="Texture2D" uid="uid://cfxj3owj7ullt" path="res://Textures/Player/player_chunk.png" id="11_40380"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_oxajl"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_6qjep")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_7bdhp")
-}],
-"loop": true,
-"name": &"jump1",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_5p635")
-}],
-"loop": true,
-"name": &"jump2",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_d0ktl")
-}],
-"loop": true,
-"name": &"jump3",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_u3h3e")
-}],
-"loop": true,
-"name": &"jump4",
-"speed": 5.0
-}]
 
 [sub_resource type="Animation" id="Animation_6gj8h"]
 length = 0.001
@@ -213,13 +164,6 @@ collision_use_scale = true
 position = Vector2(4, -4)
 collision_layer = 2
 script = ExtResource("2")
-
-[node name="JumpCursor" type="AnimatedSprite2D" parent="."]
-z_index = 1
-position = Vector2(-4, -50)
-scale = Vector2(0.666667, 0.666667)
-sprite_frames = SubResource("SpriteFrames_oxajl")
-script = ExtResource("3_bnetg")
 
 [node name="PlayerArrow" type="Sprite2D" parent="."]
 z_index = 2

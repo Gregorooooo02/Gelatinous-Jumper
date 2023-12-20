@@ -142,7 +142,6 @@ func _physics_process(delta):
 		on_ground = false;
 	
 	move_and_slide();
-	change_jump_cursor();
 
 func scale_based_on_velocity() -> void:
 	if animation_player.is_playing(): return;
@@ -186,18 +185,6 @@ func apply_wall_slide(delta) -> void:
 			is_charging_jump = false;
 			player_arrow.visible = false;
 			jumping_movement();
-
-func change_jump_cursor() -> void:
-	if is_on_floor() or is_on_wall():
-		$JumpCursor.animation = "default";
-	if current_jump_time > 0.2 and current_jump_time < 0.4:
-		$JumpCursor.animation = "jump1";
-	if current_jump_time > 0.4 and current_jump_time < 0.6:
-		$JumpCursor.animation = "jump2";
-	if current_jump_time > 0.6 and current_jump_time < 0.9:
-		$JumpCursor.animation = "jump3";
-	if current_jump_time > 0.9 and current_jump_time <= 1.0:
-		$JumpCursor.animation = "jump4";
 
 func change_to_dash():
 	dash_mode = true;
