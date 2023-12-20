@@ -1,6 +1,7 @@
 extends CharacterBody2D;
 class_name Player;
 
+@export var SLIME_CHUNKS: int = 4;
 @export var JUMP_FORCE_MAX: float = 250.0;
 @export var JUMP_TIME_START: float = 0.1;
 @export var JUMP_TIME_MAX: float = 1.0;
@@ -12,8 +13,8 @@ class_name Player;
 @onready var ball_sprite = $Sprite2D2;
 @onready var base_scale: Vector2 = sprite.scale;
 @onready var base_ball_scale: Vector2 = ball_sprite.scale;
-
 @onready var player_arrow = $PlayerArrow;
+@onready var particles = $GPUParticles2D;
 
 const FRICTION: int = 10;
 const GRAVITY: int = 9;
@@ -123,6 +124,7 @@ func _physics_process(delta):
 	if is_on_floor():
 		if not on_ground:
 			animation_player.play("landing");
+			particles.restart();
 		on_ground = true;
 	else:
 		on_ground = false;
