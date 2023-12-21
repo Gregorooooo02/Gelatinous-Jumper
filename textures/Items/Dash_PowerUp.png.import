@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cwuudt110g4nh"
-path="res://.godot/imported/Dash_PowerUp.png-79ae96fe092e4850478cf2b2c7507d3c.ctex"
+path="res://.godot/imported/Dash_PowerUp.png-715ceef36acd6e03f9aa23ed31568f95.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Items/Dash_PowerUp.png"
-dest_files=["res://.godot/imported/Dash_PowerUp.png-79ae96fe092e4850478cf2b2c7507d3c.ctex"]
+source_file="res://textures/Items/Dash_PowerUp.png"
+dest_files=["res://.godot/imported/Dash_PowerUp.png-715ceef36acd6e03f9aa23ed31568f95.ctex"]
 
 [params]
 

@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpywnvgjgpexn"]
+[gd_scene load_steps=5 format=3 uid="uid://dpywnvgjgpexn"]
 
+[ext_resource type="Script" path="res://Scenes/Levels/Screens/End_Screen.gd" id="1_djhug"]
+[ext_resource type="Script" path="res://Scenes/Levels/Screens/ReplayButton.gd" id="2_67m3i"]
 [ext_resource type="Script" path="res://Scenes/Levels/Screens/Button_Exit.gd" id="2_yi46u"]
+[ext_resource type="Script" path="res://Scenes/Levels/Screens/Time.gd" id="4_5hxb4"]
 
 [node name="End_Screen" type="Control"]
 layout_mode = 3
@@ -9,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_djhug")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -22,8 +26,28 @@ horizontal_alignment = 1
 [node name="ExitButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 180.0
-offset_top = 144.0
+offset_top = 187.0
 offset_right = 288.0
-offset_bottom = 175.0
+offset_bottom = 218.0
 text = "Exit"
 script = ExtResource("2_yi46u")
+
+[node name="ReplayButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 124.0
+offset_right = 289.0
+offset_bottom = 158.0
+text = "Replay"
+script = ExtResource("2_67m3i")
+
+[node name="Time" type="Label" parent="."]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 87.0
+offset_right = 248.0
+offset_bottom = 110.0
+script = ExtResource("4_5hxb4")
+
+[connection signal="pressed" from="ExitButton" to="ExitButton" method="_on_pressed"]
+[connection signal="pressed" from="ReplayButton" to="ReplayButton" method="_on_pressed"]
