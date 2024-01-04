@@ -1,11 +1,75 @@
-[gd_scene load_steps=15 format=3 uid="uid://gtxqcnfsnfx0"]
+[gd_scene load_steps=24 format=3 uid="uid://gtxqcnfsnfx0"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://duyfxe8cokfn2" path="res://textures/Player/player_arrow1.png" id="3_voipp"]
+[ext_resource type="Texture2D" uid="uid://dltknrvhg836q" path="res://textures/Player/player_arrow2.png" id="4_0rjx2"]
+[ext_resource type="Texture2D" uid="uid://cn0c4e07bdf00" path="res://textures/Player/player_arrow3.png" id="5_6sapp"]
+[ext_resource type="Texture2D" uid="uid://ou8jt3t8cdno" path="res://textures/Player/player_arrow4.png" id="6_awqs0"]
 [ext_resource type="Texture2D" uid="uid://dlr5pyxsqpffi" path="res://textures/Player/player_slime.png" id="8_c1nhm"]
 [ext_resource type="Texture2D" uid="uid://c6fy3bqsvah62" path="res://textures/Player/player_arrow.png" id="8_wfwo2"]
 [ext_resource type="Texture2D" uid="uid://vgbxue5mbh2n" path="res://textures/Player/player_slime_ball.png" id="9_1q6ph"]
 [ext_resource type="Texture2D" uid="uid://cytke8c2fx5yr" path="res://textures/Player/player_eyes.png" id="11_8f5nb"]
 [ext_resource type="Texture2D" uid="uid://cfxj3owj7ullt" path="res://textures/Player/player_chunk.png" id="11_40380"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6aq4v"]
+animations = [{
+"frames": [{
+"duration": 0.6,
+"texture": ExtResource("8_wfwo2")
+}, {
+"duration": 0.6,
+"texture": ExtResource("3_voipp")
+}, {
+"duration": 0.6,
+"texture": ExtResource("4_0rjx2")
+}, {
+"duration": 0.6,
+"texture": ExtResource("5_6sapp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_awqs0")
+}],
+"loop": false,
+"name": &"charge_jump_arrow",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_nplq0"]
+resource_name = "charge_arrow"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_otpe8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y21wf"]
+_data = {
+"RESET": SubResource("Animation_otpe8"),
+"charge_arrow": SubResource("Animation_nplq0")
+}
 
 [sub_resource type="Animation" id="Animation_6gj8h"]
 length = 0.001
@@ -120,10 +184,14 @@ tracks/1/keys = {
 "values": [Vector2(1.017, 0.347), Vector2(0.422, 1.007), Vector2(0.667, 0.667)]
 }
 
+[sub_resource type="Animation" id="Animation_0qq5y"]
+resource_name = "charge_jump_arrow"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hr7bb"]
 _data = {
 "RESET": SubResource("Animation_6gj8h"),
 "charge_jump": SubResource("Animation_u8pbf"),
+"charge_jump_arrow": SubResource("Animation_0qq5y"),
 "landing": SubResource("Animation_0slqs"),
 "release_jump": SubResource("Animation_6htsi")
 }
@@ -165,13 +233,19 @@ position = Vector2(4, -4)
 collision_layer = 2
 script = ExtResource("2")
 
-[node name="PlayerArrow" type="Sprite2D" parent="."]
+[node name="PlayerArrow" type="AnimatedSprite2D" parent="."]
 z_index = 2
 position = Vector2(-4, 6)
 rotation = -0.000224142
 scale = Vector2(1, 0.948)
-texture = ExtResource("8_wfwo2")
+sprite_frames = SubResource("SpriteFrames_6aq4v")
+animation = &"charge_jump_arrow"
 offset = Vector2(24, 2.08165e-12)
+
+[node name="AnimateArrow" type="AnimationPlayer" parent="PlayerArrow"]
+libraries = {
+"": SubResource("AnimationLibrary_y21wf")
+}
 
 [node name="MainBody" type="Sprite2D" parent="."]
 position = Vector2(-4, 4)
