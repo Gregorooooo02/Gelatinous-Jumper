@@ -34,7 +34,7 @@ var can_jump = true;
 var elastic = 0.99;
 var sub_elastic = 0.09;
 
-var hold_right_button = false;
+@export var hold_right_button = false;
 
 var is_wall_sliding = false;
 

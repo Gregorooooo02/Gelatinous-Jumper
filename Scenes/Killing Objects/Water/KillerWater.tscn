@@ -1,9 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://bum0r06ehf2yk"]
 
 [ext_resource type="Script" path="res://Scenes/Killing Objects/Water/KillerWater.gd" id="1_1y73v"]
-[ext_resource type="Texture2D" uid="uid://bmbul56uftfw5" path="res://Textures/tilemap.png" id="2_0hbwv"]
+[ext_resource type="Texture2D" uid="uid://4x4v25mpxcu1" path="res://textures/tilemap_nature.png" id="2_0hbwv"]
 
 [node name="KillerWater" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_1y73v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

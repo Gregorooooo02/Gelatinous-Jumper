@@ -32,6 +32,7 @@ slide_on_ceiling = false
 safe_margin = 0.1
 
 [node name="Level1_Section1" parent="." instance=ExtResource("3_gxnhi")]
+light_mask = 2
 
 [node name="Level1_Section2" parent="." instance=ExtResource("4_fq1ua")]
 position = Vector2(486, 0)
