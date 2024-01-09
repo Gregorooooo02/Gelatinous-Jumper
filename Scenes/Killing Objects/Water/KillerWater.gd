@@ -6,7 +6,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if get_overlapping_bodies():
+	if get_overlapping_bodies().has(Player):
 		_on_body_entered(Player)
 
 func _on_body_entered(body):

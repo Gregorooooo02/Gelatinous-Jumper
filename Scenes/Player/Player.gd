@@ -16,7 +16,6 @@ class_name Player;
 @onready var base_scale: Vector2 = sprite.scale;
 @onready var base_ball_scale: Vector2 = ball_sprite.scale;
 @onready var player_arrow = $PlayerArrow;
-@onready var player_arrow_animator = $PlayerArrow/AnimateArrow;
 @onready var particles = $GPUParticles2D;
 
 const FRICTION: int = 10;
@@ -80,11 +79,9 @@ func _physics_process(delta):
 				current_jump_time += delta * 2;
 				current_jump_time = clamp(current_jump_time, JUMP_TIME_START, JUMP_TIME_MAX);
 				animation_player.play("charge_jump");
-				player_arrow_animator.play("charge_arrow");
 		if Input.is_action_just_released("left_click"):
 			is_charging_jump = false;
 			animation_player.play("release_jump");
-			player_arrow_animator.play("RESET");
 			jumping_movement();
 			player_arrow.visible = false;
 		if hold_right_button:
@@ -181,14 +178,12 @@ func apply_wall_slide(delta) -> void:
 		if Input.is_action_pressed("left_click"):
 			is_charging_jump = true;
 			player_arrow.visible = true;
-			player_arrow_animator.play("charge_arrow");
 			if is_charging_jump:
 				current_jump_time += delta * 2;
 				current_jump_time = clamp(current_jump_time, JUMP_TIME_START, JUMP_TIME_MAX);
 		if Input.is_action_just_released("left_click"):
 			is_charging_jump = false;
 			player_arrow.visible = false;
-			player_arrow_animator.play("RESET");
 			jumping_movement();
 
 func change_to_dash():
