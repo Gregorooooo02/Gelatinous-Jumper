@@ -32,12 +32,6 @@ position = Vector2(72, 198)
 slide_on_ceiling = false
 safe_margin = 0.1
 
-[node name="Level1_Section1" parent="." instance=ExtResource("3_gxnhi")]
-light_mask = 2
-
-[node name="Level1_Section2" parent="." instance=ExtResource("4_fq1ua")]
-position = Vector2(486, 0)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 position_smoothing_enabled = true
@@ -64,8 +58,15 @@ shape = SubResource("RectangleShape2D_a5usd")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 
+<<<<<<< HEAD
 [node name="Level1_Section3" parent="." instance=ExtResource("6_83g84")]
 position = Vector2(964, 0)
+=======
+[node name="Level1_Section1" parent="." instance=ExtResource("3_gxnhi")]
+
+[node name="Level1_Section2" parent="." instance=ExtResource("4_fq1ua")]
+position = Vector2(486, 0)
+>>>>>>> origin/backgroundMovement
 
 [connection signal="body_entered" from="end_box" to="end_box" method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
