@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://fwnn56twd157"]
+[gd_scene load_steps=8 format=3 uid="uid://fwnn56twd157"]
 
 [ext_resource type="PackedScene" uid="uid://gtxqcnfsnfx0" path="res://Scenes/Player/Player.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://co1yenm6ipds8" path="res://Scenes/Levels/Level1/Sections/Level1_Section1.tscn" id="3_gxnhi"]
 [ext_resource type="PackedScene" uid="uid://cxjl73dsiuqkp" path="res://Scenes/Levels/Level1/Sections/Level1_Section2.tscn" id="4_fq1ua"]
-[ext_resource type="PackedScene" uid="uid://cbsgw2ltvv6hj" path="res://Scenes/Levels/Level1/Sections/Level1_Section3.tscn" id="6_83g84"]
 [ext_resource type="Script" path="res://Scenes/Levels/Screens/end_box.gd" id="6_a7igx"]
 [ext_resource type="Script" path="res://Scenes/Camera/Camera2D.gd" id="6_geose"]
 
@@ -32,6 +31,12 @@ position = Vector2(72, 198)
 slide_on_ceiling = false
 safe_margin = 0.1
 
+[node name="Level1_Section1" parent="." instance=ExtResource("3_gxnhi")]
+light_mask = 2
+
+[node name="Level1_Section2" parent="." instance=ExtResource("4_fq1ua")]
+position = Vector2(486, 0)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 position_smoothing_enabled = true
@@ -44,29 +49,19 @@ offset_right = 455.0
 offset_bottom = 58.0
 
 [node name="end_box" type="Area2D" parent="."]
-position = Vector2(850, 345)
+position = Vector2(922, 46)
 scale = Vector2(10.6178, -133.292)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("6_a7igx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="end_box"]
-position = Vector2(54.1544, 2.50578)
+position = Vector2(1.03601, 0)
 scale = Vector2(0.25, 0.25)
 shape = SubResource("RectangleShape2D_a5usd")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
-
-<<<<<<< HEAD
-[node name="Level1_Section3" parent="." instance=ExtResource("6_83g84")]
-position = Vector2(964, 0)
-=======
-[node name="Level1_Section1" parent="." instance=ExtResource("3_gxnhi")]
-
-[node name="Level1_Section2" parent="." instance=ExtResource("4_fq1ua")]
-position = Vector2(486, 0)
->>>>>>> origin/backgroundMovement
 
 [connection signal="body_entered" from="end_box" to="end_box" method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
