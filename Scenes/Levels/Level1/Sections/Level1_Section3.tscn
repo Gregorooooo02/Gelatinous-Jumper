@@ -834,6 +834,21 @@ size = Vector2(472, 74)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_agwyh"]
 size = Vector2(57, 16)
 
+[sub_resource type="Animation" id="Animation_2ksn4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(133, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_fmlmc"]
 resource_name = "move"
 length = 2.0
@@ -851,7 +866,16 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(133, 0), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_2ksn4"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_erfad"]
+_data = {
+"RESET": SubResource("Animation_2ksn4"),
+"move": SubResource("Animation_fmlmc")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eneum"]
+size = Vector2(40, 15)
+
+[sub_resource type="Animation" id="Animation_5cr4m"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -863,17 +887,8 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(133, 0)]
+"values": [Vector2(0, -112)]
 }
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_erfad"]
-_data = {
-"RESET": SubResource("Animation_2ksn4"),
-"move": SubResource("Animation_fmlmc")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eneum"]
-size = Vector2(40, 15)
 
 [sub_resource type="Animation" id="Animation_o7qje"]
 resource_name = "move"
@@ -890,21 +905,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -112), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_5cr4m"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -112)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uetq5"]

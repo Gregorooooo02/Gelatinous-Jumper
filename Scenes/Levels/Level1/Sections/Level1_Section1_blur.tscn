@@ -931,13 +931,6 @@ position = Vector2(531, 225)
 position = Vector2(478, 207)
 shape = SubResource("RectangleShape2D_o0gr2")
 
-[connection signal="body_entered" from="0/LevelTiles/KillerWater" to="0/LevelTiles/KillerWater" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="0/LevelTiles/@Area2D@157160" to="0/LevelTiles/@Area2D@157160" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="0/LevelTiles/@Area2D@157161" to="0/LevelTiles/@Area2D@157161" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="0/LevelTiles/@Area2D@157162" to="0/LevelTiles/@Area2D@157162" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="0/LevelTiles/@Area2D@157163" to="0/LevelTiles/@Area2D@157163" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="0/LevelTiles/@Area2D@157164" to="0/LevelTiles/@Area2D@157164" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="0/LevelTiles/@Area2D@157165" to="0/LevelTiles/@Area2D@157165" method="_on_body_entered" flags=18]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 
 [editable path="Entrance"]
