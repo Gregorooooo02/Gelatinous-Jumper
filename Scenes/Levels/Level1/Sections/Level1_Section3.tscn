@@ -1014,6 +1014,7 @@ shape = SubResource("RectangleShape2D_agwyh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platform_horizontal"]
 autoplay = "move"
+speed_scale = 0.5
 libraries = {
 "": SubResource("AnimationLibrary_erfad")
 }
@@ -1034,6 +1035,7 @@ shape = SubResource("RectangleShape2D_eneum")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platform_vertical"]
 autoplay = "move"
+speed_scale = 0.5
 libraries = {
 "": SubResource("AnimationLibrary_uetq5")
 }
