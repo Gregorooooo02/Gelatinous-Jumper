@@ -48,7 +48,7 @@ var follow_speed = 5;
 func _ready():
 	player_arrow.visible = false;
 
-func _process(delta):
+func _process(_delta):
 	rotate_player_arrow();
 
 func _physics_process(delta):

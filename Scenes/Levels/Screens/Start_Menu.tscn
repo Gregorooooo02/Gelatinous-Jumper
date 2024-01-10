@@ -1,41 +1,68 @@
-[gd_scene load_steps=3 format=3 uid="uid://by88c0fse0bjf"]
+[gd_scene load_steps=5 format=3 uid="uid://by88c0fse0bjf"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/Screens/Button_Start.gd" id="1_hgdtd"]
-[ext_resource type="Script" path="res://Scenes/Levels/Screens/Button_Exit.gd" id="2_emjs0"]
+[ext_resource type="Script" path="res://Scenes/Levels/Screens/Start_Menu.gd" id="1_fi836"]
+[ext_resource type="FontFile" uid="uid://ix5p8my5h1s5" path="res://textures/Fonts/upheavtt.ttf" id="3_v30dl"]
+[ext_resource type="PackedScene" uid="uid://bq4tubvsud5s7" path="res://Scenes/Levels/Screens/Texture_Button.tscn" id="4_wxury"]
 
-[node name="Control" type="Control"]
+[sub_resource type="LabelSettings" id="LabelSettings_ixqva"]
+line_spacing = 2.08165e-12
+font = ExtResource("3_v30dl")
+font_size = 40
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_fi836")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 162.0
-offset_top = 56.0
-offset_right = 306.0
-offset_bottom = 82.0
-text = "Gelatinous Jumper"
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Button_Start" type="Button" parent="."]
-layout_mode = 0
-offset_left = 198.0
-offset_top = 121.0
-offset_right = 270.0
-offset_bottom = 152.0
-text = "Play"
-script = ExtResource("1_hgdtd")
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 137)
+layout_mode = 2
 
-[node name="Button_Exit" type="Button" parent="."]
-layout_mode = 0
-offset_left = 198.0
-offset_top = 180.0
-offset_right = 270.0
-offset_bottom = 211.0
+[node name="Title" type="Label" parent="VBoxContainer/CenterContainer"]
+layout_mode = 2
+text = "Gelatinous 
+Jumper"
+label_settings = SubResource("LabelSettings_ixqva")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Start" parent="VBoxContainer/VBoxContainer" instance=ExtResource("4_wxury")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Exit")
+focus_neighbor_bottom = NodePath("../Options")
+text = "Start"
+
+[node name="Options" parent="VBoxContainer/VBoxContainer" instance=ExtResource("4_wxury")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Start")
+focus_neighbor_bottom = NodePath("../Exit")
+text = "Options"
+
+[node name="Exit" parent="VBoxContainer/VBoxContainer" instance=ExtResource("4_wxury")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Options")
+focus_neighbor_bottom = NodePath("../Start")
 text = "Exit"
-script = ExtResource("2_emjs0")
 
-[connection signal="pressed" from="Button_Start" to="Button_Start" method="_on_pressed"]
-[connection signal="pressed" from="Button_Exit" to="Button_Exit" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
