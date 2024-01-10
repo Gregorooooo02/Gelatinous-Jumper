@@ -232,10 +232,10 @@ sources/0 = SubResource("TileSetAtlasSource_mwtg4")
 line_spacing = 2.08165e-12
 font = ExtResource("3_v30dl")
 font_size = 40
-font_color = Color(0.662745, 1, 0.501961, 1)
+font_color = Color(0.52549, 0.964706, 0.733333, 1)
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 8
-shadow_color = Color(0, 0, 0, 1)
+shadow_color = Color(0.14902, 0.164706, 0.211765, 1)
 shadow_offset = Vector2(2, 2)
 
 [node name="MainMenu" type="Control"]
