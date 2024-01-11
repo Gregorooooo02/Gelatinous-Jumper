@@ -1,12 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://cbsgw2ltvv6hj"]
+[gd_scene load_steps=24 format=3 uid="uid://cbsgw2ltvv6hj"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/Level_Section.gd" id="1_n2jmu"]
 [ext_resource type="Texture2D" uid="uid://4x4v25mpxcu1" path="res://textures/tilemap_nature.png" id="2_6ytah"]
-[ext_resource type="Shader" path="res://Scenes/Levels/Level1/Sections/Level1_Section1.gdshader" id="3_jcsuy"]
 [ext_resource type="Texture2D" uid="uid://lu60apvxqde5" path="res://textures/tilemap-backgrounds.png" id="3_sg1kp"]
-[ext_resource type="Texture2D" uid="uid://cyx5ehy0x2f3p" path="res://textures/whiteTex.png" id="4_k5tq2"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/DeathPit.gd" id="4_yrr5q"]
-[ext_resource type="PackedScene" uid="uid://spwxqcspg5y0" path="res://Scenes/Levels/Entrance.tscn" id="5_snqbl"]
+[ext_resource type="Script" path="res://Scenes/Levels/Screens/end_box.gd" id="5_q3gk5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n4lgq"]
 
@@ -795,9 +793,6 @@ texture_region_size = Vector2i(18, 18)
 [sub_resource type="TileSet" id="TileSet_2b7pe"]
 sources/0 = SubResource("TileSetAtlasSource_6sfu0")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_88sto"]
-shader = ExtResource("3_jcsuy")
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qqc5t"]
 texture = ExtResource("3_sg1kp")
 separation = Vector2i(1, 1)
@@ -832,13 +827,13 @@ tile_size = Vector2i(24, 24)
 sources/0 = SubResource("TileSetAtlasSource_qqc5t")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ielf"]
-size = Vector2(450, 234)
+size = Vector2(450, 216)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5epfb"]
 size = Vector2(472, 74)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_agwyh"]
-size = Vector2(55, 16)
+size = Vector2(57, 16)
 
 [sub_resource type="Animation" id="Animation_2ksn4"]
 length = 0.001
@@ -919,8 +914,8 @@ _data = {
 "move": SubResource("Animation_o7qje")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5hq5d"]
-size = Vector2(20, 72)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vg6s0"]
+size = Vector2(44, 54)
 
 [node name="Level1_Section3" type="Node2D"]
 script = ExtResource("1_n2jmu")
@@ -929,7 +924,7 @@ script = ExtResource("1_n2jmu")
 tile_set = SubResource("TileSet_n1hvl")
 format = 2
 layer_0/name = "Ground"
-layer_0/tile_data = PackedInt32Array(393216, 131072, 6, 458752, 262144, 0, 524288, 196608, 6, 589824, 196608, 6, 655360, 196608, 6, 720896, 196608, 6, 786432, 196608, 6, 851968, 196608, 6, 917504, 196608, 6, 983040, 196608, 6, 131097, 131072, 1, 131098, 131072, 1, 131096, 65536, 0, 196633, 65536, 6, 196634, 131072, 6, 262169, 65536, 6, 327705, 65536, 6, 393241, 65536, 6, 458777, 65536, 6, 524313, 65536, 6, 983066, 65536, 6, 917530, 65536, 6, 851994, 65536, 6, 786458, 65536, 6, 720922, 65536, 6, 655386, 65536, 6, 589850, 327680, 0, 524314, 131072, 6, 458778, 131072, 6, 393242, 131072, 6, 327706, 131072, 6, 262170, 131072, 6, 262144, 131072, 1, 327680, 131072, 6, 262145, 131072, 1, 262146, 131072, 1, 327682, 196608, 7, 393217, 196608, 6, 327681, 262144, 0, 458753, 196608, 7, 589849, 65536, 7, 262147, 196608, 0)
+layer_0/tile_data = PackedInt32Array(262144, 196608, 1, 393216, 196608, 6, 458752, 196608, 6, 524288, 196608, 6, 589824, 196608, 6, 655360, 196608, 6, 720896, 196608, 6, 786432, 196608, 6, 851968, 196608, 6, 917504, 196608, 6, 983040, 196608, 6, 131097, 131072, 1, 131098, 131072, 1, 131096, 65536, 1, 327680, 196608, 6, 196633, 131072, 6, 196634, 131072, 6, 262169, 131072, 6, 327705, 131072, 6, 393241, 131072, 6, 458777, 131072, 6, 524313, 131072, 6, 983066, 131072, 6, 917530, 131072, 6, 851994, 131072, 6, 786458, 131072, 6, 720922, 131072, 6, 655386, 131072, 6, 589850, 131072, 6, 524314, 131072, 6, 458778, 131072, 6, 393242, 131072, 6, 327706, 131072, 6, 262170, 131072, 6)
 layer_1/name = "Water"
 layer_1/enabled = true
 layer_1/modulate = Color(1, 1, 1, 1)
@@ -952,25 +947,15 @@ visibility_layer = 4
 tile_set = SubResource("TileSet_2b7pe")
 format = 2
 layer_0/name = "BackDeco"
-layer_0/z_index = -5
-layer_0/tile_data = PackedInt32Array(851992, 262144, 6, 786460, 524288, 6, 851971, 327680, 6, 917517, 393216, 6, 917533, 917504, 6, 917532, 851968, 6, 917531, 851968, 6, 917530, 851968, 4, 983066, 983040, 5, 1048602, 851968, 5, 1048603, 917504, 4, 1114139, 983040, 5, 1114126, 851968, 4, 1114128, 917504, 4, 1114127, 851968, 6, 917505, 786432, 6, 917506, 917504, 4, 983042, 983040, 5, 1048578, 851968, 5, 1048579, 851968, 6, 1048580, 851968, 6, 1048581, 851968, 6, 1048582, 917504, 4, 1114118, 983040, 5)
+layer_0/z_index = -3
+layer_0/tile_data = PackedInt32Array(851992, 262144, 6, 786460, 524288, 6)
 layer_1/name = "BackTiles"
 layer_1/enabled = true
 layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
-layer_1/z_index = -6
-layer_1/tile_data = PackedInt32Array(917533, 131072, 6, 851997, 131072, 6, 786461, 65536, 6, 720925, 65536, 6, 655389, 65536, 6, 589853, 65536, 6, 524317, 65536, 6, 458781, 327680, 0, 458780, 65536, 7, 393244, 65536, 6, 393245, 131072, 6, 851996, 65536, 1, 917532, 131072, 6, 917531, 131072, 1, 917530, 131072, 1, 917529, 131072, 1, 917528, 65536, 0, 786432, 196608, 6, 720896, 196608, 6, 655360, 196608, 6, 851969, 196608, 1, 851968, 262144, 1, 917504, 131072, 6, 917505, 262144, 1, 917506, 131072, 0, 917507, 131072, 0, 917508, 131072, 0, 983041, 262144, 5, 1048577, 131072, 6, 1114113, 131072, 6, 1048578, 131072, 6, 983042, 131072, 6, 1114114, 262144, 5, 1048579, 262144, 5, 983043, 131072, 6, 1114115, 131072, 6, 1114116, 131072, 6, 1048580, 131072, 6, 983044, 262144, 5, 1114117, 131072, 6, 1048581, 262144, 5, 983045, 131072, 6, 1048582, 196608, 6, 1114118, 196608, 6, 917509, 196608, 1, 983046, 196608, 1, 983065, 65536, 7, 983066, 131072, 6, 983067, 131072, 6, 983068, 131072, 6, 1048604, 131072, 6, 1114140, 131072, 6, 983069, 131072, 6, 1048605, 131072, 6, 1114141, 131072, 6, 1114139, 65536, 6, 1048603, 131072, 6, 1114126, 262144, 5, 1048590, 131072, 6, 983054, 327680, 1, 917518, 65536, 6, 851982, 65536, 6, 786446, 65536, 6, 720910, 65536, 1, 720911, 131072, 1, 720912, 131072, 1, 720913, 196608, 1, 786449, 196608, 6, 851985, 196608, 6, 917521, 196608, 6, 983057, 196608, 6, 1048593, 196608, 6, 1048592, 131072, 6, 1114128, 131072, 6, 1114129, 196608, 6, 1114127, 131072, 6, 1048591, 131072, 6, 983055, 262144, 5, 917519, 131072, 6, 851983, 131072, 6, 786447, 262144, 5, 786448, 131072, 6, 851984, 262144, 5, 917520, 131072, 6, 983056, 262144, 5, 983053, 65536, 1, 1048589, 65536, 6, 1114125, 65536, 6, 1048602, 65536, 7, 327708, 65536, 6, 262172, 65536, 1)
-
-[node name="TextureRect" type="TextureRect" parent="BackTiles"]
-light_mask = 8
-visibility_layer = 8
-z_index = -5
-material = SubResource("ShaderMaterial_88sto")
-offset_right = 1028.0
-offset_bottom = 570.0
-scale = Vector2(0.472683, 0.505124)
-texture = ExtResource("4_k5tq2")
+layer_1/z_index = -4
+layer_1/tile_data = PackedInt32Array(917533, 131072, 6, 851997, 131072, 6, 786461, 65536, 6, 720925, 65536, 6, 655389, 65536, 6, 589853, 65536, 6, 524317, 65536, 6, 458781, 327680, 0, 458780, 65536, 7, 393244, 65536, 6, 393245, 131072, 6, 851996, 65536, 1, 917532, 131072, 6, 917531, 131072, 1, 917530, 131072, 1, 917529, 131072, 1, 917528, 65536, 1, 786432, 196608, 6, 720896, 196608, 6, 655360, 196608, 6, 851969, 196608, 1, 851968, 262144, 1, 917504, 131072, 6, 917505, 262144, 1, 917506, 131072, 0, 917507, 131072, 0, 917508, 131072, 0, 983041, 131072, 6, 1048577, 131072, 6, 1114113, 131072, 6, 1048578, 131072, 6, 983042, 131072, 6, 1114114, 131072, 6, 1048579, 131072, 6, 983043, 131072, 6, 1114115, 131072, 6, 1114116, 131072, 6, 1048580, 131072, 6, 983044, 131072, 6, 1114117, 131072, 6, 1048581, 131072, 6, 983045, 131072, 6, 1048582, 131072, 6, 1114118, 131072, 6, 917509, 131072, 1, 983046, 131072, 1, 983065, 131072, 6, 983066, 131072, 6, 983067, 131072, 6, 983068, 131072, 6, 1048604, 131072, 6, 1114140, 131072, 6, 983069, 131072, 6, 1048605, 131072, 6, 1114141, 131072, 6, 1114139, 131072, 6, 1114138, 131072, 6, 1048602, 131072, 6, 1048603, 131072, 6, 1048601, 131072, 6, 1114137, 131072, 6, 1114126, 131072, 6, 1048590, 131072, 6, 983054, 131072, 6, 917518, 131072, 6, 851982, 131072, 6, 786446, 131072, 6, 720910, 131072, 1, 720911, 131072, 1, 720912, 131072, 1, 720913, 131072, 1, 786449, 131072, 6, 851985, 131072, 6, 917521, 131072, 6, 983057, 131072, 6, 1048593, 131072, 6, 1048592, 131072, 6, 1114128, 131072, 6, 1114129, 131072, 6, 1114127, 131072, 6, 1048591, 131072, 6, 983055, 131072, 1, 917519, 131072, 6, 851983, 131072, 6, 786447, 131072, 6, 786448, 131072, 6, 851984, 131072, 6, 917520, 131072, 6, 983056, 131072, 1)
 
 [node name="Background" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_a6uta")
@@ -984,7 +969,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
-position = Vector2(243, 135)
+position = Vector2(243, 126)
 shape = SubResource("RectangleShape2D_6ielf")
 debug_color = Color(0.886275, 0, 0.698039, 0.203922)
 
@@ -1002,19 +987,17 @@ position = Vector2(133, 0)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="platform_horizontal"]
-position = Vector2(115, 154.5)
-scale = Vector2(1, 0.85)
+position = Vector2(115, 155)
 texture = ExtResource("2_6ytah")
 region_enabled = true
 region_rect = Rect2(153.943, 37.3871, 54.6411, 20.4904)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform_horizontal"]
-position = Vector2(114.5, 154)
+position = Vector2(115.5, 154)
 shape = SubResource("RectangleShape2D_agwyh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platform_horizontal"]
 autoplay = "move"
-speed_scale = 0.5
 libraries = {
 "": SubResource("AnimationLibrary_erfad")
 }
@@ -1035,19 +1018,17 @@ shape = SubResource("RectangleShape2D_eneum")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platform_vertical"]
 autoplay = "move"
-speed_scale = 0.5
 libraries = {
 "": SubResource("AnimationLibrary_uetq5")
 }
 
-[node name="Entrance" parent="." instance=ExtResource("5_snqbl")]
+[node name="end" type="Area2D" parent="."]
+script = ExtResource("5_q3gk5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Entrance"]
-position = Vector2(10, 36)
-shape = SubResource("RectangleShape2D_5hq5d")
-
-[node name="Marker2D2" type="Marker2D" parent="Entrance"]
-position = Vector2(-46, 59)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="end"]
+position = Vector2(461, 12)
+shape = SubResource("RectangleShape2D_vg6s0")
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="DeathPit" to="DeathPit" method="_on_body_entered"]
+[connection signal="body_entered" from="end" to="end" method="_on_body_entered"]

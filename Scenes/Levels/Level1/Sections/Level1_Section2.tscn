@@ -869,16 +869,6 @@ position = Vector2(-45, 225)
 position = Vector2(10, 207)
 shape = SubResource("RectangleShape2D_0s326")
 
-[node name="Entrance2" parent="." instance=ExtResource("4_a5q23")]
-position = Vector2(454, -162)
-
-[node name="Marker2D" parent="Entrance2" index="0"]
-position = Vector2(63, 220)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Entrance2"]
-position = Vector2(16, 207)
-shape = SubResource("RectangleShape2D_0s326")
-
 [node name="Dash_PowerUp" parent="." instance=ExtResource("5_6rw3f")]
 position = Vector2(270, 216)
 
@@ -941,4 +931,3 @@ layer_0/tile_data = PackedInt32Array(589824, 0, 2, 589825, 65536, 2, 589826, 131
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 
 [editable path="Entrance"]
-[editable path="Entrance2"]
