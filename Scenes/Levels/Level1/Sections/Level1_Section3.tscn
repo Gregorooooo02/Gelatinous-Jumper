@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://cbsgw2ltvv6hj"]
+[gd_scene load_steps=24 format=3 uid="uid://cbsgw2ltvv6hj"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/Level_Section.gd" id="1_n2jmu"]
 [ext_resource type="Texture2D" uid="uid://4x4v25mpxcu1" path="res://textures/tilemap_nature.png" id="2_6ytah"]
 [ext_resource type="Texture2D" uid="uid://lu60apvxqde5" path="res://textures/tilemap-backgrounds.png" id="3_sg1kp"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/DeathPit.gd" id="4_yrr5q"]
+[ext_resource type="Script" path="res://Scenes/Levels/Screens/end_box.gd" id="5_q3gk5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n4lgq"]
 
@@ -913,6 +914,9 @@ _data = {
 "move": SubResource("Animation_o7qje")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vg6s0"]
+size = Vector2(44, 54)
+
 [node name="Level1_Section3" type="Node2D"]
 script = ExtResource("1_n2jmu")
 
@@ -1018,5 +1022,13 @@ libraries = {
 "": SubResource("AnimationLibrary_uetq5")
 }
 
+[node name="end" type="Area2D" parent="."]
+script = ExtResource("5_q3gk5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="end"]
+position = Vector2(461, 12)
+shape = SubResource("RectangleShape2D_vg6s0")
+
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="DeathPit" to="DeathPit" method="_on_body_entered"]
+[connection signal="body_entered" from="end" to="end" method="_on_body_entered"]
