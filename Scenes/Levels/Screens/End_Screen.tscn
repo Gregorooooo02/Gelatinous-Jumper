@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Levels/Screens/End_Screen.gd" id="1_djhug"]
 [ext_resource type="Script" path="res://Scenes/Levels/Screens/ReplayButton.gd" id="2_67m3i"]
-[ext_resource type="Script" path="res://Scenes/Levels/Screens/Button_Exit.gd" id="2_yi46u"]
+[ext_resource type="Script" path="res://Scenes/Levels/Screens/NextButton.gd" id="2_jo601"]
 [ext_resource type="Script" path="res://Scenes/Levels/Screens/Time.gd" id="4_5hxb4"]
 
 [node name="End_Screen" type="Control"]
@@ -23,21 +23,21 @@ offset_bottom = 80.0
 text = "Level complete"
 horizontal_alignment = 1
 
-[node name="ExitButton" type="Button" parent="."]
+[node name="NextButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 180.0
-offset_top = 187.0
-offset_right = 288.0
-offset_bottom = 218.0
-text = "Exit"
-script = ExtResource("2_yi46u")
+offset_left = 178.0
+offset_top = 117.0
+offset_right = 286.0
+offset_bottom = 148.0
+text = "Next Level"
+script = ExtResource("2_jo601")
 
 [node name="ReplayButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 180.0
-offset_top = 124.0
-offset_right = 289.0
-offset_bottom = 158.0
+offset_left = 178.0
+offset_top = 196.0
+offset_right = 287.0
+offset_bottom = 230.0
 text = "Replay"
 script = ExtResource("2_67m3i")
 
@@ -49,5 +49,5 @@ offset_right = 248.0
 offset_bottom = 110.0
 script = ExtResource("4_5hxb4")
 
-[connection signal="pressed" from="ExitButton" to="ExitButton" method="_on_pressed"]
+[connection signal="pressed" from="NextButton" to="NextButton" method="_on_pressed"]
 [connection signal="pressed" from="ReplayButton" to="ReplayButton" method="_on_pressed"]
