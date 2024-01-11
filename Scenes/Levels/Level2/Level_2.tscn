@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8tsetmane2m2"]
+[gd_scene load_steps=5 format=3 uid="uid://b8tsetmane2m2"]
 
 [ext_resource type="PackedScene" uid="uid://gtxqcnfsnfx0" path="res://Scenes/Player/Player.tscn" id="1_x3rd3"]
 [ext_resource type="Script" path="res://Scenes/Camera/Camera2D.gd" id="2_yqpug"]
-[ext_resource type="PackedScene" uid="uid://co1yenm6ipds8" path="res://Scenes/Levels/Level2/Sections/Level1_Section1.tscn" id="3_5qsy7"]
+[ext_resource type="PackedScene" uid="uid://co1yenm6ipds8" path="res://Scenes/Levels/Level2/Sections/Level2_Section1.tscn" id="3_5qsy7"]
+[ext_resource type="PackedScene" uid="uid://baau5pfldncjm" path="res://Scenes/Levels/Level2/Sections/Level2_Section2.tscn" id="4_qgmy1"]
 
 [node name="Level_2" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_x3rd3")]
-position = Vector2(72, 198)
+position = Vector2(24, 74)
 slide_on_ceiling = false
 safe_margin = 0.1
 
@@ -25,4 +26,7 @@ offset_bottom = 58.0
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 
-[node name="Level1_Section1" parent="." instance=ExtResource("3_5qsy7")]
+[node name="Level2_Section1" parent="." instance=ExtResource("3_5qsy7")]
+
+[node name="Level2_Section2" parent="." instance=ExtResource("4_qgmy1")]
+position = Vector2(0, 300)
