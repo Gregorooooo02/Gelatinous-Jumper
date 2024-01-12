@@ -1023,6 +1023,8 @@ libraries = {
 }
 
 [node name="end" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("5_q3gk5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="end"]
