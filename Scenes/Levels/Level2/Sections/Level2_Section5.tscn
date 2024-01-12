@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://lq1xupvkcjta"]
+[gd_scene load_steps=25 format=3 uid="uid://lq1xupvkcjta"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/Level_Section.gd" id="1_5rr7h"]
 [ext_resource type="Texture2D" uid="uid://lu60apvxqde5" path="res://textures/tilemap-backgrounds.png" id="2_kmvjc"]
@@ -842,6 +842,56 @@ sources/2 = SubResource("TileSetScenesCollectionSource_n042f")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s17xg"]
 size = Vector2(481, 251)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcfui"]
+size = Vector2(40, 15)
+
+[sub_resource type="Animation" id="Animation_drs2s"]
+resource_name = "move"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-174, -24), Vector2(-132, 47)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yf2e5"]
+_data = {
+"move": SubResource("Animation_drs2s")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_36h8v"]
+size = Vector2(57, 16)
+
+[sub_resource type="Animation" id="Animation_xq7al"]
+resource_name = "move"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(201, 51), Vector2(303, 10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x8m2m"]
+_data = {
+"move": SubResource("Animation_xq7al")
+}
+
 [node name="Level2_Section5" type="Node2D"]
 script = ExtResource("1_5rr7h")
 
@@ -885,7 +935,7 @@ texture = ExtResource("6_0shwr")
 tile_set = SubResource("TileSet_n1hvl")
 format = 2
 layer_0/name = "Ground"
-layer_0/tile_data = PackedInt32Array(917530, 589824, 0, 589850, 589824, 0, 524314, 589824, 0, 131098, 589824, 0, 65562, 589824, 0, 26, 589824, 0, 917504, 131072, 6, 851968, 262144, 1, 786432, 196608, 6, 720896, 196608, 6, 655360, 196608, 6, 589824, 196608, 6, 524288, 196608, 6, 458752, 196608, 6, 393216, 196608, 6, 327680, 131072, 2, 917507, 131072, 6, 917508, 131072, 6, 917509, 131072, 6, 917510, 851968, 2, 917511, 851968, 2, 917512, 851968, 2, 917513, 851968, 2, 917514, 851968, 2, 917515, 851968, 2, 917516, 851968, 2, 917517, 851968, 2, 917518, 851968, 2, 917519, 851968, 2, 917520, 589824, 0, 917521, 589824, 0, 917522, 589824, 0, 917523, 589824, 0, 917524, 589824, 0, 917525, 589824, 0, 917526, 589824, 0, 917527, 589824, 0, 917528, 589824, 0, 917529, 589824, 0, 983040, 131072, 6, 983043, 131072, 6, 983044, 131072, 6, 983045, 131072, 6, 983046, 851968, 3, 983047, 851968, 3, 983048, 851968, 3, 983049, 851968, 3, 983050, 851968, 3, 983051, 851968, 3, 983052, 851968, 3, 983053, 851968, 3, 983054, 851968, 3, 983055, 851968, 3, 983056, 131072, 6, 983057, 131072, 6, 983058, 131072, 6, 983059, 131072, 6, 983060, 131072, 6, 983061, 131072, 6, 983062, 131072, 6, 983063, 131072, 6, 983064, 131072, 6, 983065, 131072, 6, 983066, 131072, 6, 327681, 131072, 2, 393217, 196608, 6, 458753, 196608, 6, 524289, 196608, 6, 589825, 196608, 6, 327682, 131072, 2, 327683, 131072, 2, 327684, 131072, 2, 393218, 196608, 6, 1048576, 131072, 6, 1048579, 131072, 6, 1048580, 131072, 6, 1048581, 131072, 6, 1048582, 131072, 6, 1048583, 131072, 6, 1048584, 131072, 6, 1048585, 131072, 6, 1048586, 131072, 6, 1048587, 131072, 6, 1048588, 131072, 6, 1048589, 131072, 6, 1048590, 131072, 6, 1048591, 131072, 6, 1048592, 131072, 6, 1048593, 131072, 6, 1048594, 131072, 6, 1048595, 131072, 6, 1048596, 131072, 6, 1048597, 131072, 6, 1048598, 131072, 6, 1048599, 131072, 6, 1048600, 131072, 6, 1048601, 131072, 6, 1048602, 131072, 6, 851994, 589824, 0, 786458, 589824, 0, 720922, 589824, 0, 655386, 589824, 0, 655361, 131072, 6, 720897, 131072, 6, 786433, 131072, 6, 851969, 131072, 6, 917505, 131072, 6, 983041, 131072, 6, 1048577, 131072, 6, 458762, 524288, 2, 458763, 655360, 2, 1048578, 131072, 6, 983042, 131072, 6, 917506, 131072, 6, 851984, 589824, 0, 851985, 589824, 0, 851986, 589824, 0, 851987, 589824, 0, 851988, 589824, 0, 851989, 589824, 0, 851990, 589824, 0, 851991, 589824, 0, 851992, 589824, 0, 851993, 589824, 0, 720916, 524288, 2, 720917, 589824, 2, 720918, 655360, 2, 524313, 589824, 0)
+layer_0/tile_data = PackedInt32Array(917530, 589824, 0, 589850, 589824, 0, 524314, 589824, 0, 131098, 589824, 0, 65562, 589824, 0, 26, 589824, 0, 917504, 131072, 6, 851968, 262144, 1, 786432, 196608, 6, 720896, 196608, 6, 655360, 196608, 6, 589824, 196608, 6, 524288, 196608, 6, 458752, 196608, 6, 393216, 196608, 6, 327680, 131072, 2, 917507, 131072, 6, 917508, 131072, 6, 917509, 131072, 6, 917510, 2, 131072, 917511, 2, 131072, 917512, 2, 131072, 917513, 2, 131072, 917514, 2, 131072, 917515, 2, 131072, 917516, 2, 131072, 917517, 2, 131072, 917518, 2, 131072, 917519, 2, 131072, 917520, 589824, 0, 917521, 589824, 0, 917522, 589824, 0, 917523, 589824, 0, 917524, 589824, 0, 917525, 589824, 0, 917526, 589824, 0, 917527, 589824, 0, 917528, 589824, 0, 917529, 589824, 0, 983040, 131072, 6, 983043, 131072, 6, 983044, 131072, 6, 983045, 131072, 6, 983046, 851968, 3, 983047, 851968, 3, 983048, 851968, 3, 983049, 851968, 3, 983050, 851968, 3, 983051, 851968, 3, 983052, 851968, 3, 983053, 851968, 3, 983054, 851968, 3, 983055, 851968, 3, 983056, 131072, 6, 983057, 131072, 6, 983058, 131072, 6, 983059, 131072, 6, 983060, 131072, 6, 983061, 131072, 6, 983062, 131072, 6, 983063, 131072, 6, 983064, 131072, 6, 983065, 131072, 6, 983066, 131072, 6, 327681, 131072, 2, 393217, 196608, 6, 458753, 196608, 6, 524289, 196608, 6, 589825, 196608, 6, 327682, 131072, 2, 327683, 131072, 2, 327684, 131072, 2, 393218, 196608, 6, 1048576, 131072, 6, 1048579, 131072, 6, 1048580, 131072, 6, 1048581, 131072, 6, 1048582, 131072, 6, 1048583, 131072, 6, 1048584, 131072, 6, 1048585, 131072, 6, 1048586, 131072, 6, 1048587, 131072, 6, 1048588, 131072, 6, 1048589, 131072, 6, 1048590, 131072, 6, 1048591, 131072, 6, 1048592, 131072, 6, 1048593, 131072, 6, 1048594, 131072, 6, 1048595, 131072, 6, 1048596, 131072, 6, 1048597, 131072, 6, 1048598, 131072, 6, 1048599, 131072, 6, 1048600, 131072, 6, 1048601, 131072, 6, 1048602, 131072, 6, 851994, 589824, 0, 786458, 589824, 0, 720922, 589824, 0, 655386, 589824, 0, 655361, 131072, 6, 720897, 131072, 6, 786433, 131072, 6, 851969, 131072, 6, 917505, 131072, 6, 983041, 131072, 6, 1048577, 131072, 6, 1048578, 131072, 6, 983042, 131072, 6, 917506, 131072, 6, 851984, 589824, 0, 851985, 589824, 0, 851986, 589824, 0, 851987, 589824, 0, 851988, 589824, 0, 851989, 589824, 0, 851990, 589824, 0, 851991, 589824, 0, 851992, 589824, 0, 851993, 589824, 0, 524313, 589824, 0)
 layer_1/name = "Water"
 layer_1/enabled = true
 layer_1/modulate = Color(1, 1, 1, 1)
@@ -909,5 +959,45 @@ collision_mask = 2
 position = Vector2(256.5, 132.5)
 shape = SubResource("RectangleShape2D_s17xg")
 debug_color = Color(0.886275, 0, 0.698039, 0.203922)
+
+[node name="platform_both" type="AnimatableBody2D" parent="."]
+position = Vector2(-174, -24)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_both"]
+position = Vector2(369, 164)
+texture = ExtResource("4_hc7hb")
+region_enabled = true
+region_rect = Rect2(152.617, 40.263, 37.126, 15.0263)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_both"]
+position = Vector2(369, 164.5)
+shape = SubResource("RectangleShape2D_gcfui")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platform_both"]
+autoplay = "move"
+libraries = {
+"": SubResource("AnimationLibrary_yf2e5")
+}
+
+[node name="platform_horizontal" type="AnimatableBody2D" parent="."]
+position = Vector2(201, 51)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_horizontal"]
+position = Vector2(115, 155)
+texture = ExtResource("4_hc7hb")
+region_enabled = true
+region_rect = Rect2(153.943, 37.3871, 54.6411, 20.4904)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_horizontal"]
+position = Vector2(115.5, 154)
+shape = SubResource("RectangleShape2D_36h8v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platform_horizontal"]
+autoplay = "move"
+libraries = {
+"": SubResource("AnimationLibrary_x8m2m")
+}
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

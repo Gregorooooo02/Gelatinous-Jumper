@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b5dy6cq6ucgsm"]
+[gd_scene load_steps=26 format=3 uid="uid://b5dy6cq6ucgsm"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/Level_Section.gd" id="1_i15dy"]
 [ext_resource type="Texture2D" uid="uid://lu60apvxqde5" path="res://textures/tilemap-backgrounds.png" id="2_ddyck"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bum0r06ehf2yk" path="res://Scenes/Killing Objects/Water/KillerWater.tscn" id="7_eam0f"]
 [ext_resource type="PackedScene" uid="uid://spwxqcspg5y0" path="res://Scenes/Levels/Entrance.tscn" id="8_2mlqe"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/DeathPit.gd" id="9_ykhre"]
+[ext_resource type="Script" path="res://Scenes/Levels/Level2/Sections/platform_crumble.gd" id="10_mfyvw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ufkyn"]
 
@@ -850,6 +851,12 @@ size = Vector2(53, 54)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ei0qh"]
 size = Vector2(190.25, 74)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3dmf"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nul2"]
+size = Vector2(13, 12)
+
 [node name="Level2_Section3" type="Node2D"]
 script = ExtResource("1_i15dy")
 
@@ -894,7 +901,7 @@ texture = ExtResource("6_ng8kn")
 tile_set = SubResource("TileSet_n1hvl")
 format = 2
 layer_0/name = "Ground"
-layer_0/tile_data = PackedInt32Array(917530, 131072, 2, 589850, 65536, 6, 524314, 65536, 6, 458778, 65536, 6, 393242, 65536, 6, 327706, 65536, 6, 262170, 65536, 6, 196634, 65536, 6, 131098, 65536, 6, 65562, 65536, 6, 26, 327680, 0, 917504, 131072, 3, 524288, 196608, 6, 458752, 196608, 6, 393216, 196608, 6, 327680, 196608, 6, 4, 131072, 7, 5, 131072, 7, 6, 131072, 7, 7, 131072, 7, 8, 131072, 7, 9, 131072, 7, 10, 131072, 7, 11, 131072, 7, 12, 131072, 7, 13, 131072, 7, 14, 131072, 7, 15, 131072, 7, 16, 131072, 7, 17, 131072, 7, 18, 131072, 7, 19, 131072, 7, 20, 131072, 7, 21, 131072, 7, 22, 131072, 7, 23, 131072, 7, 24, 131072, 7, 25, 131072, 6, 983040, 131072, 6, 1048576, 131072, 6, 655386, 65536, 6, 0, 131072, 6, 65536, 196608, 6, 131072, 196608, 6, 196608, 196608, 6, 262144, 196608, 6, 655385, 131072, 6, 589849, 131072, 6, 524313, 131072, 6, 458777, 131072, 6, 393241, 131072, 6, 327705, 131072, 6, 262169, 131072, 6, 196633, 131072, 6, 131097, 131072, 6, 65561, 131072, 6, 917529, 131072, 2, 917528, 131072, 2, 983064, 131072, 6, 1048600, 131072, 6, 1048601, 131072, 6, 983065, 131072, 6, 983066, 131072, 6, 1048602, 131072, 6, 983067, 131072, 6, 1048603, 131072, 6, 917531, 131072, 2, 655387, 131072, 6, 589851, 131072, 6, 524315, 131072, 6, 458779, 131072, 6, 393243, 131072, 6, 327707, 131072, 6, 262171, 131072, 6, 196635, 131072, 6, 131099, 131072, 6, 65563, 131072, 6, 27, 131072, 6, 1, 131072, 6, 2, 131072, 6, 3, 131072, 6, 983041, 131072, 6, 983042, 131072, 6, 983043, 131072, 6, 1048579, 131072, 6, 1048578, 131072, 6, 1048577, 131072, 6, 917505, 131072, 3, 917506, 131072, 3, 917507, 196608, 3, 1048580, 851968, 3, 983044, 851968, 3, 983045, 851968, 3, 983046, 851968, 3, 983047, 851968, 3, 983048, 851968, 3, 983049, 851968, 3, 1048585, 851968, 3, 1048584, 851968, 3, 1048583, 851968, 3, 1048582, 851968, 3, 1048581, 851968, 3, 917508, 851968, 2, 917509, 851968, 2, 917510, 851968, 2, 917511, 851968, 2, 917512, 851968, 2, 917513, 851968, 2, 851973, 720896, 1, 851974, 720896, 1, 851975, 720896, 1, 851976, 720896, 1, 1048586, 131072, 6, 983050, 131072, 6, 917514, 131072, 6, 851978, 131072, 6, 786442, 131072, 6, 720906, 131072, 6, 655370, 131072, 6, 655371, 131072, 6, 655372, 131072, 6, 655373, 131072, 6, 720909, 131072, 6, 786445, 131072, 6, 851981, 131072, 6, 917517, 131072, 6, 983053, 131072, 6, 983052, 131072, 6, 1048588, 131072, 6, 1048587, 131072, 6, 983051, 131072, 6, 917515, 131072, 6, 851979, 131072, 6, 786443, 131072, 6, 720907, 131072, 6, 720908, 131072, 6, 786444, 131072, 6, 851980, 131072, 6, 917516, 131072, 6, 1048589, 131072, 6, 589834, 131072, 6, 524298, 131072, 6, 458762, 131072, 6, 393226, 131072, 3, 393227, 131072, 3, 393228, 131072, 3, 393229, 131072, 3, 458765, 131072, 6, 524301, 131072, 6, 589837, 131072, 6, 589836, 131072, 6, 589835, 131072, 6, 524299, 131072, 6, 458763, 131072, 6, 458764, 131072, 6, 524300, 131072, 6, 524291, 720896, 1, 524292, 720896, 1, 393224, 720896, 1, 327688, 720896, 1, 262152, 720896, 1, 196616, 720896, 1, 131080, 720896, 1, 65544, 720896, 1, 655378, 720896, 1, 655379, 720896, 1, 655380, 720896, 1, 655381, 720896, 1, 327700, 720896, 1, 262164, 720896, 1, 196628, 720896, 1)
+layer_0/tile_data = PackedInt32Array(917530, 131072, 2, 589850, 65536, 6, 524314, 65536, 6, 458778, 65536, 6, 393242, 65536, 6, 327706, 65536, 6, 262170, 65536, 6, 196634, 65536, 6, 131098, 65536, 6, 65562, 65536, 6, 26, 327680, 0, 917504, 131072, 3, 524288, 196608, 6, 458752, 196608, 6, 393216, 196608, 6, 327680, 196608, 6, 4, 131072, 7, 5, 131072, 7, 6, 131072, 7, 7, 131072, 7, 8, 131072, 7, 9, 131072, 7, 10, 131072, 7, 11, 131072, 7, 12, 131072, 7, 13, 131072, 7, 14, 131072, 7, 15, 131072, 7, 16, 131072, 7, 17, 131072, 7, 18, 131072, 7, 19, 131072, 7, 20, 131072, 7, 21, 131072, 7, 22, 131072, 7, 23, 131072, 7, 24, 131072, 7, 25, 131072, 6, 983040, 131072, 6, 1048576, 131072, 6, 655386, 65536, 6, 0, 131072, 6, 65536, 196608, 6, 131072, 196608, 6, 196608, 196608, 6, 262144, 196608, 6, 655385, 131072, 6, 589849, 131072, 6, 524313, 131072, 6, 458777, 131072, 6, 393241, 131072, 6, 327705, 131072, 6, 262169, 131072, 6, 196633, 131072, 6, 131097, 131072, 6, 65561, 131072, 6, 917529, 131072, 2, 917528, 131072, 2, 983064, 131072, 6, 1048600, 131072, 6, 1048601, 131072, 6, 983065, 131072, 6, 983066, 131072, 6, 1048602, 131072, 6, 983067, 131072, 6, 1048603, 131072, 6, 917531, 131072, 2, 655387, 131072, 6, 589851, 131072, 6, 524315, 131072, 6, 458779, 131072, 6, 393243, 131072, 6, 327707, 131072, 6, 262171, 131072, 6, 196635, 131072, 6, 131099, 131072, 6, 65563, 131072, 6, 27, 131072, 6, 1, 131072, 6, 2, 131072, 6, 3, 131072, 6, 983041, 131072, 6, 983042, 131072, 6, 983043, 131072, 6, 1048579, 131072, 6, 1048578, 131072, 6, 1048577, 131072, 6, 917505, 131072, 3, 917506, 131072, 3, 917507, 196608, 3, 1048580, 851968, 3, 983044, 851968, 3, 983045, 851968, 3, 983046, 851968, 3, 983047, 851968, 3, 983048, 851968, 3, 983049, 851968, 3, 1048585, 851968, 3, 1048584, 851968, 3, 1048583, 851968, 3, 1048582, 851968, 3, 1048581, 851968, 3, 917508, 2, 131072, 917509, 2, 131072, 917510, 2, 131072, 917511, 2, 131072, 917512, 2, 131072, 917513, 2, 131072, 1048586, 131072, 6, 983050, 131072, 6, 917514, 131072, 6, 851978, 131072, 6, 786442, 131072, 6, 720906, 131072, 6, 655370, 131072, 6, 655371, 131072, 6, 655372, 131072, 6, 655373, 131072, 6, 720909, 131072, 6, 786445, 131072, 6, 851981, 131072, 6, 917517, 131072, 6, 983053, 131072, 6, 983052, 131072, 6, 1048588, 131072, 6, 1048587, 131072, 6, 983051, 131072, 6, 917515, 131072, 6, 851979, 131072, 6, 786443, 131072, 6, 720907, 131072, 6, 720908, 131072, 6, 786444, 131072, 6, 851980, 131072, 6, 917516, 131072, 6, 1048589, 131072, 6, 589834, 131072, 6, 524298, 131072, 6, 458762, 131072, 6, 393226, 131072, 3, 393227, 131072, 3, 393228, 131072, 3, 393229, 131072, 3, 458765, 131072, 6, 524301, 131072, 6, 589837, 131072, 6, 589836, 131072, 6, 589835, 131072, 6, 524299, 131072, 6, 458763, 131072, 6, 458764, 131072, 6, 524300, 131072, 6)
 layer_1/name = "Water"
 layer_1/enabled = true
 layer_1/modulate = Color(1, 1, 1, 1)
@@ -937,7 +944,520 @@ script = ExtResource("9_ykhre")
 position = Vector2(341.125, 318)
 shape = SubResource("RectangleShape2D_ei0qh")
 
+[node name="platform_crumble" type="CharacterBody2D" parent="."]
+position = Vector2(-270, 78)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_mfyvw")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_crumble"]
+position = Vector2(369, 164)
+texture = ExtResource("4_qan7u")
+region_enabled = true
+region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+
+[node name="Area2D" type="Area2D" parent="platform_crumble"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble/Area2D"]
+position = Vector2(369, 164)
+shape = SubResource("RectangleShape2D_b3dmf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble"]
+position = Vector2(369.5, 165)
+shape = SubResource("RectangleShape2D_4nul2")
+
+[node name="platform_crumble2" type="CharacterBody2D" parent="."]
+position = Vector2(-222, 78)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_mfyvw")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_crumble2"]
+position = Vector2(369, 164)
+texture = ExtResource("4_qan7u")
+region_enabled = true
+region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+
+[node name="Area2D" type="Area2D" parent="platform_crumble2"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble2/Area2D"]
+position = Vector2(369, 164)
+shape = SubResource("RectangleShape2D_b3dmf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble2"]
+position = Vector2(369.5, 165)
+shape = SubResource("RectangleShape2D_4nul2")
+
+[node name="platform_crumble3" type="CharacterBody2D" parent="."]
+position = Vector2(-254, 78)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_mfyvw")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_crumble3"]
+position = Vector2(369, 164)
+texture = ExtResource("4_qan7u")
+region_enabled = true
+region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+
+[node name="Area2D" type="Area2D" parent="platform_crumble3"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble3/Area2D"]
+position = Vector2(369, 164)
+shape = SubResource("RectangleShape2D_b3dmf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble3"]
+position = Vector2(369.5, 165)
+shape = SubResource("RectangleShape2D_4nul2")
+
+[node name="platform_crumble4" type="CharacterBody2D" parent="."]
+position = Vector2(-238, 78)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_mfyvw")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_crumble4"]
+position = Vector2(369, 164)
+texture = ExtResource("4_qan7u")
+region_enabled = true
+region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+
+[node name="Area2D" type="Area2D" parent="platform_crumble4"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble4/Area2D"]
+position = Vector2(369, 164)
+shape = SubResource("RectangleShape2D_b3dmf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble4"]
+position = Vector2(369.5, 165)
+shape = SubResource("RectangleShape2D_4nul2")
+
+[node name="platform_crumble5" type="CharacterBody2D" parent="."]
+position = Vector2(-289, -11)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_mfyvw")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_crumble5"]
+position = Vector2(369, 164)
+texture = ExtResource("4_qan7u")
+region_enabled = true
+region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+
+[node name="Area2D" type="Area2D" parent="platform_crumble5"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble5/Area2D"]
+position = Vector2(369, 164)
+shape = SubResource("RectangleShape2D_b3dmf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble5"]
+position = Vector2(369.5, 165)
+shape = SubResource("RectangleShape2D_4nul2")
+
+[node name="platform_crumble6" type="CharacterBody2D" parent="."]
+position = Vector2(-306, -11)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_mfyvw")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_crumble6"]
+position = Vector2(369, 164)
+texture = ExtResource("4_qan7u")
+region_enabled = true
+region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+
+[node name="Area2D" type="Area2D" parent="platform_crumble6"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble6/Area2D"]
+position = Vector2(369, 164)
+shape = SubResource("RectangleShape2D_b3dmf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble6"]
+position = Vector2(369.5, 165)
+shape = SubResource("RectangleShape2D_4nul2")
+
+[node name="platform_crumble7" type="CharacterBody2D" parent="."]
+position = Vector2(-217, -57)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_mfyvw")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_crumble7"]
+position = Vector2(369, 164)
+texture = ExtResource("4_qan7u")
+region_enabled = true
+region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+
+[node name="Area2D" type="Area2D" parent="platform_crumble7"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble7/Area2D"]
+position = Vector2(369, 164)
+shape = SubResource("RectangleShape2D_b3dmf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble7"]
+position = Vector2(369.5, 165)
+shape = SubResource("RectangleShape2D_4nul2")
+
+[node name="platform_crumble8" type="CharacterBody2D" parent="."]
+position = Vector2(-217, -139)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_mfyvw")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_crumble8"]
+position = Vector2(369, 164)
+texture = ExtResource("4_qan7u")
+region_enabled = true
+region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+
+[node name="Area2D" type="Area2D" parent="platform_crumble8"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble8/Area2D"]
+position = Vector2(369, 164)
+shape = SubResource("RectangleShape2D_b3dmf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble8"]
+position = Vector2(369.5, 165)
+shape = SubResource("RectangleShape2D_4nul2")
+
+[node name="platform_crumble9" type="CharacterBody2D" parent="."]
+position = Vector2(-217, -122)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_mfyvw")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_crumble9"]
+position = Vector2(369, 164)
+texture = ExtResource("4_qan7u")
+region_enabled = true
+region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+
+[node name="Area2D" type="Area2D" parent="platform_crumble9"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble9/Area2D"]
+position = Vector2(369, 164)
+shape = SubResource("RectangleShape2D_b3dmf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble9"]
+position = Vector2(369.5, 165)
+shape = SubResource("RectangleShape2D_4nul2")
+
+[node name="platform_crumble10" type="CharacterBody2D" parent="."]
+position = Vector2(-217, -107)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_mfyvw")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_crumble10"]
+position = Vector2(369, 164)
+texture = ExtResource("4_qan7u")
+region_enabled = true
+region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+
+[node name="Area2D" type="Area2D" parent="platform_crumble10"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble10/Area2D"]
+position = Vector2(369, 164)
+shape = SubResource("RectangleShape2D_b3dmf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble10"]
+position = Vector2(369.5, 165)
+shape = SubResource("RectangleShape2D_4nul2")
+
+[node name="platform_crumble11" type="CharacterBody2D" parent="."]
+position = Vector2(-217, -91)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_mfyvw")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_crumble11"]
+position = Vector2(369, 164)
+texture = ExtResource("4_qan7u")
+region_enabled = true
+region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+
+[node name="Area2D" type="Area2D" parent="platform_crumble11"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble11/Area2D"]
+position = Vector2(369, 164)
+shape = SubResource("RectangleShape2D_b3dmf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble11"]
+position = Vector2(369.5, 165)
+shape = SubResource("RectangleShape2D_4nul2")
+
+[node name="platform_crumble12" type="CharacterBody2D" parent="."]
+position = Vector2(-217, -74)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_mfyvw")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_crumble12"]
+position = Vector2(369, 164)
+texture = ExtResource("4_qan7u")
+region_enabled = true
+region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+
+[node name="Area2D" type="Area2D" parent="platform_crumble12"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble12/Area2D"]
+position = Vector2(369, 164)
+shape = SubResource("RectangleShape2D_b3dmf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble12"]
+position = Vector2(369.5, 165)
+shape = SubResource("RectangleShape2D_4nul2")
+
+[node name="platform_crumble13" type="CharacterBody2D" parent="."]
+position = Vector2(-1, -66)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_mfyvw")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_crumble13"]
+position = Vector2(369, 164)
+texture = ExtResource("4_qan7u")
+region_enabled = true
+region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+
+[node name="Area2D" type="Area2D" parent="platform_crumble13"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble13/Area2D"]
+position = Vector2(369, 164)
+shape = SubResource("RectangleShape2D_b3dmf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble13"]
+position = Vector2(369.5, 165)
+shape = SubResource("RectangleShape2D_4nul2")
+
+[node name="platform_crumble14" type="CharacterBody2D" parent="."]
+position = Vector2(-1, -83)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_mfyvw")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_crumble14"]
+position = Vector2(369, 164)
+texture = ExtResource("4_qan7u")
+region_enabled = true
+region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+
+[node name="Area2D" type="Area2D" parent="platform_crumble14"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble14/Area2D"]
+position = Vector2(369, 164)
+shape = SubResource("RectangleShape2D_b3dmf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble14"]
+position = Vector2(369.5, 165)
+shape = SubResource("RectangleShape2D_4nul2")
+
+[node name="platform_crumble15" type="CharacterBody2D" parent="."]
+position = Vector2(-1, -100)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_mfyvw")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_crumble15"]
+position = Vector2(369, 164)
+texture = ExtResource("4_qan7u")
+region_enabled = true
+region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+
+[node name="Area2D" type="Area2D" parent="platform_crumble15"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble15/Area2D"]
+position = Vector2(369, 164)
+shape = SubResource("RectangleShape2D_b3dmf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble15"]
+position = Vector2(369.5, 165)
+shape = SubResource("RectangleShape2D_4nul2")
+
+[node name="platform_crumble16" type="CharacterBody2D" parent="."]
+position = Vector2(-34, 25)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_mfyvw")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_crumble16"]
+position = Vector2(369, 164)
+texture = ExtResource("4_qan7u")
+region_enabled = true
+region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+
+[node name="Area2D" type="Area2D" parent="platform_crumble16"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble16/Area2D"]
+position = Vector2(369, 164)
+shape = SubResource("RectangleShape2D_b3dmf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble16"]
+position = Vector2(369.5, 165)
+shape = SubResource("RectangleShape2D_4nul2")
+
+[node name="platform_crumble17" type="CharacterBody2D" parent="."]
+position = Vector2(-18, 25)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_mfyvw")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_crumble17"]
+position = Vector2(369, 164)
+texture = ExtResource("4_qan7u")
+region_enabled = true
+region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+
+[node name="Area2D" type="Area2D" parent="platform_crumble17"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble17/Area2D"]
+position = Vector2(369, 164)
+shape = SubResource("RectangleShape2D_b3dmf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble17"]
+position = Vector2(369.5, 165)
+shape = SubResource("RectangleShape2D_4nul2")
+
+[node name="platform_crumble18" type="CharacterBody2D" parent="."]
+position = Vector2(-2, 25)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_mfyvw")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_crumble18"]
+position = Vector2(369, 164)
+texture = ExtResource("4_qan7u")
+region_enabled = true
+region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+
+[node name="Area2D" type="Area2D" parent="platform_crumble18"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble18/Area2D"]
+position = Vector2(369, 164)
+shape = SubResource("RectangleShape2D_b3dmf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble18"]
+position = Vector2(369.5, 165)
+shape = SubResource("RectangleShape2D_4nul2")
+
+[node name="platform_crumble19" type="CharacterBody2D" parent="."]
+position = Vector2(14, 25)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_mfyvw")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_crumble19"]
+position = Vector2(369, 164)
+texture = ExtResource("4_qan7u")
+region_enabled = true
+region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+
+[node name="Area2D" type="Area2D" parent="platform_crumble19"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble19/Area2D"]
+position = Vector2(369, 164)
+shape = SubResource("RectangleShape2D_b3dmf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble19"]
+position = Vector2(369.5, 165)
+shape = SubResource("RectangleShape2D_4nul2")
+
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="DeathPit" to="DeathPit" method="_on_body_entered"]
+[connection signal="body_entered" from="platform_crumble/Area2D" to="platform_crumble" method="_on_body_entered"]
+[connection signal="body_exited" from="platform_crumble/Area2D" to="platform_crumble" method="_on_body_exited"]
+[connection signal="body_entered" from="platform_crumble2/Area2D" to="platform_crumble2" method="_on_body_entered"]
+[connection signal="body_exited" from="platform_crumble2/Area2D" to="platform_crumble2" method="_on_body_exited"]
+[connection signal="body_entered" from="platform_crumble3/Area2D" to="platform_crumble3" method="_on_body_entered"]
+[connection signal="body_exited" from="platform_crumble3/Area2D" to="platform_crumble3" method="_on_body_exited"]
+[connection signal="body_entered" from="platform_crumble4/Area2D" to="platform_crumble4" method="_on_body_entered"]
+[connection signal="body_exited" from="platform_crumble4/Area2D" to="platform_crumble4" method="_on_body_exited"]
+[connection signal="body_entered" from="platform_crumble5/Area2D" to="platform_crumble5" method="_on_body_entered"]
+[connection signal="body_exited" from="platform_crumble5/Area2D" to="platform_crumble5" method="_on_body_exited"]
+[connection signal="body_entered" from="platform_crumble6/Area2D" to="platform_crumble6" method="_on_body_entered"]
+[connection signal="body_exited" from="platform_crumble6/Area2D" to="platform_crumble6" method="_on_body_exited"]
+[connection signal="body_entered" from="platform_crumble7/Area2D" to="platform_crumble7" method="_on_body_entered"]
+[connection signal="body_exited" from="platform_crumble7/Area2D" to="platform_crumble7" method="_on_body_exited"]
+[connection signal="body_entered" from="platform_crumble8/Area2D" to="platform_crumble8" method="_on_body_entered"]
+[connection signal="body_exited" from="platform_crumble8/Area2D" to="platform_crumble8" method="_on_body_exited"]
+[connection signal="body_entered" from="platform_crumble9/Area2D" to="platform_crumble9" method="_on_body_entered"]
+[connection signal="body_exited" from="platform_crumble9/Area2D" to="platform_crumble9" method="_on_body_exited"]
+[connection signal="body_entered" from="platform_crumble10/Area2D" to="platform_crumble10" method="_on_body_entered"]
+[connection signal="body_exited" from="platform_crumble10/Area2D" to="platform_crumble10" method="_on_body_exited"]
+[connection signal="body_entered" from="platform_crumble11/Area2D" to="platform_crumble11" method="_on_body_entered"]
+[connection signal="body_exited" from="platform_crumble11/Area2D" to="platform_crumble11" method="_on_body_exited"]
+[connection signal="body_entered" from="platform_crumble12/Area2D" to="platform_crumble12" method="_on_body_entered"]
+[connection signal="body_exited" from="platform_crumble12/Area2D" to="platform_crumble12" method="_on_body_exited"]
+[connection signal="body_entered" from="platform_crumble13/Area2D" to="platform_crumble13" method="_on_body_entered"]
+[connection signal="body_exited" from="platform_crumble13/Area2D" to="platform_crumble13" method="_on_body_exited"]
+[connection signal="body_entered" from="platform_crumble14/Area2D" to="platform_crumble14" method="_on_body_entered"]
+[connection signal="body_exited" from="platform_crumble14/Area2D" to="platform_crumble14" method="_on_body_exited"]
+[connection signal="body_entered" from="platform_crumble15/Area2D" to="platform_crumble15" method="_on_body_entered"]
+[connection signal="body_exited" from="platform_crumble15/Area2D" to="platform_crumble15" method="_on_body_exited"]
+[connection signal="body_entered" from="platform_crumble16/Area2D" to="platform_crumble16" method="_on_body_entered"]
+[connection signal="body_exited" from="platform_crumble16/Area2D" to="platform_crumble16" method="_on_body_exited"]
+[connection signal="body_entered" from="platform_crumble17/Area2D" to="platform_crumble17" method="_on_body_entered"]
+[connection signal="body_exited" from="platform_crumble17/Area2D" to="platform_crumble17" method="_on_body_exited"]
+[connection signal="body_entered" from="platform_crumble18/Area2D" to="platform_crumble18" method="_on_body_entered"]
+[connection signal="body_exited" from="platform_crumble18/Area2D" to="platform_crumble18" method="_on_body_exited"]
+[connection signal="body_entered" from="platform_crumble19/Area2D" to="platform_crumble19" method="_on_body_entered"]
+[connection signal="body_exited" from="platform_crumble19/Area2D" to="platform_crumble19" method="_on_body_exited"]
 
 [editable path="Entrance"]

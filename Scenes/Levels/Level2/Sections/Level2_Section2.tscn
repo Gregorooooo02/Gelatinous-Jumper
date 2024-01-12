@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://baau5pfldncjm"]
+[gd_scene load_steps=29 format=3 uid="uid://baau5pfldncjm"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/Level_Section.gd" id="1_ftbwt"]
 [ext_resource type="Texture2D" uid="uid://lu60apvxqde5" path="res://textures/tilemap-backgrounds.png" id="2_7vje5"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bum0r06ehf2yk" path="res://Scenes/Killing Objects/Water/KillerWater.tscn" id="7_cr2iu"]
 [ext_resource type="PackedScene" uid="uid://spwxqcspg5y0" path="res://Scenes/Levels/Entrance.tscn" id="8_f8fnm"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/DeathPit.gd" id="9_ncmmw"]
+[ext_resource type="Script" path="res://Scenes/Levels/Level2/Sections/platform_crumble.gd" id="10_tj32q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ufkyn"]
 
@@ -850,6 +851,37 @@ size = Vector2(53, 54)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ei0qh"]
 size = Vector2(423, 74)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_boxuw"]
+size = Vector2(40, 15)
+
+[sub_resource type="Animation" id="Animation_8r1ty"]
+resource_name = "move"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-207, -107), Vector2(-125, -48), Vector2(-207, -107)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c352f"]
+_data = {
+"move": SubResource("Animation_8r1ty")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8463n"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_prs00"]
+size = Vector2(13, 12)
+
 [node name="Level2_Section2" type="Node2D"]
 script = ExtResource("1_ftbwt")
 
@@ -894,7 +926,7 @@ texture = ExtResource("6_u8c7r")
 tile_set = SubResource("TileSet_n1hvl")
 format = 2
 layer_0/name = "Ground"
-layer_0/tile_data = PackedInt32Array(917530, 131072, 2, 589850, 65536, 6, 524314, 65536, 6, 458778, 65536, 6, 393242, 65536, 6, 327706, 65536, 6, 262170, 65536, 6, 196634, 65536, 6, 131098, 65536, 6, 65562, 65536, 6, 26, 327680, 0, 917504, 131072, 6, 851968, 262144, 1, 786432, 196608, 6, 720896, 196608, 6, 655360, 196608, 6, 589824, 196608, 6, 524288, 196608, 6, 458752, 196608, 6, 393216, 196608, 6, 327680, 196608, 6, 4, 131072, 7, 5, 131072, 7, 6, 131072, 7, 7, 131072, 7, 8, 131072, 7, 9, 131072, 7, 10, 131072, 7, 11, 131072, 7, 12, 131072, 7, 13, 131072, 7, 14, 131072, 7, 15, 131072, 7, 16, 131072, 7, 17, 131072, 7, 18, 131072, 7, 19, 131072, 7, 20, 131072, 7, 21, 131072, 7, 22, 131072, 7, 23, 131072, 7, 24, 131072, 7, 25, 131072, 6, 983040, 131072, 6, 327681, 131072, 2, 393217, 196608, 6, 458753, 196608, 6, 524289, 196608, 6, 589825, 196608, 6, 327682, 131072, 2, 327683, 131072, 2, 327684, 196608, 2, 393218, 196608, 6, 196617, 524288, 2, 196618, 655360, 2, 1048576, 131072, 6, 0, 196608, 6, 65536, 196608, 6, 131072, 196608, 6, 196608, 196608, 6, 262144, 196608, 6, 393235, 589824, 1, 393236, 589824, 1, 393237, 589824, 1, 720916, 589824, 1, 720917, 589824, 1, 655385, 131072, 6, 589849, 131072, 6, 524313, 131072, 6, 458777, 131072, 6, 393241, 131072, 6, 327705, 131072, 6, 262169, 131072, 6, 196633, 131072, 6, 131097, 131072, 6, 65561, 131072, 6, 917529, 131072, 2, 917528, 131072, 2, 983064, 131072, 6, 1048600, 131072, 6, 1048601, 131072, 6, 983065, 131072, 6, 983066, 131072, 6, 1048602, 131072, 6, 983067, 131072, 6, 1048603, 131072, 6, 917531, 131072, 2, 524315, 131072, 6, 458779, 131072, 6, 393243, 131072, 6, 327707, 131072, 6, 262171, 131072, 6, 196635, 131072, 6, 131099, 131072, 6, 65563, 131072, 6, 27, 131072, 6)
+layer_0/tile_data = PackedInt32Array(917530, 131072, 2, 589850, 65536, 6, 524314, 65536, 6, 458778, 65536, 6, 393242, 65536, 6, 327706, 65536, 6, 262170, 65536, 6, 196634, 65536, 6, 131098, 65536, 6, 65562, 65536, 6, 26, 327680, 0, 917504, 131072, 6, 851968, 262144, 1, 786432, 196608, 6, 720896, 196608, 6, 655360, 196608, 6, 589824, 196608, 6, 524288, 196608, 6, 458752, 196608, 6, 393216, 196608, 6, 327680, 196608, 6, 4, 131072, 7, 5, 131072, 7, 6, 131072, 7, 7, 131072, 7, 8, 131072, 7, 9, 131072, 7, 10, 131072, 7, 11, 131072, 7, 12, 131072, 7, 13, 131072, 7, 14, 131072, 7, 15, 131072, 7, 16, 131072, 7, 17, 131072, 7, 18, 131072, 7, 19, 131072, 7, 20, 131072, 7, 21, 131072, 7, 22, 131072, 7, 23, 131072, 7, 24, 131072, 7, 25, 131072, 6, 983040, 131072, 6, 327681, 131072, 2, 393217, 196608, 6, 458753, 196608, 6, 524289, 196608, 6, 589825, 196608, 6, 327682, 131072, 2, 327683, 131072, 2, 327684, 196608, 2, 393218, 196608, 6, 1048576, 131072, 6, 0, 196608, 6, 65536, 196608, 6, 131072, 196608, 6, 196608, 196608, 6, 262144, 196608, 6, 655385, 131072, 6, 589849, 131072, 6, 524313, 131072, 6, 458777, 131072, 6, 393241, 131072, 6, 327705, 131072, 6, 262169, 131072, 6, 196633, 131072, 6, 131097, 131072, 6, 65561, 131072, 6, 917529, 131072, 2, 917528, 131072, 2, 983064, 131072, 6, 1048600, 131072, 6, 1048601, 131072, 6, 983065, 131072, 6, 983066, 131072, 6, 1048602, 131072, 6, 983067, 131072, 6, 1048603, 131072, 6, 917531, 131072, 2, 524315, 131072, 6, 458779, 131072, 6, 393243, 131072, 6, 327707, 131072, 6, 262171, 131072, 6, 196635, 131072, 6, 131099, 131072, 6, 65563, 131072, 6, 27, 131072, 6)
 layer_1/name = "Water"
 layer_1/enabled = true
 layer_1/modulate = Color(1, 1, 1, 1)
@@ -937,7 +969,162 @@ script = ExtResource("9_ncmmw")
 position = Vector2(228, 306)
 shape = SubResource("RectangleShape2D_ei0qh")
 
+[node name="platform_both" type="AnimatableBody2D" parent="."]
+position = Vector2(-207, -107)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_both"]
+position = Vector2(369, 164)
+texture = ExtResource("4_6yhvh")
+region_enabled = true
+region_rect = Rect2(152.617, 40.263, 37.126, 15.0263)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_both"]
+position = Vector2(369, 164.5)
+shape = SubResource("RectangleShape2D_boxuw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platform_both"]
+autoplay = "move"
+libraries = {
+"": SubResource("AnimationLibrary_c352f")
+}
+
+[node name="platform_crumble" type="CharacterBody2D" parent="."]
+position = Vector2(-18, -47)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_tj32q")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_crumble"]
+position = Vector2(369, 164)
+texture = ExtResource("4_6yhvh")
+region_enabled = true
+region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+
+[node name="Area2D" type="Area2D" parent="platform_crumble"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble/Area2D"]
+position = Vector2(369, 164)
+shape = SubResource("RectangleShape2D_8463n")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble"]
+position = Vector2(369.5, 165)
+shape = SubResource("RectangleShape2D_prs00")
+
+[node name="platform_crumble2" type="CharacterBody2D" parent="."]
+position = Vector2(-2, -47)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_tj32q")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_crumble2"]
+position = Vector2(369, 164)
+texture = ExtResource("4_6yhvh")
+region_enabled = true
+region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+
+[node name="Area2D" type="Area2D" parent="platform_crumble2"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble2/Area2D"]
+position = Vector2(369, 164)
+shape = SubResource("RectangleShape2D_8463n")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble2"]
+position = Vector2(369.5, 165)
+shape = SubResource("RectangleShape2D_prs00")
+
+[node name="platform_crumble3" type="CharacterBody2D" parent="."]
+position = Vector2(14, -47)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_tj32q")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_crumble3"]
+position = Vector2(369, 164)
+texture = ExtResource("4_6yhvh")
+region_enabled = true
+region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+
+[node name="Area2D" type="Area2D" parent="platform_crumble3"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble3/Area2D"]
+position = Vector2(369, 164)
+shape = SubResource("RectangleShape2D_8463n")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble3"]
+position = Vector2(369.5, 165)
+shape = SubResource("RectangleShape2D_prs00")
+
+[node name="platform_crumble4" type="CharacterBody2D" parent="."]
+position = Vector2(2, 43)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_tj32q")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_crumble4"]
+position = Vector2(369, 164)
+texture = ExtResource("4_6yhvh")
+region_enabled = true
+region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+
+[node name="Area2D" type="Area2D" parent="platform_crumble4"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble4/Area2D"]
+position = Vector2(369, 164)
+shape = SubResource("RectangleShape2D_8463n")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble4"]
+position = Vector2(369.5, 165)
+shape = SubResource("RectangleShape2D_prs00")
+
+[node name="platform_crumble5" type="CharacterBody2D" parent="."]
+position = Vector2(18, 43)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_tj32q")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform_crumble5"]
+position = Vector2(369, 164)
+texture = ExtResource("4_6yhvh")
+region_enabled = true
+region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+
+[node name="Area2D" type="Area2D" parent="platform_crumble5"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble5/Area2D"]
+position = Vector2(369, 164)
+shape = SubResource("RectangleShape2D_8463n")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble5"]
+position = Vector2(369.5, 165)
+shape = SubResource("RectangleShape2D_prs00")
+
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="DeathPit" to="DeathPit" method="_on_body_entered"]
+[connection signal="body_entered" from="platform_crumble/Area2D" to="platform_crumble" method="_on_body_entered"]
+[connection signal="body_exited" from="platform_crumble/Area2D" to="platform_crumble" method="_on_body_exited"]
+[connection signal="body_entered" from="platform_crumble2/Area2D" to="platform_crumble2" method="_on_body_entered"]
+[connection signal="body_exited" from="platform_crumble2/Area2D" to="platform_crumble2" method="_on_body_exited"]
+[connection signal="body_entered" from="platform_crumble3/Area2D" to="platform_crumble3" method="_on_body_entered"]
+[connection signal="body_exited" from="platform_crumble3/Area2D" to="platform_crumble3" method="_on_body_exited"]
+[connection signal="body_entered" from="platform_crumble4/Area2D" to="platform_crumble4" method="_on_body_entered"]
+[connection signal="body_exited" from="platform_crumble4/Area2D" to="platform_crumble4" method="_on_body_exited"]
+[connection signal="body_entered" from="platform_crumble5/Area2D" to="platform_crumble5" method="_on_body_entered"]
+[connection signal="body_exited" from="platform_crumble5/Area2D" to="platform_crumble5" method="_on_body_exited"]
 
 [editable path="Entrance"]

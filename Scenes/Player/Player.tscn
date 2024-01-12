@@ -228,7 +228,7 @@ collision_friction = 0.0
 collision_bounce = 1.0
 collision_use_scale = true
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(4, -4)
 collision_layer = 2
 script = ExtResource("2")
