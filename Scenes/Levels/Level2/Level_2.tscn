@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8tsetmane2m2"]
+[gd_scene load_steps=11 format=3 uid="uid://b8tsetmane2m2"]
 
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_rfdcd"]
 [ext_resource type="PackedScene" uid="uid://gtxqcnfsnfx0" path="res://Scenes/Player/Player.tscn" id="1_x3rd3"]
 [ext_resource type="Script" path="res://Scenes/Camera/Camera2D.gd" id="2_yqpug"]
 [ext_resource type="PackedScene" uid="uid://co1yenm6ipds8" path="res://Scenes/Levels/Level2/Sections/Level2_Section1.tscn" id="3_5qsy7"]
@@ -7,27 +8,18 @@
 [ext_resource type="PackedScene" uid="uid://b5dy6cq6ucgsm" path="res://Scenes/Levels/Level2/Sections/Level2_Section3.tscn" id="5_xmi3w"]
 [ext_resource type="PackedScene" uid="uid://b8ub8gixagjod" path="res://Scenes/Levels/Level2/Sections/Level2_Section4.tscn" id="6_erefv"]
 [ext_resource type="PackedScene" uid="uid://lq1xupvkcjta" path="res://Scenes/Levels/Level2/Sections/Level2_Section5.tscn" id="7_uvpje"]
+[ext_resource type="FontFile" uid="uid://ix5p8my5h1s5" path="res://textures/Fonts/upheavtt.ttf" id="9_mqoqj"]
 
-[node name="Level_2" type="Node2D"]
+[sub_resource type="Theme" id="Theme_xdnlx"]
+default_font = ExtResource("9_mqoqj")
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_rfdcd")
 
 [node name="Player" parent="." instance=ExtResource("1_x3rd3")]
 position = Vector2(24, 74)
 slide_on_ceiling = false
 safe_margin = 0.1
-
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-position_smoothing_enabled = true
-script = ExtResource("2_yqpug")
-
-[node name="TimerDisplay" type="Label" parent="Camera2D"]
-offset_left = 415.0
-offset_top = 35.0
-offset_right = 455.0
-offset_bottom = 58.0
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
 
 [node name="Level2_Section1" parent="." instance=ExtResource("3_5qsy7")]
 
@@ -42,3 +34,18 @@ position = Vector2(996, 300)
 
 [node name="Level2_Section5" parent="." instance=ExtResource("7_uvpje")]
 position = Vector2(1498, 264)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+position_smoothing_enabled = true
+script = ExtResource("2_yqpug")
+
+[node name="TimerDisplay" type="Label" parent="Camera2D"]
+offset_left = 415.0
+offset_top = 35.0
+offset_right = 455.0
+offset_bottom = 58.0
+theme = SubResource("Theme_xdnlx")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
