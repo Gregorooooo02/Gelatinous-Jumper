@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://vtunc4ggali7"]
 
 [ext_resource type="Script" path="res://Scenes/Items/Dash_PowerUp.gd" id="1_iuid1"]
-[ext_resource type="Texture2D" uid="uid://cwuudt110g4nh" path="res://Textures/Items/Dash_PowerUp.png" id="1_o16vn"]
+[ext_resource type="Texture2D" uid="uid://cwuudt110g4nh" path="res://textures/Items/Dash_PowerUp.png" id="1_o16vn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7shwc"]
 radius = 9.0
