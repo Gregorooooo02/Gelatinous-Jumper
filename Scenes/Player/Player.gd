@@ -185,11 +185,14 @@ func _physics_process(delta):
 func scale_based_on_velocity() -> void:
 	if animation_player.is_playing(): return;
 	sprite.scale = lerp(base_scale, base_scale * Vector2(0.5, 1.4), velocity.length()/MAX_VELOCITY);
+	dash_sprite.scale = lerp(base_scale, base_scale * Vector2(0.5, 1.4), velocity.length()/MAX_VELOCITY);
 	
 	ball_sprite.scale = lerp(base_ball_scale, base_ball_scale * Vector2(1.4, 0.5), velocity.length()/MAX_VELOCITY);
+	dash_sprite_ball.scale = lerp(base_scale, base_scale * Vector2(1.4, 0.5), velocity.length()/MAX_VELOCITY);
 	
 	if velocity.y != 0:
 		ball_sprite.rotation = velocity.angle();
+		dash_sprite_ball.rotation = velocity.angle();
 
 func jumping_movement() -> void:
 	velocity = lerp(velocity, Vector2(direction * JUMP_FORCE_MAX * (current_jump_time / JUMP_TIME_MAX)), 1.0);

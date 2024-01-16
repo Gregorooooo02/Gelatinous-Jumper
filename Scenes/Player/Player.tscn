@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dlr5pyxsqpffi" path="res://textures/Player/player_slime.png" id="8_c1nhm"]
 [ext_resource type="Texture2D" uid="uid://c6fy3bqsvah62" path="res://textures/Player/player_arrow.png" id="8_wfwo2"]
 [ext_resource type="Texture2D" uid="uid://vgbxue5mbh2n" path="res://textures/Player/player_slime_ball.png" id="9_1q6ph"]
-[ext_resource type="Texture2D" uid="uid://2cb5s4bp84ye" path="res://textures/Player/AMONGLA.png" id="10_o7vpx"]
+[ext_resource type="Texture2D" uid="uid://df0776a7pce5l" path="res://textures/Player/player_slime_dash.png" id="10_6gvrc"]
 [ext_resource type="Texture2D" uid="uid://cytke8c2fx5yr" path="res://textures/Player/player_eyes.png" id="11_8f5nb"]
 [ext_resource type="Texture2D" uid="uid://cfxj3owj7ullt" path="res://textures/Player/player_chunk.png" id="11_40380"]
 [ext_resource type="Texture2D" uid="uid://cb34ijkkgn7xd" path="res://textures/Player/dash_chunk.png" id="11_j7bbt"]
@@ -369,7 +369,6 @@ texture = ExtResource("11_8f5nb")
 offset = Vector2(2.18182, -2.18182)
 
 [node name="BallBody" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(-4, 4)
 scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("9_1q6ph")
@@ -381,13 +380,15 @@ texture = ExtResource("11_8f5nb")
 offset = Vector2(2.18182, -2.18182)
 
 [node name="DashBody" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-4, 7.86)
 scale = Vector2(1.017, 0.347)
-texture = ExtResource("10_o7vpx")
+texture = ExtResource("10_6gvrc")
 
 [node name="PlayerEyes" type="Sprite2D" parent="DashBody"]
 position = Vector2(-3, 3)
 scale = Vector2(1.375, 1.375)
+texture = ExtResource("11_8f5nb")
 offset = Vector2(2.18182, -2.18182)
 
 [node name="DashBallBody" type="Sprite2D" parent="."]

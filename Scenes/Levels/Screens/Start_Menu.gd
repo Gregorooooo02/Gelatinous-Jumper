@@ -25,4 +25,4 @@ func _on_level_1_text_pressed():
 
 
 func _on_level_2_text_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Scenes/Levels/Level2/Level_2.tscn");
