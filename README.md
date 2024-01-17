@@ -1,9 +1,8 @@
 # Gelatinous Jumper
 Basic, 2D Platformer, whhere you control player with just a mouse. Easy, right?
 
-## Things to do for the prototype
-- [X] Player Controls (jumping, rolling, wall sliding, etc.)
-- [X] Player Animations (creating new Sprite and Animations for different states of the slime)
-- [X] Player Damage and Respawn System
-- [X] Build a basic Level for presentation
-- [X] (Optional) Create Second level and Transitions to next levels
+## Final things before deadline
+- [ ] Score system and coins for the player to pick up
+- [ ] Checkpoint system
+- [ ] Level summary and fading screen
+- [ ] Camera shake after death - **NEED TO CHANGE DEATH MECHANIC**
