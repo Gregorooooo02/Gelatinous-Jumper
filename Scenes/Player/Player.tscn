@@ -369,6 +369,7 @@ texture = ExtResource("11_8f5nb")
 offset = Vector2(2.18182, -2.18182)
 
 [node name="BallBody" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-4, 4)
 scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("9_1q6ph")
@@ -422,7 +423,6 @@ emitting = false
 amount = 5
 process_material = SubResource("ParticleProcessMaterial_idfrc")
 texture = ExtResource("11_40380")
-lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
 fixed_fps = 60
@@ -448,7 +448,6 @@ emitting = false
 amount = 5
 process_material = SubResource("ParticleProcessMaterial_idfrc")
 texture = ExtResource("14_sgpe3")
-lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
 fixed_fps = 60
