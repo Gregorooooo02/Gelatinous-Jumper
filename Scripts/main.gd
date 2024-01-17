@@ -2,6 +2,7 @@ extends Node2D;
 class_name World;
 
 var timer = 0
+var coins = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,10 +21,16 @@ func update_timer_display():
 	if time_label:
 		time_label.text = str(int(timer)) + ":" + str(int((timer-int(timer))*1000))
 		
-#func format_time(seconds):
-	#var minutes = seconds // 60
-	#var remaining_seconds = seconds % 60
-	#return String().format("%02d:%02d", minutes, remaining_seconds)
+func add_coins(amount):
+	coins += amount
+	update_coins_display()
+
+func update_coins_display():
+	var coin_label = get_node("../World/Camera2D/CoinDisplay")
+	if coin_label:
+		coin_label.text = str(coins*10)
+		print(coin_label.text)
+	
 
 func _on_timer_timeout():
 	pass # Replace with function body.

@@ -1495,14 +1495,4 @@ libraries = {
 "": SubResource("AnimationLibrary_x8m2m")
 }
 
-[connection signal="body_entered" from="LevelTiles/KillerWater" to="LevelTiles/KillerWater" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@38807" to="LevelTiles/@Area2D@38807" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@38808" to="LevelTiles/@Area2D@38808" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@38809" to="LevelTiles/@Area2D@38809" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@38810" to="LevelTiles/@Area2D@38810" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@38811" to="LevelTiles/@Area2D@38811" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@38812" to="LevelTiles/@Area2D@38812" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@38813" to="LevelTiles/@Area2D@38813" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@38814" to="LevelTiles/@Area2D@38814" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@38815" to="LevelTiles/@Area2D@38815" method="_on_body_entered" flags=18]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

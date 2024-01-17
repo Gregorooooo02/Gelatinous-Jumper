@@ -1579,13 +1579,6 @@ shape = SubResource("RectangleShape2D_fijrm")
 position = Vector2(369.5, 165)
 shape = SubResource("RectangleShape2D_hr168")
 
-[connection signal="body_entered" from="LevelTiles/KillerWater" to="LevelTiles/KillerWater" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@110907" to="LevelTiles/@Area2D@110907" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@110908" to="LevelTiles/@Area2D@110908" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@110909" to="LevelTiles/@Area2D@110909" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@110910" to="LevelTiles/@Area2D@110910" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@110911" to="LevelTiles/@Area2D@110911" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@110912" to="LevelTiles/@Area2D@110912" method="_on_body_entered" flags=18]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="DeathPit" to="DeathPit" method="_on_body_entered"]
 [connection signal="body_entered" from="platform_crumble/Area2D" to="platform_crumble" method="_on_body_entered"]
