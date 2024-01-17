@@ -26,6 +26,17 @@ class_name Player;
 @onready var particles_dash = $DashParticles;
 @onready var particles_dash_landing = $DashLandingParticles;
 
+@onready var landing_sound = $LandingSFX;
+var landing_played = false;
+@onready var jumping_sound = $JumpingSFX;
+var jumping_played = false;
+@onready var powerup_sound = $PowerUpSFX;
+var powerup_played = false;
+@onready var charge_sound = $ChargeSFX;
+var charge_played = false;
+@onready var dash_sound = $DashSFX;
+var dash_played = false;
+
 const FRICTION: int = 10;
 const GRAVITY: int = 9;
 const ADDITIONAL_GRAVITY: int = 3;
@@ -103,8 +114,13 @@ func _physics_process(delta):
 				else:
 					animation_player.play("charge_jump_dash");
 				player_arrow_animator.play("charge_arrow");
+				if !charge_played:
+					charge_played = true;
+					charge_sound.play();
 		if Input.is_action_just_released("left_click"):
 			is_charging_jump = false;
+			charge_sound.stop();
+			charge_played = false;
 			if !dash_mode:
 				animation_player.play("release_jump");
 			else:
@@ -112,6 +128,9 @@ func _physics_process(delta):
 			player_arrow_animator.play("RESET");
 			jumping_movement();
 			player_arrow.visible = false;
+			if !jumping_played:
+				jumping_played = true;
+				jumping_sound.play();
 		if hold_right_button:
 			if !dash_mode:
 				apply_zero_friction();
@@ -137,17 +156,27 @@ func _physics_process(delta):
 			particles_dash.restart();
 			dash_movement();
 			dash_count = 0;
+			if !dash_played:
+				dash_played = true;
+				dash_sound.play();
 	if is_on_floor() or is_on_wall():
 		dash_count = 1;
+		dash_played = false;
+		if !landing_played:
+			landing_played = true;
+			landing_sound.play();
+	else:
+		landing_played = false;
+		jumping_played = false;
 	
 	if is_on_wall_only() and !Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		is_wall_sliding = true;
-		$CollisionShape2D.shape.extents = Vector2(8, 4);
+		#$CollisionShape2D.shape.extents = Vector2(8, 4);
 		sprite.rotation = 0;
 		apply_wall_slide(delta);
 	else:
 		is_wall_sliding = false;
-		$CollisionShape2D.shape.extents = Vector2(8, 8);
+		#$CollisionShape2D.shape.extents = Vector2(8, 8);
 	
 	if velocity.x > 0:
 		sprite.flip_h = false;
@@ -225,17 +254,28 @@ func apply_wall_slide(delta) -> void:
 			if is_charging_jump:
 				current_jump_time += delta * 2;
 				current_jump_time = clamp(current_jump_time, JUMP_TIME_START, JUMP_TIME_MAX);
+				if !charge_played:
+					charge_played = true;
+					charge_sound.play();
 		if Input.is_action_just_released("left_click"):
 			is_charging_jump = false;
+			charge_sound.stop();
+			charge_played = false;
 			player_arrow.visible = false;
 			player_arrow_animator.play("RESET");
 			jumping_movement();
+			if !jumping_played:
+				jumping_played = true;
+				jumping_sound.play();
 
 func change_to_dash():
 	dash_mode = true;
 	ball_sprite.visible = false;
 	sprite.visible = false;
 	dash_sprite.visible = true;
+	if !powerup_played:
+		powerup_played = true;
+		powerup_sound.play();
 	
 func rotate_player_arrow():
 	mouse_position = get_global_mouse_position();
