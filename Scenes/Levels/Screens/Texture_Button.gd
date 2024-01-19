@@ -3,7 +3,7 @@ extends TextureButton
 
 @export var text : String = "Text button";
 
-@onready var select_sound = $"../../../SelectSFX";
+@onready var select_sound = $"../../../SelectSFX"
 @onready var animation = $"../../../AnimationPlayer";
 var select_played = false;
 

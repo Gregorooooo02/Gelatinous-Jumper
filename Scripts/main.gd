@@ -2,19 +2,23 @@ extends Node2D;
 class_name World;
 
 @onready var transition = $CutOutAnimation/AnimationPlayer;
+@onready var transition_sound = $TransitionSFX;
 
 var timer = 0
+var should_start = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if transition:
 		transition.play("FadeFromBlack");
+		transition_sound.play();
 	else:
 		pass;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	timer+=delta
+	if should_start:
+		timer+=delta
 	update_timer_display()
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit();
@@ -31,3 +35,7 @@ func update_timer_display():
 
 func _on_timer_timeout():
 	pass # Replace with function body.
+
+
+func _on_animation_player_animation_finished(anim_name):
+	should_start = true;

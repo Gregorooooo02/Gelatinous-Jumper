@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cbsgw2ltvv6hj"]
+[gd_scene load_steps=30 format=3 uid="uid://cbsgw2ltvv6hj"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/Level_Section.gd" id="1_n2jmu"]
 [ext_resource type="Texture2D" uid="uid://4x4v25mpxcu1" path="res://textures/tilemap_nature.png" id="2_6ytah"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/DeathPit.gd" id="4_yrr5q"]
 [ext_resource type="Script" path="res://Scenes/Levels/Screens/end_box.gd" id="5_q3gk5"]
 [ext_resource type="PackedScene" uid="uid://spwxqcspg5y0" path="res://Scenes/Levels/Entrance.tscn" id="6_oqsgw"]
+[ext_resource type="PackedScene" uid="uid://brsvelmtqdu08" path="res://Scenes/Levels/Screens/Summary_Screen.tscn" id="9_qt60a"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n4lgq"]
 
@@ -1061,6 +1062,10 @@ shape = SubResource("RectangleShape2D_aar6r")
 
 [node name="Marker2D2" type="Marker2D" parent="Entrance"]
 position = Vector2(-56, 0)
+
+[node name="SummaryScreen" parent="." instance=ExtResource("9_qt60a")]
+visible = false
+z_index = 4
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="DeathPit" to="DeathPit" method="_on_body_entered"]
