@@ -1,8 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://cbsgw2ltvv6hj"]
+[gd_scene load_steps=31 format=3 uid="uid://cbsgw2ltvv6hj"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/Level_Section.gd" id="1_n2jmu"]
 [ext_resource type="Texture2D" uid="uid://4x4v25mpxcu1" path="res://textures/tilemap_nature.png" id="2_6ytah"]
 [ext_resource type="Shader" path="res://Scenes/Levels/Level1/Sections/Level1_Section1.gdshader" id="3_isi83"]
+[ext_resource type="PackedScene" uid="uid://c5ph3b7x1nhsu" path="res://Scenes/Items/Coin.tscn" id="3_oqrqm"]
 [ext_resource type="Texture2D" uid="uid://lu60apvxqde5" path="res://textures/tilemap-backgrounds.png" id="3_sg1kp"]
 [ext_resource type="Texture2D" uid="uid://cyx5ehy0x2f3p" path="res://textures/whiteTex.png" id="4_lmpgy"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/DeathPit.gd" id="4_yrr5q"]
@@ -602,11 +603,15 @@ texture_region_size = Vector2i(18, 18)
 19:8/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 19:8/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7xduv"]
+scenes/1/scene = ExtResource("3_oqrqm")
+
 [sub_resource type="TileSet" id="TileSet_n1hvl"]
 tile_size = Vector2i(18, 18)
 physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_n4lgq")
 sources/0 = SubResource("TileSetAtlasSource_8fe01")
+sources/1 = SubResource("TileSetScenesCollectionSource_7xduv")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6sfu0"]
 texture = ExtResource("2_6ytah")
@@ -933,7 +938,7 @@ script = ExtResource("1_n2jmu")
 tile_set = SubResource("TileSet_n1hvl")
 format = 2
 layer_0/name = "Ground"
-layer_0/tile_data = PackedInt32Array(262144, 131072, 1, 393216, 262144, 5, 458752, 262144, 0, 524288, 196608, 6, 589824, 196608, 6, 655360, 196608, 6, 720896, 196608, 6, 786432, 196608, 6, 851968, 196608, 6, 917504, 196608, 6, 983040, 196608, 6, 131097, 131072, 1, 131098, 131072, 1, 131096, 131072, 1, 327680, 131072, 6, 196633, 327680, 0, 196634, 131072, 6, 262169, 65536, 6, 327705, 65536, 6, 393241, 65536, 6, 458777, 65536, 6, 524313, 65536, 7, 983066, 65536, 6, 917530, 65536, 6, 851994, 65536, 6, 786458, 65536, 6, 720922, 65536, 6, 655386, 65536, 6, 589850, 65536, 6, 524314, 327680, 0, 458778, 131072, 6, 393242, 131072, 6, 327706, 131072, 6, 262170, 131072, 6, 262145, 131072, 1, 262146, 131072, 1, 262147, 131072, 1, 262148, 196608, 0, 327683, 196608, 7, 327682, 131072, 7, 327681, 262144, 0, 393217, 196608, 6, 458753, 196608, 7, 131095, 65536, 1, 196631, 65536, 7, 196632, 131072, 7)
+layer_0/tile_data = PackedInt32Array(262144, 131072, 1, 393216, 262144, 5, 458752, 262144, 0, 524288, 196608, 6, 589824, 196608, 6, 655360, 196608, 6, 720896, 196608, 6, 786432, 196608, 6, 851968, 196608, 6, 917504, 196608, 6, 983040, 196608, 6, 131097, 131072, 1, 131098, 131072, 1, 131096, 131072, 1, 327680, 131072, 6, 196633, 327680, 0, 196634, 131072, 6, 262169, 65536, 6, 327705, 65536, 6, 393241, 65536, 6, 458777, 65536, 6, 524313, 65536, 7, 983066, 65536, 6, 917530, 65536, 6, 851994, 65536, 6, 786458, 65536, 6, 720922, 65536, 6, 655386, 65536, 6, 589850, 65536, 6, 524314, 327680, 0, 458778, 131072, 6, 393242, 131072, 6, 327706, 131072, 6, 262170, 131072, 6, 262145, 131072, 1, 262146, 131072, 1, 262147, 131072, 1, 262148, 196608, 0, 327683, 196608, 7, 327682, 131072, 7, 327681, 262144, 0, 393217, 196608, 6, 458753, 196608, 7, 131095, 65536, 1, 196631, 65536, 7, 196632, 131072, 7, 458757, 1, 65536, 327703, 1, 65536)
 layer_1/name = "Water"
 layer_1/enabled = true
 layer_1/modulate = Color(1, 1, 1, 1)

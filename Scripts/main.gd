@@ -25,12 +25,14 @@ func add_coins(amount):
 	coins += amount
 	update_coins_display()
 
+func reset_coins():
+	coins = 0
+	update_coins_display()
+
 func update_coins_display():
 	var coin_label = get_node("../World/Camera2D/CoinDisplay")
 	if coin_label:
 		coin_label.text = str(coins*10)
-		print(coin_label.text)
-	
 
 func _on_timer_timeout():
 	pass # Replace with function body.
