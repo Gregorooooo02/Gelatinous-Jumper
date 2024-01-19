@@ -1,6 +1,7 @@
-[gd_scene load_steps=31 format=3 uid="uid://by88c0fse0bjf"]
+[gd_scene load_steps=32 format=3 uid="uid://by88c0fse0bjf"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Screens/Start_Menu.gd" id="1_fi836"]
+[ext_resource type="PackedScene" uid="uid://olunq2dnys21" path="res://Scenes/Levels/Screens/Cut_Out_Animation.tscn" id="2_qwssh"]
 [ext_resource type="Texture2D" uid="uid://lu60apvxqde5" path="res://textures/tilemap-backgrounds.png" id="2_y38uw"]
 [ext_resource type="Texture2D" uid="uid://4x4v25mpxcu1" path="res://textures/tilemap_nature.png" id="3_ftar8"]
 [ext_resource type="FontFile" uid="uid://ix5p8my5h1s5" path="res://textures/Fonts/upheavtt.ttf" id="3_v30dl"]
@@ -1060,6 +1061,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fi836")
 
+[node name="CutOutAnimation" parent="." instance=ExtResource("2_qwssh")]
+z_index = 2
+layout_mode = 1
+
 [node name="Background" type="TileMap" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
 tile_set = SubResource("TileSet_kitgm")
@@ -1122,6 +1127,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 300.0
+offset_right = 4800.0
+offset_bottom = 3000.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -1171,6 +1179,7 @@ stream = ExtResource("13_1cdjs")
 [node name="ConfirmSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_efaqi")
 
+[connection signal="animation_finished" from="CutOutAnimation/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="mouse_exited" from="FrontTiles/Level 1/Level_1_Text" to="FrontTiles/Level 1/Level_1_Text" method="_on_mouse_exited"]
 [connection signal="pressed" from="FrontTiles/Level 1/Level_1_Text" to="." method="_on_level_1_text_pressed"]
 [connection signal="mouse_exited" from="FrontTiles/Level 2/Level_2_Text" to="FrontTiles/Level 2/Level_2_Text" method="_on_mouse_exited"]
@@ -1181,3 +1190,5 @@ stream = ExtResource("14_efaqi")
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="mouse_exited" from="VBoxContainer/VBoxContainer/Exit" to="VBoxContainer/VBoxContainer/Exit" method="_on_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+
+[editable path="CutOutAnimation"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://b8tsetmane2m2"]
+[gd_scene load_steps=12 format=3 uid="uid://b8tsetmane2m2"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_rfdcd"]
 [ext_resource type="PackedScene" uid="uid://gtxqcnfsnfx0" path="res://Scenes/Player/Player.tscn" id="1_x3rd3"]
+[ext_resource type="PackedScene" uid="uid://olunq2dnys21" path="res://Scenes/Levels/Screens/Cut_Out_Animation.tscn" id="2_ntoi7"]
 [ext_resource type="Script" path="res://Scenes/Camera/Camera2D.gd" id="2_yqpug"]
 [ext_resource type="PackedScene" uid="uid://co1yenm6ipds8" path="res://Scenes/Levels/Level2/Sections/Level2_Section1.tscn" id="3_5qsy7"]
 [ext_resource type="PackedScene" uid="uid://baau5pfldncjm" path="res://Scenes/Levels/Level2/Sections/Level2_Section2.tscn" id="4_qgmy1"]
@@ -15,6 +16,12 @@ default_font = ExtResource("9_mqoqj")
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_rfdcd")
+
+[node name="CutOutAnimation" parent="." instance=ExtResource("2_ntoi7")]
+z_index = 2
+custom_minimum_size = Vector2(500, 290)
+offset_right = 500.0
+offset_bottom = 290.0
 
 [node name="Player" parent="." instance=ExtResource("1_x3rd3")]
 position = Vector2(24, 74)
@@ -49,3 +56,5 @@ theme = SubResource("Theme_xdnlx")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
+
+[editable path="CutOutAnimation"]

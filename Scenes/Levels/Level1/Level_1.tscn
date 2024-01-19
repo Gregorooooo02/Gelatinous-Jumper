@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://fwnn56twd157"]
+[gd_scene load_steps=10 format=3 uid="uid://fwnn56twd157"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_trglt"]
 [ext_resource type="PackedScene" uid="uid://gtxqcnfsnfx0" path="res://Scenes/Player/Player.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://olunq2dnys21" path="res://Scenes/Levels/Screens/Cut_Out_Animation.tscn" id="2_xsg4p"]
 [ext_resource type="PackedScene" uid="uid://csxv8w055lxye" path="res://Scenes/Levels/Level1/Sections/Level1_Section1.tscn" id="3_gxnhi"]
 [ext_resource type="PackedScene" uid="uid://cxjl73dsiuqkp" path="res://Scenes/Levels/Level1/Sections/Level1_Section2.tscn" id="4_fq1ua"]
 [ext_resource type="PackedScene" uid="uid://cbsgw2ltvv6hj" path="res://Scenes/Levels/Level1/Sections/Level1_Section3.tscn" id="4_nwqer"]
@@ -11,8 +12,19 @@
 [sub_resource type="Theme" id="Theme_2ee55"]
 default_font = ExtResource("6_wjnoi")
 
-[node name="World" type="Node2D"]
+[node name="Main" type="Node2D"]
 script = ExtResource("1_trglt")
+
+[node name="CutOutAnimation" parent="." instance=ExtResource("2_xsg4p")]
+z_index = 1
+custom_minimum_size = Vector2(500, 290)
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 490.0
+offset_bottom = 280.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("2")]
 position = Vector2(72, 198)
@@ -43,3 +55,5 @@ theme = SubResource("Theme_2ee55")
 wait_time = 0.1
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="CutOutAnimation"]
