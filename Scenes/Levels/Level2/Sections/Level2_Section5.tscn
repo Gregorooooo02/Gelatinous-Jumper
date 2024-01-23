@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://lq1xupvkcjta"]
+[gd_scene load_steps=30 format=3 uid="uid://lq1xupvkcjta"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/Level_Section.gd" id="1_5rr7h"]
 [ext_resource type="Texture2D" uid="uid://lu60apvxqde5" path="res://textures/tilemap-backgrounds.png" id="2_kmvjc"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cyx5ehy0x2f3p" path="res://textures/whiteTex.png" id="6_0shwr"]
 [ext_resource type="PackedScene" uid="uid://bum0r06ehf2yk" path="res://Scenes/Killing Objects/Water/KillerWater.tscn" id="7_phmln"]
 [ext_resource type="Texture2D" uid="uid://iqeateybqyxx" path="res://textures/tilemap_industrial.png" id="7_x8ivx"]
+[ext_resource type="PackedScene" uid="uid://c5ph3b7x1nhsu" path="res://Scenes/Items/Coin.tscn" id="9_hbl0g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ufkyn"]
 
@@ -1325,6 +1326,9 @@ texture_region_size = Vector2i(18, 18)
 resource_name = "KillerWater"
 scenes/2/scene = ExtResource("7_phmln")
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_vgiim"]
+scenes/1/scene = ExtResource("9_hbl0g")
+
 [sub_resource type="TileSet" id="TileSet_n1hvl"]
 tile_size = Vector2i(18, 18)
 physics_layer_0/collision_layer = 1
@@ -1332,6 +1336,7 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_n4lgq")
 sources/0 = SubResource("TileSetAtlasSource_8fe01")
 sources/2 = SubResource("TileSetScenesCollectionSource_n042f")
 sources/1 = SubResource("TileSetAtlasSource_t5inn")
+sources/3 = SubResource("TileSetScenesCollectionSource_vgiim")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s17xg"]
 size = Vector2(481, 251)
@@ -1430,7 +1435,7 @@ texture = ExtResource("6_0shwr")
 tile_set = SubResource("TileSet_n1hvl")
 format = 2
 layer_0/name = "Ground"
-layer_0/tile_data = PackedInt32Array(917504, 262144, 5, 851968, 131072, 6, 786432, 262144, 5, 720896, 262144, 5, 655360, 262144, 5, 589824, 131072, 6, 524288, 262144, 5, 458752, 262144, 5, 393216, 131072, 6, 327680, 131073, 1, 917507, 131072, 3, 917508, 131072, 3, 917509, 196608, 3, 917510, 2, 131072, 917511, 2, 131072, 917512, 2, 131072, 917513, 2, 131072, 917514, 2, 131072, 917515, 2, 131072, 917516, 2, 131072, 917517, 2, 131072, 917518, 2, 131072, 917519, 2, 131072, 983040, 131072, 6, 983043, 131072, 6, 983044, 131072, 6, 983045, 196609, 2, 983056, 65537, 2, 983057, 131072, 6, 983058, 262144, 5, 983059, 262144, 5, 983060, 262144, 5, 983061, 262144, 5, 983062, 262144, 5, 983063, 262144, 5, 983064, 262144, 5, 983065, 131072, 6, 983066, 131072, 6, 327681, 131073, 1, 393217, 262144, 0, 458753, 196609, 2, 524289, 196609, 2, 589825, 196609, 2, 327682, 131073, 1, 327683, 131073, 1, 327684, 196609, 1, 393218, 131073, 3, 1048576, 131072, 6, 1048579, 131072, 6, 1048580, 131072, 6, 1048581, 196608, 6, 1048592, 65536, 6, 1048593, 262144, 5, 1048594, 131072, 6, 1048595, 262144, 5, 1048596, 131072, 6, 1048597, 131072, 6, 1048598, 262144, 5, 1048599, 262144, 5, 1048600, 262144, 5, 1048601, 131072, 6, 1048602, 131072, 6, 655361, 196609, 2, 720897, 196608, 6, 786433, 196608, 6, 851969, 262144, 1, 917505, 131072, 6, 983041, 131072, 6, 1048577, 131072, 6, 1048578, 131072, 6, 983042, 262144, 5, 917506, 262144, 1, 393220, 196609, 3, 393219, 131073, 3, 851970, 196608, 3, 458754, 1, 5, 851984, 65537, 1, 917520, 65536, 6, 917521, 262144, 5, 851985, 131073, 1, 851986, 131073, 1, 917522, 262144, 5, 917523, 262144, 5, 917524, 262144, 5, 851988, 131073, 1, 851987, 131073, 1, 851989, 131073, 1, 851990, 131073, 1, 917525, 262144, 5, 917526, 131072, 6, 917527, 131072, 6, 851991, 131073, 1, 851992, 131073, 1, 851993, 131073, 1, 917529, 131072, 6, 917528, 262144, 5, 917530, 131072, 6, 851994, 327680, 1, 786458, 65537, 2, 720922, 65537, 2, 655386, 65537, 2, 589850, 65537, 2, 524314, 131073, 1, 786457, 131073, 6, 851971, 65537, 6, 524313, 131073, 0, 524312, 131073, 0, 524311, 65537, 0)
+layer_0/tile_data = PackedInt32Array(917504, 262144, 5, 851968, 131072, 6, 786432, 262144, 5, 720896, 262144, 5, 655360, 262144, 5, 589824, 131072, 6, 524288, 262144, 5, 458752, 262144, 5, 393216, 131072, 6, 327680, 131073, 1, 917507, 131072, 3, 917508, 131072, 3, 917509, 196608, 3, 917510, 2, 131072, 917511, 2, 131072, 917512, 2, 131072, 917513, 2, 131072, 917514, 2, 131072, 917515, 2, 131072, 917516, 2, 131072, 917517, 2, 131072, 917518, 2, 131072, 917519, 2, 131072, 983040, 131072, 6, 983043, 131072, 6, 983044, 131072, 6, 983045, 196609, 2, 983056, 65537, 2, 983057, 131072, 6, 983058, 262144, 5, 983059, 262144, 5, 983060, 262144, 5, 983061, 262144, 5, 983062, 262144, 5, 983063, 262144, 5, 983064, 262144, 5, 983065, 131072, 6, 983066, 131072, 6, 327681, 131073, 1, 393217, 262144, 0, 458753, 196609, 2, 524289, 196609, 2, 589825, 196609, 2, 327682, 131073, 1, 327683, 131073, 1, 327684, 196609, 1, 393218, 131073, 3, 1048576, 131072, 6, 1048579, 131072, 6, 1048580, 131072, 6, 1048581, 196608, 6, 1048592, 65536, 6, 1048593, 262144, 5, 1048594, 131072, 6, 1048595, 262144, 5, 1048596, 131072, 6, 1048597, 131072, 6, 1048598, 262144, 5, 1048599, 262144, 5, 1048600, 262144, 5, 1048601, 131072, 6, 1048602, 131072, 6, 655361, 196609, 2, 720897, 196608, 6, 786433, 196608, 6, 851969, 262144, 1, 917505, 131072, 6, 983041, 131072, 6, 1048577, 131072, 6, 1048578, 131072, 6, 983042, 262144, 5, 917506, 262144, 1, 393220, 196609, 3, 393219, 131073, 3, 851970, 196608, 3, 458754, 1, 5, 851984, 65537, 1, 917520, 65536, 6, 917521, 262144, 5, 851985, 131073, 1, 851986, 131073, 1, 917522, 262144, 5, 917523, 262144, 5, 917524, 262144, 5, 851988, 131073, 1, 851987, 131073, 1, 851989, 131073, 1, 851990, 131073, 1, 917525, 262144, 5, 917526, 131072, 6, 917527, 131072, 6, 851991, 131073, 1, 851992, 131073, 1, 851993, 131073, 1, 917529, 131072, 6, 917528, 262144, 5, 917530, 131072, 6, 851994, 327680, 1, 786458, 65537, 2, 720922, 65537, 2, 655386, 65537, 2, 589850, 65537, 2, 524314, 131073, 1, 786457, 131073, 6, 851971, 65537, 6, 524313, 131073, 0, 524312, 131073, 0, 524311, 65537, 0, 655364, 3, 65536)
 layer_1/name = "Water"
 layer_1/enabled = true
 layer_1/modulate = Color(1, 1, 1, 1)
@@ -1495,14 +1500,4 @@ libraries = {
 "": SubResource("AnimationLibrary_x8m2m")
 }
 
-[connection signal="body_entered" from="LevelTiles/KillerWater" to="LevelTiles/KillerWater" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@38807" to="LevelTiles/@Area2D@38807" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@38808" to="LevelTiles/@Area2D@38808" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@38809" to="LevelTiles/@Area2D@38809" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@38810" to="LevelTiles/@Area2D@38810" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@38811" to="LevelTiles/@Area2D@38811" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@38812" to="LevelTiles/@Area2D@38812" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@38813" to="LevelTiles/@Area2D@38813" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@38814" to="LevelTiles/@Area2D@38814" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@38815" to="LevelTiles/@Area2D@38815" method="_on_body_entered" flags=18]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

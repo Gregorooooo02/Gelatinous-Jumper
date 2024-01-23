@@ -52,6 +52,12 @@ offset_right = 455.0
 offset_bottom = 58.0
 theme = SubResource("Theme_2ee55")
 
+[node name="CoinDisplay" type="Label" parent="Camera2D"]
+offset_left = 40.0
+offset_top = 24.0
+offset_right = 80.0
+offset_bottom = 47.0
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 
