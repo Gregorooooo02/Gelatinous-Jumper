@@ -1,7 +1,9 @@
 extends Node2D
 
+@onready var sprite_animation = $Sprite2D;
+
 func _ready():
-	pass
+	sprite_animation.play("default");
 
 
 func _on_area_2d_body_entered(body):

@@ -1,7 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5ph3b7x1nhsu"]
+[gd_scene load_steps=7 format=3 uid="uid://c5ph3b7x1nhsu"]
 
 [ext_resource type="Script" path="res://Scenes/Items/coin.gd" id="1_j1cb4"]
-[ext_resource type="Texture2D" uid="uid://wi5jyne6orid" path="res://textures/Items/coin.png" id="1_nkh5i"]
+[ext_resource type="Texture2D" uid="uid://4x4v25mpxcu1" path="res://textures/tilemap_nature.png" id="2_yiph7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_412rm"]
+atlas = ExtResource("2_yiph7")
+region = Rect2(209, 133, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rth4n"]
+atlas = ExtResource("2_yiph7")
+region = Rect2(228, 133, 18, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dc6q7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_412rm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rth4n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o2p8b"]
 radius = 9.0
@@ -9,10 +31,11 @@ radius = 9.0
 [node name="Coin" type="Node2D"]
 script = ExtResource("1_j1cb4")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2, 1.5)
-scale = Vector2(1.55556, 1.5)
-texture = ExtResource("1_nkh5i")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.02656e-05, 0)
+scale = Vector2(1.33334, 1.33333)
+sprite_frames = SubResource("SpriteFrames_dc6q7")
+frame_progress = 0.882456
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 2
