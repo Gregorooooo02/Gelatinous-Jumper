@@ -12,4 +12,4 @@ func _process(delta):
 func _on_body_entered(body):
 	if body is Player:
 		get_node("/root/Main").reset_coins()
-		get_tree().reload_current_scene();
+		GameManager.respawn_player()
