@@ -40,7 +40,7 @@ func add_coins(amount):
 func update_coins_display():
 	var coin_label = get_node("../World/Camera2D/CoinDisplay")
 	if coin_label:
-		coin_label.text = str(coins*10)
+		coin_label.text = str(coins * 10)
 
 func _on_timer_timeout():
 	pass # Replace with function body.
