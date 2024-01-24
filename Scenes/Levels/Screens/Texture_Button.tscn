@@ -11,6 +11,7 @@ custom_minimum_size = Vector2(2.08165e-12, 30)
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
+mouse_filter = 1
 script = ExtResource("1_kpdkx")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]

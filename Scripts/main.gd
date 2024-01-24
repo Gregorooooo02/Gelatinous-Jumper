@@ -10,6 +10,7 @@ var coins = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	reset_coins();
 	if transition:
 		transition.play("FadeFromBlack");
 		transition_sound.play();
@@ -41,12 +42,6 @@ func update_coins_display():
 	var coin_label = get_node("../World/Camera2D/CoinDisplay")
 	if coin_label:
 		coin_label.text = "Score : " + str(coins * 10)
-
-func get_score():
-	return coins * 10;
-	
-func get_time():
-	return timer;
 
 func _on_timer_timeout():
 	pass # Replace with function body.

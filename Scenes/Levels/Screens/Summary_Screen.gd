@@ -8,8 +8,7 @@ var is_main_menu = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$NextLevel/Next_Level.grab_focus();
-	$AnimationPlayer.play("Show");
+	$FrontTiles/NextLevel/Next_Level.grab_focus();
 	
 
 func _on_next_level_pressed():
