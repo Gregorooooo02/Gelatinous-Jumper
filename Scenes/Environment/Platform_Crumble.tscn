@@ -93,6 +93,7 @@ libraries = {
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(2.08165e-12, 9)
+emitting = false
 amount = 6
 lifetime = 0.5
 lifetime_randomness = 0.3

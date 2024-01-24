@@ -9,5 +9,8 @@ func _on_body_entered(body):
 		$"../SummaryScreen".show();
 		$"../SummaryScreen/AnimationPlayer".play("Show");
 		
+		get_node("/root/World/Camera2D/TimerDisplay").visible = false;
+		get_node("/root/World/Camera2D/CoinDisplay").visible = false;
+		
 		time_label.text = get_node("/root/World/Camera2D/TimerDisplay").text;
 		score_label.text = get_node("/root/World/Camera2D/CoinDisplay").text;

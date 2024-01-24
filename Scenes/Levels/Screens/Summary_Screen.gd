@@ -1,4 +1,4 @@
-extends Control
+extends Node
 
 @onready var confirm_sound = $ConfirmSFX;
 @onready var transition_sound = $TransitionSFX;
@@ -8,7 +8,8 @@ var is_main_menu = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$FrontTiles/NextLevel/Next_Level.grab_focus();
+	$NextLevel/Next_Level.grab_focus();
+	$AnimationPlayer.play("Show");
 	
 
 func _on_next_level_pressed():
@@ -16,6 +17,7 @@ func _on_next_level_pressed():
 	is_next_level = true;
 	$CutOutAnimation/AnimationPlayer.play("FadeToBlack");
 	transition_sound.play();
+	print("Pressed next level");
 	
 
 func _on_main_menu_pressed():
@@ -23,6 +25,7 @@ func _on_main_menu_pressed():
 	is_main_menu = true;
 	$CutOutAnimation/AnimationPlayer.play("FadeToBlack");
 	transition_sound.play();
+	print("Pressed main menu");
 	
 
 func _on_animation_player_animation_finished(anim_name):
