@@ -1069,3 +1069,6 @@ z_index = 4
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="DeathPit" to="DeathPit" method="_on_body_entered"]
 [connection signal="body_entered" from="end" to="end" method="_on_body_entered"]
+
+[editable path="SummaryScreen"]
+[editable path="SummaryScreen/CutOutAnimation"]

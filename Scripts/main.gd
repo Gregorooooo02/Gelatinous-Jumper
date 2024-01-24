@@ -27,7 +27,7 @@ func _process(delta):
 func update_timer_display():
 	var time_label = get_node("../World/Camera2D/TimerDisplay")
 	if time_label:
-		time_label.text = str(int(timer)) + ":" + str(int((timer-int(timer))*1000))
+		time_label.text = "Time : " + str(int(timer)) + ":" + str(int((timer-int(timer))*1000))
 
 func reset_coins():
 	coins = 0
@@ -40,17 +40,16 @@ func add_coins(amount):
 func update_coins_display():
 	var coin_label = get_node("../World/Camera2D/CoinDisplay")
 	if coin_label:
-		coin_label.text = str(coins * 10)
+		coin_label.text = "Score : " + str(coins * 10)
 
-func get_score() -> int:
+func get_score():
 	return coins * 10;
 	
-func get_time() -> float:
+func get_time():
 	return timer;
 
 func _on_timer_timeout():
 	pass # Replace with function body.
-
 
 func _on_animation_player_animation_finished(anim_name):
 	should_start = true;

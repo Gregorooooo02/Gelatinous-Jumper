@@ -67,18 +67,19 @@ position_smoothing_enabled = true
 script = ExtResource("6_geose")
 
 [node name="TimerDisplay" type="Label" parent="Camera2D"]
-offset_left = 428.0
-offset_top = 24.0
-offset_right = 468.0
-offset_bottom = 47.0
+offset_left = 130.0
+offset_top = 7.0
+offset_right = 193.0
+offset_bottom = 30.0
+text = "Time : 0"
 label_settings = SubResource("LabelSettings_51qyq")
 
 [node name="CoinDisplay" type="Label" parent="Camera2D"]
 offset_left = 16.0
-offset_top = 24.0
-offset_right = 56.0
-offset_bottom = 47.0
-text = "0"
+offset_top = 7.0
+offset_right = 88.0
+offset_bottom = 30.0
+text = "Score : 0"
 label_settings = SubResource("LabelSettings_a1l6l")
 
 [node name="Timer" type="Timer" parent="."]
