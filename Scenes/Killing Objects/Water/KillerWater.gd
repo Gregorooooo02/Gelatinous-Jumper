@@ -12,7 +12,7 @@ func _process(delta):
 func _on_body_entered(body):
 	if body is Player:
 		if body.dash_mode == false and body.hold_right_button == false:
-			get_tree().reload_current_scene();
+			GameManager.respawn_player()
 		if body.dash_mode == true:
-			get_tree().reload_current_scene();
+			GameManager.respawn_player()
 	

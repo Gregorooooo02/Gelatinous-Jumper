@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b8tsetmane2m2"]
+[gd_scene load_steps=14 format=3 uid="uid://b8tsetmane2m2"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_rfdcd"]
 [ext_resource type="PackedScene" uid="uid://gtxqcnfsnfx0" path="res://Scenes/Player/Player.tscn" id="1_x3rd3"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://lq1xupvkcjta" path="res://Scenes/Levels/Level2/Sections/Level2_Section5.tscn" id="7_uvpje"]
 [ext_resource type="FontFile" uid="uid://ix5p8my5h1s5" path="res://textures/Fonts/upheavtt.ttf" id="9_mqoqj"]
 [ext_resource type="AudioStream" uid="uid://4g3te7cmnb48" path="res://Sounds/transition_rev.wav" id="11_87or7"]
+[ext_resource type="PackedScene" uid="uid://clerf3081iqui" path="res://Scenes/Interactable/checkpoint.tscn" id="12_slmim"]
 
 [sub_resource type="Theme" id="Theme_xdnlx"]
 default_font = ExtResource("9_mqoqj")
@@ -61,6 +62,21 @@ wait_time = 2.0
 [node name="TransitionSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_87or7")
 volume_db = -5.0
+
+[node name="Checkpoint" parent="." instance=ExtResource("12_slmim")]
+position = Vector2(81, 57)
+
+[node name="Checkpoint2" parent="." instance=ExtResource("12_slmim")]
+position = Vector2(57, 357)
+
+[node name="Checkpoint3" parent="." instance=ExtResource("12_slmim")]
+position = Vector2(551, 519)
+
+[node name="Checkpoint4" parent="." instance=ExtResource("12_slmim")]
+position = Vector2(1037, 519)
+
+[node name="Checkpoint5" parent="." instance=ExtResource("12_slmim")]
+position = Vector2(1566, 321)
 
 [connection signal="animation_finished" from="CutOutAnimation/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

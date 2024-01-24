@@ -65,6 +65,7 @@ var follow_speed = 5;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player_arrow.visible = false;
+	GameManager.player = self
 
 func _process(_delta):
 	rotate_player_arrow();
@@ -280,3 +281,5 @@ func change_to_dash():
 func rotate_player_arrow():
 	mouse_position = get_global_mouse_position();
 	player_arrow.look_at(mouse_position);
+	
+

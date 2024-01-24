@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://fwnn56twd157"]
+[gd_scene load_steps=12 format=3 uid="uid://fwnn56twd157"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_trglt"]
 [ext_resource type="PackedScene" uid="uid://gtxqcnfsnfx0" path="res://Scenes/Player/Player.tscn" id="2"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scenes/Camera/Camera2D.gd" id="6_geose"]
 [ext_resource type="FontFile" uid="uid://ix5p8my5h1s5" path="res://textures/Fonts/upheavtt.ttf" id="6_wjnoi"]
 [ext_resource type="AudioStream" uid="uid://4g3te7cmnb48" path="res://Sounds/transition_rev.wav" id="9_c3bo7"]
+[ext_resource type="PackedScene" uid="uid://clerf3081iqui" path="res://Scenes/Interactable/checkpoint.tscn" id="10_dj66w"]
 
 [sub_resource type="Theme" id="Theme_2ee55"]
 default_font = ExtResource("6_wjnoi")
@@ -26,6 +27,12 @@ offset_bottom = 280.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 metadata/_edit_use_anchors_ = true
+
+[node name="Checkpoint" parent="." instance=ExtResource("10_dj66w")]
+position = Vector2(58, 201)
+
+[node name="Checkpoint2" parent="." instance=ExtResource("10_dj66w")]
+position = Vector2(737, 75)
 
 [node name="Player" parent="." instance=ExtResource("2")]
 position = Vector2(72, 198)
@@ -58,6 +65,9 @@ wait_time = 2.0
 [node name="TransitionSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_c3bo7")
 volume_db = -5.0
+
+[node name="Checkpoint3" parent="." instance=ExtResource("10_dj66w")]
+position = Vector2(1032, 39)
 
 [connection signal="animation_finished" from="CutOutAnimation/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
