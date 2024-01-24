@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwo0bl83mr4vt"]
+[gd_scene load_steps=12 format=3 uid="uid://bwo0bl83mr4vt"]
 
 [ext_resource type="Texture2D" uid="uid://4x4v25mpxcu1" path="res://textures/tilemap_nature.png" id="1_ib3wn"]
 [ext_resource type="Script" path="res://Scenes/Environment/platform_crumble.gd" id="1_s3d2y"]
@@ -61,6 +61,13 @@ _data = {
 "crumbling": SubResource("Animation_xbi4f")
 }
 
+[sub_resource type="Gradient" id="Gradient_psor2"]
+colors = PackedColorArray(0.411765, 0.25098, 0.262745, 1, 0.909804, 0.698039, 0.423529, 1)
+
+[sub_resource type="Gradient" id="Gradient_a4s0w"]
+interpolation_mode = 2
+colors = PackedColorArray(0.909804, 0.698039, 0.423529, 1, 0.411765, 0.25098, 0.262745, 1)
+
 [node name="Platform_Crumble" type="CharacterBody2D"]
 script = ExtResource("1_s3d2y")
 
@@ -72,15 +79,28 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource("RectangleShape2D_bb6km")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_32rhd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_u4ja3")
 }
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(2.08165e-12, 9)
+amount = 6
+lifetime = 0.5
+lifetime_randomness = 0.3
+emission_shape = 3
+emission_rect_extents = Vector2(9, 2.08165e-12)
+direction = Vector2(0.5, 2.08165e-12)
+color_ramp = SubResource("Gradient_psor2")
+color_initial_ramp = SubResource("Gradient_a4s0w")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

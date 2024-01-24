@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 @onready var crumble_animation = $AnimationPlayer;
-@onready var collision_shape = $CollisionShape2D2
+@onready var crumble_particles = $CPUParticles2D;
+@onready var collision_shape = $CollisionShape2D2;
 
 var timer_duration = 1  # Adjust this to set the time it takes for the platform to disappear (in seconds)
 var timer_countdown = timer_duration
@@ -38,6 +39,7 @@ func _on_area_2d_body_entered(body):
 		is_disappearing = true
 		timer_countdown = timer_duration
 		crumble_animation.play("crumbling");
+		crumble_particles.emitting = true;
 
 
 func _on_area_2d_body_exited(body):
@@ -45,3 +47,4 @@ func _on_area_2d_body_exited(body):
 		timer_countdown = timer_duration
 		is_disappearing = false;
 		crumble_animation.play("RESET");
+		crumble_particles.emitting = false;

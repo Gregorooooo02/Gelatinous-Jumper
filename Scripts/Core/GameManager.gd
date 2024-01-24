@@ -8,4 +8,4 @@ func respawn_player():
 	if current_checkpoint != null:
 		player.position = current_checkpoint.position
 		player.velocity = Vector2.ZERO
-		print("player respawned")
+		print("Player respawned")

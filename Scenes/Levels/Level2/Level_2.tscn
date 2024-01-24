@@ -37,19 +37,38 @@ position = Vector2(24, 74)
 slide_on_ceiling = false
 safe_margin = 0.1
 
-[node name="Level2_Section1" parent="." instance=ExtResource("3_5qsy7")]
+[node name="Sections" type="Node2D" parent="."]
 
-[node name="Level2_Section2" parent="." instance=ExtResource("4_qgmy1")]
+[node name="Level2_Section1" parent="Sections" instance=ExtResource("3_5qsy7")]
+
+[node name="Level2_Section2" parent="Sections" instance=ExtResource("4_qgmy1")]
 position = Vector2(0, 300)
 
-[node name="Level2_Section3" parent="." instance=ExtResource("5_xmi3w")]
+[node name="Level2_Section3" parent="Sections" instance=ExtResource("5_xmi3w")]
 position = Vector2(499, 300)
 
-[node name="Level2_Section4" parent="." instance=ExtResource("6_erefv")]
+[node name="Level2_Section4" parent="Sections" instance=ExtResource("6_erefv")]
 position = Vector2(996, 300)
 
-[node name="Level2_Section5" parent="." instance=ExtResource("7_uvpje")]
+[node name="Level2_Section5" parent="Sections" instance=ExtResource("7_uvpje")]
 position = Vector2(1498, 264)
+
+[node name="Checkpoints" type="Node2D" parent="."]
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("12_slmim")]
+position = Vector2(81, 57)
+
+[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("12_slmim")]
+position = Vector2(57, 357)
+
+[node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("12_slmim")]
+position = Vector2(551, 519)
+
+[node name="Checkpoint4" parent="Checkpoints" instance=ExtResource("12_slmim")]
+position = Vector2(1037, 519)
+
+[node name="Checkpoint5" parent="Checkpoints" instance=ExtResource("12_slmim")]
+position = Vector2(1566, 321)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -78,21 +97,6 @@ wait_time = 2.0
 [node name="TransitionSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_87or7")
 volume_db = -5.0
-
-[node name="Checkpoint" parent="." instance=ExtResource("12_slmim")]
-position = Vector2(81, 57)
-
-[node name="Checkpoint2" parent="." instance=ExtResource("12_slmim")]
-position = Vector2(57, 357)
-
-[node name="Checkpoint3" parent="." instance=ExtResource("12_slmim")]
-position = Vector2(551, 519)
-
-[node name="Checkpoint4" parent="." instance=ExtResource("12_slmim")]
-position = Vector2(1037, 519)
-
-[node name="Checkpoint5" parent="." instance=ExtResource("12_slmim")]
-position = Vector2(1566, 321)
 
 [connection signal="animation_finished" from="CutOutAnimation/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
