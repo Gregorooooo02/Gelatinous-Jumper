@@ -1,0 +1,86 @@
+[gd_scene load_steps=10 format=3 uid="uid://bwo0bl83mr4vt"]
+
+[ext_resource type="Texture2D" uid="uid://4x4v25mpxcu1" path="res://textures/tilemap_nature.png" id="1_ib3wn"]
+[ext_resource type="Script" path="res://Scenes/Environment/platform_crumble.gd" id="1_s3d2y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y08vx"]
+atlas = ExtResource("1_ib3wn")
+region = Rect2(171, 19, 18, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hcre"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y08vx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bb6km"]
+size = Vector2(18, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32rhd"]
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_xbi4f"]
+resource_name = "crumbling"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(1, 2.08165e-12), Vector2(-1, 2.08165e-12), Vector2(1, 2.08165e-12), Vector2(-1, 2.08165e-12), Vector2(-1, 2.08165e-12), Vector2(1, 2.08165e-12), Vector2(-1, 2.08165e-12), Vector2(1, 2.08165e-12), Vector2(-1, 2.08165e-12), Vector2(-1, 2.08165e-12), Vector2(1, 2.08165e-12), Vector2(-1, 2.08165e-12), Vector2(1, 2.08165e-12), Vector2(-1, 2.08165e-12), Vector2(-1, 2.08165e-12), Vector2(1, 2.08165e-12), Vector2(-1, 2.08165e-12), Vector2(1, 2.08165e-12), Vector2(-1, 2.08165e-12), Vector2(1, 2.08165e-12)]
+}
+
+[sub_resource type="Animation" id="Animation_oucto"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u4ja3"]
+_data = {
+"RESET": SubResource("Animation_oucto"),
+"crumbling": SubResource("Animation_xbi4f")
+}
+
+[node name="Platform_Crumble" type="CharacterBody2D"]
+script = ExtResource("1_s3d2y")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2hcre")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_bb6km")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_32rhd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_u4ja3")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

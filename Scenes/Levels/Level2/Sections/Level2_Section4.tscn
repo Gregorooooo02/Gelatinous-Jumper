@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b8ub8gixagjod"]
+[gd_scene load_steps=31 format=3 uid="uid://b8ub8gixagjod"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/Level_Section.gd" id="1_wkhko"]
 [ext_resource type="Texture2D" uid="uid://lu60apvxqde5" path="res://textures/tilemap-backgrounds.png" id="2_06gyh"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://spwxqcspg5y0" path="res://Scenes/Levels/Entrance.tscn" id="8_kv136"]
 [ext_resource type="PackedScene" uid="uid://c5ph3b7x1nhsu" path="res://Scenes/Items/Coin.tscn" id="9_58eq7"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/DeathPit.gd" id="9_popcr"]
-[ext_resource type="Script" path="res://Scenes/Levels/Level2/Sections/platform_crumble.gd" id="10_6ilx8"]
+[ext_resource type="PackedScene" uid="uid://bwo0bl83mr4vt" path="res://Scenes/Environment/Platform_Crumble.tscn" id="12_i4uh3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ufkyn"]
 
@@ -1246,12 +1246,6 @@ _data = {
 "move": SubResource("Animation_rhx6p")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fijrm"]
-size = Vector2(16, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hr168"]
-size = Vector2(13, 12)
-
 [node name="Level2_Section4" type="Node2D"]
 script = ExtResource("1_wkhko")
 
@@ -1359,250 +1353,43 @@ libraries = {
 "": SubResource("AnimationLibrary_emyfg")
 }
 
-[node name="platform_crumble" type="CharacterBody2D" parent="."]
-position = Vector2(-240, 80)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("10_6ilx8")
-metadata/_edit_group_ = true
+[node name="Crumble_Platforms" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="platform_crumble"]
-position = Vector2(369, 164)
-texture = ExtResource("4_rleke")
-region_enabled = true
-region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+[node name="Platform_Crumble" parent="Crumble_Platforms" instance=ExtResource("12_i4uh3")]
+position = Vector2(127, 242)
 
-[node name="Area2D" type="Area2D" parent="platform_crumble"]
-collision_layer = 2
-collision_mask = 2
+[node name="Platform_Crumble2" parent="Crumble_Platforms" instance=ExtResource("12_i4uh3")]
+position = Vector2(145, 242)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble/Area2D"]
-position = Vector2(369, 164)
-shape = SubResource("RectangleShape2D_fijrm")
+[node name="Platform_Crumble3" parent="Crumble_Platforms" instance=ExtResource("12_i4uh3")]
+position = Vector2(163, 242)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble"]
-position = Vector2(369.5, 165)
-shape = SubResource("RectangleShape2D_hr168")
+[node name="Platform_Crumble4" parent="Crumble_Platforms" instance=ExtResource("12_i4uh3")]
+position = Vector2(181, 242)
 
-[node name="platform_crumble2" type="CharacterBody2D" parent="."]
-position = Vector2(-224, 80)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("10_6ilx8")
-metadata/_edit_group_ = true
+[node name="Platform_Crumble5" parent="Crumble_Platforms" instance=ExtResource("12_i4uh3")]
+position = Vector2(243, 44)
 
-[node name="Sprite2D" type="Sprite2D" parent="platform_crumble2"]
-position = Vector2(369, 164)
-texture = ExtResource("4_rleke")
-region_enabled = true
-region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
+[node name="Platform_Crumble6" parent="Crumble_Platforms" instance=ExtResource("12_i4uh3")]
+position = Vector2(225, 44)
 
-[node name="Area2D" type="Area2D" parent="platform_crumble2"]
-collision_layer = 2
-collision_mask = 2
+[node name="Platform_Crumble7" parent="Crumble_Platforms" instance=ExtResource("12_i4uh3")]
+position = Vector2(297, 9)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble2/Area2D"]
-position = Vector2(369, 164)
-shape = SubResource("RectangleShape2D_fijrm")
+[node name="Platform_Crumble8" parent="Crumble_Platforms" instance=ExtResource("12_i4uh3")]
+position = Vector2(297, 27)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble2"]
-position = Vector2(369.5, 165)
-shape = SubResource("RectangleShape2D_hr168")
+[node name="Platform_Crumble9" parent="Crumble_Platforms" instance=ExtResource("12_i4uh3")]
+position = Vector2(297, 45)
 
-[node name="platform_crumble3" type="CharacterBody2D" parent="."]
-position = Vector2(-208, 80)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("10_6ilx8")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="platform_crumble3"]
-position = Vector2(369, 164)
-texture = ExtResource("4_rleke")
-region_enabled = true
-region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
-
-[node name="Area2D" type="Area2D" parent="platform_crumble3"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble3/Area2D"]
-position = Vector2(369, 164)
-shape = SubResource("RectangleShape2D_fijrm")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble3"]
-position = Vector2(369.5, 165)
-shape = SubResource("RectangleShape2D_hr168")
-
-[node name="platform_crumble4" type="CharacterBody2D" parent="."]
-position = Vector2(-192, 80)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("10_6ilx8")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="platform_crumble4"]
-position = Vector2(369, 164)
-texture = ExtResource("4_rleke")
-region_enabled = true
-region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
-
-[node name="Area2D" type="Area2D" parent="platform_crumble4"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble4/Area2D"]
-position = Vector2(369, 164)
-shape = SubResource("RectangleShape2D_fijrm")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble4"]
-position = Vector2(369.5, 165)
-shape = SubResource("RectangleShape2D_hr168")
-
-[node name="platform_crumble5" type="CharacterBody2D" parent="."]
-position = Vector2(-143, -120)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("10_6ilx8")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="platform_crumble5"]
-position = Vector2(369, 164)
-texture = ExtResource("4_rleke")
-region_enabled = true
-region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
-
-[node name="Area2D" type="Area2D" parent="platform_crumble5"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble5/Area2D"]
-position = Vector2(369, 164)
-shape = SubResource("RectangleShape2D_fijrm")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble5"]
-position = Vector2(369.5, 165)
-shape = SubResource("RectangleShape2D_hr168")
-
-[node name="platform_crumble6" type="CharacterBody2D" parent="."]
-position = Vector2(-127, -120)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("10_6ilx8")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="platform_crumble6"]
-position = Vector2(369, 164)
-texture = ExtResource("4_rleke")
-region_enabled = true
-region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
-
-[node name="Area2D" type="Area2D" parent="platform_crumble6"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble6/Area2D"]
-position = Vector2(369, 164)
-shape = SubResource("RectangleShape2D_fijrm")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble6"]
-position = Vector2(369.5, 165)
-shape = SubResource("RectangleShape2D_hr168")
-
-[node name="platform_crumble7" type="CharacterBody2D" parent="."]
-position = Vector2(-72, -154)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("10_6ilx8")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="platform_crumble7"]
-position = Vector2(369, 164)
-texture = ExtResource("4_rleke")
-region_enabled = true
-region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
-
-[node name="Area2D" type="Area2D" parent="platform_crumble7"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble7/Area2D"]
-position = Vector2(369, 164)
-shape = SubResource("RectangleShape2D_fijrm")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble7"]
-position = Vector2(369.5, 165)
-shape = SubResource("RectangleShape2D_hr168")
-
-[node name="platform_crumble8" type="CharacterBody2D" parent="."]
-position = Vector2(-72, -138)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("10_6ilx8")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="platform_crumble8"]
-position = Vector2(369, 164)
-texture = ExtResource("4_rleke")
-region_enabled = true
-region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
-
-[node name="Area2D" type="Area2D" parent="platform_crumble8"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble8/Area2D"]
-position = Vector2(369, 164)
-shape = SubResource("RectangleShape2D_fijrm")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble8"]
-position = Vector2(369.5, 165)
-shape = SubResource("RectangleShape2D_hr168")
-
-[node name="platform_crumble9" type="CharacterBody2D" parent="."]
-position = Vector2(-72, -122)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("10_6ilx8")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="platform_crumble9"]
-position = Vector2(369, 164)
-texture = ExtResource("4_rleke")
-region_enabled = true
-region_rect = Rect2(172.129, 19.8517, 14.9282, 15.3947)
-
-[node name="Area2D" type="Area2D" parent="platform_crumble9"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="platform_crumble9/Area2D"]
-position = Vector2(369, 164)
-shape = SubResource("RectangleShape2D_fijrm")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform_crumble9"]
-position = Vector2(369.5, 165)
-shape = SubResource("RectangleShape2D_hr168")
-
+[connection signal="body_entered" from="LevelTiles/KillerWater" to="LevelTiles/KillerWater" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@239103" to="LevelTiles/@Area2D@239103" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@239104" to="LevelTiles/@Area2D@239104" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@239105" to="LevelTiles/@Area2D@239105" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@239106" to="LevelTiles/@Area2D@239106" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@239107" to="LevelTiles/@Area2D@239107" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@239108" to="LevelTiles/@Area2D@239108" method="_on_body_entered" flags=18]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="DeathPit" to="DeathPit" method="_on_body_entered"]
-[connection signal="body_entered" from="platform_crumble/Area2D" to="platform_crumble" method="_on_body_entered"]
-[connection signal="body_exited" from="platform_crumble/Area2D" to="platform_crumble" method="_on_body_exited"]
-[connection signal="body_entered" from="platform_crumble2/Area2D" to="platform_crumble2" method="_on_body_entered"]
-[connection signal="body_exited" from="platform_crumble2/Area2D" to="platform_crumble2" method="_on_body_exited"]
-[connection signal="body_entered" from="platform_crumble3/Area2D" to="platform_crumble3" method="_on_body_entered"]
-[connection signal="body_exited" from="platform_crumble3/Area2D" to="platform_crumble3" method="_on_body_exited"]
-[connection signal="body_entered" from="platform_crumble4/Area2D" to="platform_crumble4" method="_on_body_entered"]
-[connection signal="body_exited" from="platform_crumble4/Area2D" to="platform_crumble4" method="_on_body_exited"]
-[connection signal="body_entered" from="platform_crumble5/Area2D" to="platform_crumble5" method="_on_body_entered"]
-[connection signal="body_exited" from="platform_crumble5/Area2D" to="platform_crumble5" method="_on_body_exited"]
-[connection signal="body_entered" from="platform_crumble6/Area2D" to="platform_crumble6" method="_on_body_entered"]
-[connection signal="body_exited" from="platform_crumble6/Area2D" to="platform_crumble6" method="_on_body_exited"]
-[connection signal="body_entered" from="platform_crumble7/Area2D" to="platform_crumble7" method="_on_body_entered"]
-[connection signal="body_exited" from="platform_crumble7/Area2D" to="platform_crumble7" method="_on_body_exited"]
-[connection signal="body_entered" from="platform_crumble8/Area2D" to="platform_crumble8" method="_on_body_entered"]
-[connection signal="body_exited" from="platform_crumble8/Area2D" to="platform_crumble8" method="_on_body_exited"]
-[connection signal="body_entered" from="platform_crumble9/Area2D" to="platform_crumble9" method="_on_body_entered"]
-[connection signal="body_exited" from="platform_crumble9/Area2D" to="platform_crumble9" method="_on_body_exited"]
 
 [editable path="Entrance"]

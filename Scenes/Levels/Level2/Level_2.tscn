@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b8tsetmane2m2"]
+[gd_scene load_steps=15 format=3 uid="uid://b8tsetmane2m2"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_rfdcd"]
 [ext_resource type="PackedScene" uid="uid://gtxqcnfsnfx0" path="res://Scenes/Player/Player.tscn" id="1_x3rd3"]
@@ -13,8 +13,15 @@
 [ext_resource type="AudioStream" uid="uid://4g3te7cmnb48" path="res://Sounds/transition_rev.wav" id="11_87or7"]
 [ext_resource type="PackedScene" uid="uid://clerf3081iqui" path="res://Scenes/Interactable/checkpoint.tscn" id="12_slmim"]
 
-[sub_resource type="Theme" id="Theme_xdnlx"]
-default_font = ExtResource("9_mqoqj")
+[sub_resource type="LabelSettings" id="LabelSettings_r5kar"]
+font = ExtResource("9_mqoqj")
+outline_size = 6
+outline_color = Color(0.14902, 0.164706, 0.211765, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oxy0p"]
+font = ExtResource("9_mqoqj")
+outline_size = 6
+outline_color = Color(0.14902, 0.164706, 0.211765, 1)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_rfdcd")
@@ -50,17 +57,20 @@ position_smoothing_enabled = true
 script = ExtResource("2_yqpug")
 
 [node name="TimerDisplay" type="Label" parent="Camera2D"]
-offset_left = 415.0
-offset_top = 35.0
-offset_right = 455.0
-offset_bottom = 58.0
-theme = SubResource("Theme_xdnlx")
+offset_left = 414.0
+offset_top = 20.0
+offset_right = 454.0
+offset_bottom = 43.0
+label_settings = SubResource("LabelSettings_r5kar")
 
 [node name="CoinDisplay" type="Label" parent="Camera2D"]
-offset_left = 70.0
+offset_left = 16.0
 offset_top = 20.0
-offset_right = 110.0
+offset_right = 56.0
 offset_bottom = 43.0
+size_flags_horizontal = 0
+text = "0"
+label_settings = SubResource("LabelSettings_oxy0p")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

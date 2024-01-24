@@ -11,5 +11,5 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body is Player:
-		get_node("/root/Main").reset_coins()
+		#get_node("/root/Main").reset_coins()
 		GameManager.respawn_player()
