@@ -248,6 +248,7 @@ func apply_wall_slide(delta) -> void:
 	if is_wall_sliding:
 		velocity.y += WALL_SLIDING_GRAVITY;
 		velocity.y = min(velocity.y, WALL_SLIDING_GRAVITY * 3);
+		animation_player.play("RESET");
 		if Input.is_action_pressed("left_click"):
 			is_charging_jump = true;
 			player_arrow.visible = true;

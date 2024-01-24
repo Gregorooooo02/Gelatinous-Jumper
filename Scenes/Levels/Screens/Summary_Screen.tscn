@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://brsvelmtqdu08"]
+[gd_scene load_steps=19 format=3 uid="uid://brsvelmtqdu08"]
 
 [ext_resource type="Texture2D" uid="uid://4x4v25mpxcu1" path="res://textures/tilemap_nature.png" id="1_bdyha"]
 [ext_resource type="Script" path="res://Scenes/Levels/Screens/Summary_Screen.gd" id="1_qk6u1"]
@@ -355,6 +355,20 @@ shadow_size = 8
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(2, 2)
 
+[sub_resource type="LabelSettings" id="LabelSettings_i2bko"]
+font = ExtResource("3_iax0v")
+font_size = 20
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xb5o4"]
+font = ExtResource("3_iax0v")
+font_size = 20
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
 [node name="SummaryScreen" type="Control"]
 process_mode = 2
 process_priority = 1
@@ -413,13 +427,29 @@ offset_right = 361.0
 offset_bottom = 727.0
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(2.08165e-12, 70)
+custom_minimum_size = Vector2(2.08165e-12, 50)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/CenterContainer"]
 layout_mode = 2
 text = "YOU WON!"
 label_settings = SubResource("LabelSettings_p2pkp")
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TimeLabel" type="Label" parent="VBoxContainer/CenterContainer2"]
+layout_mode = 2
+text = "Time : 0"
+label_settings = SubResource("LabelSettings_i2bko")
+
+[node name="CenterContainer3" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="VBoxContainer/CenterContainer3"]
+layout_mode = 2
+text = "Score : 0"
+label_settings = SubResource("LabelSettings_xb5o4")
 
 [node name="SelectSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_e1mvm")
@@ -430,20 +460,6 @@ stream = ExtResource("8_r6vwe")
 [node name="TransitionSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_rab0l")
 volume_db = -5.0
-
-[node name="TimeLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 213.0
-offset_top = 119.0
-offset_right = 253.0
-offset_bottom = 142.0
-
-[node name="CoinLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 214.0
-offset_top = 152.0
-offset_right = 254.0
-offset_bottom = 175.0
 
 [connection signal="animation_finished" from="CutOutAnimation/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="mouse_exited" from="FrontTiles/NextLevel/Next_Level" to="FrontTiles/NextLevel/Next_Level" method="_on_mouse_exited"]

@@ -42,6 +42,12 @@ func update_coins_display():
 	if coin_label:
 		coin_label.text = str(coins * 10)
 
+func get_score() -> int:
+	return coins * 10;
+	
+func get_time() -> float:
+	return timer;
+
 func _on_timer_timeout():
 	pass # Replace with function body.
 
