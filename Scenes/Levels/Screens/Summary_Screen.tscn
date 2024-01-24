@@ -352,21 +352,21 @@ font = ExtResource("3_iax0v")
 font_size = 36
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 8
-shadow_color = Color(0, 0, 0, 1)
+shadow_color = Color(0.156863, 0.160784, 0.207843, 1)
 shadow_offset = Vector2(2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_i2bko"]
 font = ExtResource("3_iax0v")
 font_size = 20
 shadow_size = 2
-shadow_color = Color(0, 0, 0, 1)
+shadow_color = Color(0.160784, 0.156863, 0.207843, 1)
 shadow_offset = Vector2(2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_xb5o4"]
 font = ExtResource("3_iax0v")
 font_size = 20
 shadow_size = 2
-shadow_color = Color(0, 0, 0, 1)
+shadow_color = Color(0.160784, 0.156863, 0.207843, 1)
 shadow_offset = Vector2(2, 2)
 
 [node name="SummaryScreen" type="Control"]
