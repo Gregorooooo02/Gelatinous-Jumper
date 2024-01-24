@@ -1382,13 +1382,6 @@ position = Vector2(297, 27)
 [node name="Platform_Crumble9" parent="Crumble_Platforms" instance=ExtResource("12_i4uh3")]
 position = Vector2(297, 45)
 
-[connection signal="body_entered" from="LevelTiles/KillerWater" to="LevelTiles/KillerWater" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@239103" to="LevelTiles/@Area2D@239103" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@239104" to="LevelTiles/@Area2D@239104" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@239105" to="LevelTiles/@Area2D@239105" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@239106" to="LevelTiles/@Area2D@239106" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@239107" to="LevelTiles/@Area2D@239107" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@239108" to="LevelTiles/@Area2D@239108" method="_on_body_entered" flags=18]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="DeathPit" to="DeathPit" method="_on_body_entered"]
 

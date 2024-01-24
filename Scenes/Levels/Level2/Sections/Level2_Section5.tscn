@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://lq1xupvkcjta"]
+[gd_scene load_steps=33 format=3 uid="uid://lq1xupvkcjta"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/Level_Section.gd" id="1_5rr7h"]
 [ext_resource type="Texture2D" uid="uid://lu60apvxqde5" path="res://textures/tilemap-backgrounds.png" id="2_kmvjc"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bum0r06ehf2yk" path="res://Scenes/Killing Objects/Water/KillerWater.tscn" id="7_phmln"]
 [ext_resource type="Texture2D" uid="uid://iqeateybqyxx" path="res://textures/tilemap_industrial.png" id="7_x8ivx"]
 [ext_resource type="PackedScene" uid="uid://c5ph3b7x1nhsu" path="res://Scenes/Items/Coin.tscn" id="9_hbl0g"]
+[ext_resource type="Script" path="res://Scenes/Levels/Screens/end_box.gd" id="10_gkqrx"]
+[ext_resource type="PackedScene" uid="uid://brsvelmtqdu08" path="res://Scenes/Levels/Screens/Summary_Screen.tscn" id="11_jiw8t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ufkyn"]
 
@@ -1391,6 +1393,9 @@ _data = {
 "move": SubResource("Animation_xq7al")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbbbs"]
+size = Vector2(44, 54)
+
 [node name="Level2_Section5" type="Node2D"]
 script = ExtResource("1_5rr7h")
 
@@ -1500,4 +1505,17 @@ libraries = {
 "": SubResource("AnimationLibrary_x8m2m")
 }
 
+[node name="end" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_gkqrx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="end"]
+position = Vector2(467, 119)
+shape = SubResource("RectangleShape2D_fbbbs")
+
+[node name="SummaryScreen" parent="." instance=ExtResource("11_jiw8t")]
+z_index = 4
+
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_entered" from="end" to="end" method="_on_body_entered"]

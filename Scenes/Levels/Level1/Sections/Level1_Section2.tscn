@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cxjl73dsiuqkp"]
+[gd_scene load_steps=24 format=3 uid="uid://cxjl73dsiuqkp"]
 
 [ext_resource type="Texture2D" uid="uid://4x4v25mpxcu1" path="res://textures/tilemap_nature.png" id="1_hb84r"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/Level_Section.gd" id="1_soryn"]
