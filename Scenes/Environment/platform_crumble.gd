@@ -12,6 +12,7 @@ var is_disabled = false
 
 var timer_spawn = 2;
 var countdown_spawn = timer_spawn;
+var has_despawned = false;
 
 func _ready():
 	original_visibility = self.visible  # Save the initial visibility state
@@ -24,13 +25,15 @@ func _process(delta):
 			collision_shape.disabled = true
 			timer_countdown = timer_duration
 			is_disappearing = false
+			has_despawned = true;
 		
-	if not is_disappearing:
+	if has_despawned:
 		countdown_spawn -= delta;
 		if countdown_spawn <= 0:
 			self.visible = true;
 			collision_shape.disabled = false;
 			countdown_spawn = timer_spawn;
+			has_despawned = false;
 	
 
 # Signal when an area enters the platform
