@@ -9,3 +9,4 @@ func respawn_player():
 		player.position = current_checkpoint.position
 		player.velocity = Vector2.ZERO
 		print("Player respawned")
+		Global.camera.shake(0.1, 5);
