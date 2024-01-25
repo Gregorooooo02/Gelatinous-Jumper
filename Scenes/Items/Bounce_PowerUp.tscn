@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://vtunc4ggali7"]
+[gd_scene load_steps=10 format=3 uid="uid://cmtnhqujxf0cv"]
 
-[ext_resource type="Script" path="res://Scenes/Items/Dash_PowerUp.gd" id="1_iuid1"]
-[ext_resource type="Texture2D" uid="uid://cwuudt110g4nh" path="res://textures/Items/Dash_PowerUp.png" id="1_o16vn"]
-[ext_resource type="Texture2D" uid="uid://c4c0tho7pwwrv" path="res://textures/inputs/spacebar.png" id="3_el250"]
+[ext_resource type="Script" path="res://Scenes/Items/Bounce_PowerUp.gd" id="1_tmfx3"]
+[ext_resource type="Texture2D" uid="uid://djx6l75dlp52m" path="res://textures/Items/Bounce_PowerUp.png" id="2_jwnvm"]
+[ext_resource type="Texture2D" uid="uid://c4c0tho7pwwrv" path="res://textures/inputs/spacebar.png" id="3_700y1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7shwc"]
 radius = 9.0
@@ -130,15 +130,15 @@ _data = {
 light_mask = 2
 visibility_layer = 2
 position = Vector2(3.14763e-13, -0.453625)
-script = ExtResource("1_iuid1")
+script = ExtResource("1_tmfx3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_o16vn")
+texture = ExtResource("2_jwnvm")
 
 [node name="InputSprite" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("3_el250")
+texture = ExtResource("3_700y1")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 2

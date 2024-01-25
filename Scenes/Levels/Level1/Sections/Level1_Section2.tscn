@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cxjl73dsiuqkp"]
+[gd_scene load_steps=25 format=3 uid="uid://cxjl73dsiuqkp"]
 
 [ext_resource type="Texture2D" uid="uid://4x4v25mpxcu1" path="res://textures/tilemap_nature.png" id="1_hb84r"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/Level_Section.gd" id="1_soryn"]
@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://vtunc4ggali7" path="res://Scenes/Items/Dash_PowerUp.tscn" id="5_6rw3f"]
 [ext_resource type="PackedScene" uid="uid://c5ph3b7x1nhsu" path="res://Scenes/Items/Coin.tscn" id="5_ljts2"]
 [ext_resource type="Texture2D" uid="uid://cyx5ehy0x2f3p" path="res://textures/whiteTex.png" id="5_tj400"]
-[ext_resource type="PackedScene" uid="uid://clerf3081iqui" path="res://Scenes/Interactable/checkpoint.tscn" id="8_t30k2"]
+[ext_resource type="PackedScene" uid="uid://bps46vvdt6g0t" path="res://Scenes/Interactable/power_up_manager.tscn" id="10_2ox2w"]
+[ext_resource type="PackedScene" uid="uid://cmtnhqujxf0cv" path="res://Scenes/Items/Bounce_PowerUp.tscn" id="11_5dt13"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ielf"]
 size = Vector2(450, 216)
@@ -878,9 +879,6 @@ position = Vector2(-45, 225)
 position = Vector2(10, 207)
 shape = SubResource("RectangleShape2D_0s326")
 
-[node name="Dash_PowerUp" parent="." instance=ExtResource("5_6rw3f")]
-position = Vector2(270, 216)
-
 [node name="LevelTiles" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_n1hvl")
 format = 2
@@ -947,12 +945,16 @@ shape = SubResource("RectangleShape2D_acf18")
 [node name="Marker2D2" type="Marker2D" parent="Entrance2"]
 position = Vector2(56, 6)
 
-[node name="Checkpoint" parent="." instance=ExtResource("8_t30k2")]
-visible = false
-position = Vector2(103, 382)
-
 [node name="Coin" parent="." instance=ExtResource("5_ljts2")]
 position = Vector2(387, 135)
+
+[node name="PowerUpManager" parent="." instance=ExtResource("10_2ox2w")]
+position = Vector2(319, 216)
+spawnling_scene = ExtResource("5_6rw3f")
+
+[node name="PowerUpManager2" parent="." instance=ExtResource("10_2ox2w")]
+position = Vector2(242, 216)
+spawnling_scene = ExtResource("11_5dt13")
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 

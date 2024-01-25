@@ -66,7 +66,9 @@ var follow_speed = 5;
 func _ready():
 	player_arrow.visible = false;
 	GameManager.player = self
+	Global.player = self;
 	Global.death_sfx = $DeathSFX;
+	Global.powerup_particles = $PowerUpParticles;
 
 func _process(_delta):
 	rotate_player_arrow();
@@ -278,10 +280,15 @@ func change_to_dash():
 	ball_sprite.visible = false;
 	sprite.visible = false;
 	dash_sprite.visible = true;
-	if !powerup_played:
-		powerup_played = true;
-		powerup_sound.play();
-	
+	powerup_sound.play();
+
+func change_to_bounce():
+	dash_mode = false;
+	ball_sprite.visible = true;
+	sprite.visible = true;
+	dash_sprite.visible = false;
+	powerup_sound.play();
+
 func rotate_player_arrow():
 	mouse_position = get_global_mouse_position();
 	player_arrow.look_at(mouse_position);

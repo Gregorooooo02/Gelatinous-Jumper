@@ -9,6 +9,7 @@ collision_mask = 3
 script = ExtResource("1_1y73v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.9, 0.9, 0.9, 1)
 texture = ExtResource("2_0hbwv")
 region_enabled = true
 region_rect = Rect2(247, 38, 18, 18)

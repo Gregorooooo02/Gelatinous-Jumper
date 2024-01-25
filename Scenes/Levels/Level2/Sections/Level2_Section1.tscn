@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://co1yenm6ipds8"]
+[gd_scene load_steps=33 format=3 uid="uid://co1yenm6ipds8"]
 
 [ext_resource type="Texture2D" uid="uid://4x4v25mpxcu1" path="res://textures/tilemap_nature.png" id="1_dx0dr"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/Level_Section.gd" id="1_jcfkd"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://c5ph3b7x1nhsu" path="res://Scenes/Items/Coin.tscn" id="7_8ix18"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/Background.gd" id="7_qms3t"]
 [ext_resource type="PackedScene" uid="uid://vtunc4ggali7" path="res://Scenes/Items/Dash_PowerUp.tscn" id="9_k58vl"]
+[ext_resource type="PackedScene" uid="uid://bps46vvdt6g0t" path="res://Scenes/Interactable/power_up_manager.tscn" id="11_hdhor"]
+[ext_resource type="PackedScene" uid="uid://cmtnhqujxf0cv" path="res://Scenes/Items/Bounce_PowerUp.tscn" id="12_der3f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ufkyn"]
 
@@ -1036,33 +1038,17 @@ libraries = {
 "": SubResource("AnimationLibrary_1roqi")
 }
 
-[node name="Dash_PowerUp" parent="." instance=ExtResource("9_k58vl")]
-position = Vector2(50, 21)
-
 [node name="Coin" parent="." instance=ExtResource("7_8ix18")]
 position = Vector2(369, 135)
 
-[connection signal="body_entered" from="LevelTiles/@Area2D@488184" to="LevelTiles/@Area2D@488184" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@488185" to="LevelTiles/@Area2D@488185" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@488186" to="LevelTiles/@Area2D@488186" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@488187" to="LevelTiles/@Area2D@488187" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@488188" to="LevelTiles/@Area2D@488188" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@488189" to="LevelTiles/@Area2D@488189" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@488190" to="LevelTiles/@Area2D@488190" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@488191" to="LevelTiles/@Area2D@488191" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@488192" to="LevelTiles/@Area2D@488192" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@488193" to="LevelTiles/@Area2D@488193" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@488194" to="LevelTiles/@Area2D@488194" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/KillerWater" to="LevelTiles/KillerWater" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@488945" to="LevelTiles/@Area2D@488945" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@488946" to="LevelTiles/@Area2D@488946" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@488947" to="LevelTiles/@Area2D@488947" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@488948" to="LevelTiles/@Area2D@488948" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@488949" to="LevelTiles/@Area2D@488949" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@488950" to="LevelTiles/@Area2D@488950" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@488951" to="LevelTiles/@Area2D@488951" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@488952" to="LevelTiles/@Area2D@488952" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@488953" to="LevelTiles/@Area2D@488953" method="_on_body_entered" flags=18]
+[node name="PowerUpManager" parent="." instance=ExtResource("11_hdhor")]
+position = Vector2(79, 76)
+spawnling_scene = ExtResource("9_k58vl")
+
+[node name="PowerUpManager2" parent="." instance=ExtResource("11_hdhor")]
+position = Vector2(36, 76)
+spawnling_scene = ExtResource("12_der3f")
+
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 
 [editable path="Entrance"]

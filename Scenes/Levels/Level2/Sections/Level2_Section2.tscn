@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://baau5pfldncjm"]
+[gd_scene load_steps=32 format=3 uid="uid://baau5pfldncjm"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/Level_Section.gd" id="1_ftbwt"]
 [ext_resource type="Texture2D" uid="uid://lu60apvxqde5" path="res://textures/tilemap-backgrounds.png" id="2_7vje5"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://spwxqcspg5y0" path="res://Scenes/Levels/Entrance.tscn" id="8_f8fnm"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/DeathPit.gd" id="9_ncmmw"]
 [ext_resource type="PackedScene" uid="uid://bwo0bl83mr4vt" path="res://Scenes/Environment/Platform_Crumble.tscn" id="11_oxbus"]
+[ext_resource type="PackedScene" uid="uid://bps46vvdt6g0t" path="res://Scenes/Interactable/power_up_manager.tscn" id="12_v40s7"]
+[ext_resource type="PackedScene" uid="uid://cmtnhqujxf0cv" path="res://Scenes/Items/Bounce_PowerUp.tscn" id="13_xfxsf"]
+[ext_resource type="PackedScene" uid="uid://vtunc4ggali7" path="res://Scenes/Items/Dash_PowerUp.tscn" id="14_vj7np"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ufkyn"]
 
@@ -1010,6 +1013,14 @@ position = Vector2(352, 207)
 
 [node name="Coin" parent="." instance=ExtResource("7_jutc2")]
 position = Vector2(369, 153)
+
+[node name="PowerUpManager" parent="." instance=ExtResource("12_v40s7")]
+position = Vector2(29, 76)
+spawnling_scene = ExtResource("13_xfxsf")
+
+[node name="PowerUpManager2" parent="." instance=ExtResource("12_v40s7")]
+position = Vector2(79, 76)
+spawnling_scene = ExtResource("14_vj7np")
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="DeathPit" to="DeathPit" method="_on_body_entered"]

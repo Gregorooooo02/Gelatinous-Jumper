@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b8ub8gixagjod"]
+[gd_scene load_steps=34 format=3 uid="uid://b8ub8gixagjod"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/Level_Section.gd" id="1_wkhko"]
 [ext_resource type="Texture2D" uid="uid://lu60apvxqde5" path="res://textures/tilemap-backgrounds.png" id="2_06gyh"]
@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://c5ph3b7x1nhsu" path="res://Scenes/Items/Coin.tscn" id="9_58eq7"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/DeathPit.gd" id="9_popcr"]
 [ext_resource type="PackedScene" uid="uid://bwo0bl83mr4vt" path="res://Scenes/Environment/Platform_Crumble.tscn" id="12_i4uh3"]
+[ext_resource type="PackedScene" uid="uid://bps46vvdt6g0t" path="res://Scenes/Interactable/power_up_manager.tscn" id="13_e6unt"]
+[ext_resource type="PackedScene" uid="uid://cmtnhqujxf0cv" path="res://Scenes/Items/Bounce_PowerUp.tscn" id="14_43uvx"]
+[ext_resource type="PackedScene" uid="uid://vtunc4ggali7" path="res://Scenes/Items/Dash_PowerUp.tscn" id="15_mxs5f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ufkyn"]
 
@@ -1388,13 +1391,21 @@ position = Vector2(81, 81)
 [node name="Coin2" parent="." instance=ExtResource("9_58eq7")]
 position = Vector2(441, 153)
 
-[connection signal="body_entered" from="LevelTiles/@Area2D@622415" to="LevelTiles/@Area2D@622415" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@622416" to="LevelTiles/@Area2D@622416" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@622417" to="LevelTiles/@Area2D@622417" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@622418" to="LevelTiles/@Area2D@622418" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@622419" to="LevelTiles/@Area2D@622419" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@622420" to="LevelTiles/@Area2D@622420" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@622421" to="LevelTiles/@Area2D@622421" method="_on_body_entered" flags=18]
+[node name="PowerUpManager" parent="." instance=ExtResource("13_e6unt")]
+position = Vector2(43, 240)
+spawnling_scene = ExtResource("14_43uvx")
+
+[node name="PowerUpManager2" parent="." instance=ExtResource("13_e6unt")]
+position = Vector2(81, 240)
+spawnling_scene = ExtResource("15_mxs5f")
+
+[connection signal="body_entered" from="LevelTiles/KillerWater" to="LevelTiles/KillerWater" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@170050" to="LevelTiles/@Area2D@170050" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@170051" to="LevelTiles/@Area2D@170051" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@170052" to="LevelTiles/@Area2D@170052" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@170053" to="LevelTiles/@Area2D@170053" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@170054" to="LevelTiles/@Area2D@170054" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@170055" to="LevelTiles/@Area2D@170055" method="_on_body_entered" flags=18]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="DeathPit" to="DeathPit" method="_on_body_entered"]
 

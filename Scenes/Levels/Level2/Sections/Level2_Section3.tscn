@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b5dy6cq6ucgsm"]
+[gd_scene load_steps=32 format=3 uid="uid://b5dy6cq6ucgsm"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/Level_Section.gd" id="1_i15dy"]
 [ext_resource type="Texture2D" uid="uid://lu60apvxqde5" path="res://textures/tilemap-backgrounds.png" id="2_ddyck"]
@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://c5ph3b7x1nhsu" path="res://Scenes/Items/Coin.tscn" id="9_0qacg"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/DeathPit.gd" id="9_ykhre"]
 [ext_resource type="PackedScene" uid="uid://bwo0bl83mr4vt" path="res://Scenes/Environment/Platform_Crumble.tscn" id="12_ublca"]
+[ext_resource type="PackedScene" uid="uid://bps46vvdt6g0t" path="res://Scenes/Interactable/power_up_manager.tscn" id="13_ne3qu"]
+[ext_resource type="PackedScene" uid="uid://cmtnhqujxf0cv" path="res://Scenes/Items/Bounce_PowerUp.tscn" id="14_e1p1c"]
+[ext_resource type="PackedScene" uid="uid://vtunc4ggali7" path="res://Scenes/Items/Dash_PowerUp.tscn" id="15_8hchn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ufkyn"]
 
@@ -1466,12 +1469,14 @@ position = Vector2(99, 63)
 [node name="Coin2" parent="." instance=ExtResource("9_0qacg")]
 position = Vector2(405, 45)
 
-[connection signal="body_entered" from="LevelTiles/KillerWater" to="LevelTiles/KillerWater" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@498076" to="LevelTiles/@Area2D@498076" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@498077" to="LevelTiles/@Area2D@498077" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@498078" to="LevelTiles/@Area2D@498078" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@498079" to="LevelTiles/@Area2D@498079" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@498080" to="LevelTiles/@Area2D@498080" method="_on_body_entered" flags=18]
+[node name="PowerUpManager" parent="." instance=ExtResource("13_ne3qu")]
+position = Vector2(26, 240)
+spawnling_scene = ExtResource("14_e1p1c")
+
+[node name="PowerUpManager2" parent="." instance=ExtResource("13_ne3qu")]
+position = Vector2(60, 240)
+spawnling_scene = ExtResource("15_8hchn")
+
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="DeathPit" to="DeathPit" method="_on_body_entered"]
 
