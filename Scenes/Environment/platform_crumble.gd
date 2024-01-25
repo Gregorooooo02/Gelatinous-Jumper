@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var crumble_particles = $CPUParticles2D;
 @onready var collision_shape = $CollisionShape2D2;
 
-var timer_duration = 1  # Adjust this to set the time it takes for the platform to disappear (in seconds)
+var timer_duration = 0.8  # Adjust this to set the time it takes for the platform to disappear (in seconds)
 var timer_countdown = timer_duration
 var is_disappearing = false
 var original_visibility = true

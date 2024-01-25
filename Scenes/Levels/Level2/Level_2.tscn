@@ -82,6 +82,7 @@ position = Vector2(1498, 264)
 modulate = Color(0.9, 0.9, 0.9, 1)
 
 [node name="Next_Level" parent="Sections/Level2_Section5/SummaryScreen/FrontTiles/NextLevel" index="0"]
+visible = false
 modulate = Color(0.9, 0.9, 0.9, 1)
 
 [node name="Main_Menu" parent="Sections/Level2_Section5/SummaryScreen/FrontTiles/MainMenu" index="0"]

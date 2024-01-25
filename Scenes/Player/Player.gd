@@ -66,6 +66,7 @@ var follow_speed = 5;
 func _ready():
 	player_arrow.visible = false;
 	GameManager.player = self
+	Global.death_sfx = $DeathSFX;
 
 func _process(_delta):
 	rotate_player_arrow();

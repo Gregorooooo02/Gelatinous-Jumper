@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://gtxqcnfsnfx0"]
+[gd_scene load_steps=42 format=3 uid="uid://gtxqcnfsnfx0"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://duyfxe8cokfn2" path="res://textures/Player/player_arrow1.png" id="3_voipp"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://r234x5mb680j" path="res://Sounds/powerUp_pickUp.wav" id="17_gvjrr"]
 [ext_resource type="AudioStream" uid="uid://bwb8slto267bc" path="res://Sounds/jump-2.wav" id="18_kc36n"]
 [ext_resource type="AudioStream" uid="uid://byfknrxr0u8pb" path="res://Sounds/powerUp-2.wav" id="19_tqu7b"]
+[ext_resource type="AudioStream" uid="uid://s6f0ltdv0bw2" path="res://Sounds/hurtDead.wav" id="20_e1ue4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6aq4v"]
 animations = [{
@@ -490,6 +491,10 @@ volume_db = -10.0
 
 [node name="DashSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("19_tqu7b")
+
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_e1ue4")
+attenuation = 0.5
 
 [node name="Area2D" type="Area2D" parent="."]
 monitoring = false
