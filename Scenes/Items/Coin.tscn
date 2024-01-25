@@ -32,12 +32,14 @@ radius = 9.0
 script = ExtResource("1_j1cb4")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(2, 2, 1, 1)
 position = Vector2(-2.02656e-05, 0)
 scale = Vector2(1.33334, 1.33333)
 sprite_frames = SubResource("SpriteFrames_dc6q7")
 frame_progress = 0.882456
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b8tsetmane2m2"]
+[gd_scene load_steps=16 format=3 uid="uid://b8tsetmane2m2"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_rfdcd"]
 [ext_resource type="PackedScene" uid="uid://gtxqcnfsnfx0" path="res://Scenes/Player/Player.tscn" id="1_x3rd3"]
@@ -13,6 +13,16 @@
 [ext_resource type="AudioStream" uid="uid://4g3te7cmnb48" path="res://Sounds/transition_rev.wav" id="11_87or7"]
 [ext_resource type="PackedScene" uid="uid://clerf3081iqui" path="res://Scenes/Interactable/checkpoint.tscn" id="12_slmim"]
 
+[sub_resource type="Environment" id="Environment_vdsjm"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 2.0
+glow_strength = 1.5
+glow_blend_mode = 1
+glow_hdr_threshold = 1.4
+glow_hdr_scale = 0.8
+adjustment_enabled = true
+
 [sub_resource type="LabelSettings" id="LabelSettings_r5kar"]
 font = ExtResource("9_mqoqj")
 outline_size = 6
@@ -25,6 +35,9 @@ outline_color = Color(0.14902, 0.164706, 0.211765, 1)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_rfdcd")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vdsjm")
 
 [node name="CutOutAnimation" parent="." instance=ExtResource("2_ntoi7")]
 z_index = 2
@@ -41,17 +54,47 @@ safe_margin = 0.1
 
 [node name="Level2_Section1" parent="Sections" instance=ExtResource("3_5qsy7")]
 
+[node name="Background" parent="Sections/Level2_Section1" index="0"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+
 [node name="Level2_Section2" parent="Sections" instance=ExtResource("4_qgmy1")]
 position = Vector2(0, 300)
+
+[node name="Background" parent="Sections/Level2_Section2" index="0"]
+modulate = Color(0.9, 0.9, 0.9, 1)
 
 [node name="Level2_Section3" parent="Sections" instance=ExtResource("5_xmi3w")]
 position = Vector2(499, 300)
 
+[node name="Background" parent="Sections/Level2_Section3" index="0"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+
 [node name="Level2_Section4" parent="Sections" instance=ExtResource("6_erefv")]
 position = Vector2(996, 300)
 
+[node name="Background" parent="Sections/Level2_Section4" index="0"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+
 [node name="Level2_Section5" parent="Sections" instance=ExtResource("7_uvpje")]
 position = Vector2(1498, 264)
+
+[node name="Background" parent="Sections/Level2_Section5" index="0"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+
+[node name="Next_Level" parent="Sections/Level2_Section5/SummaryScreen/FrontTiles/NextLevel" index="0"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+
+[node name="Main_Menu" parent="Sections/Level2_Section5/SummaryScreen/FrontTiles/MainMenu" index="0"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+
+[node name="Label" parent="Sections/Level2_Section5/SummaryScreen/VBoxContainer/CenterContainer" index="0"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+
+[node name="TimeLabel" parent="Sections/Level2_Section5/SummaryScreen/VBoxContainer/CenterContainer2" index="0"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+
+[node name="ScoreLabel" parent="Sections/Level2_Section5/SummaryScreen/VBoxContainer/CenterContainer3" index="0"]
+modulate = Color(0.9, 0.9, 0.9, 1)
 
 [node name="Checkpoints" type="Node2D" parent="."]
 
@@ -76,6 +119,7 @@ position_smoothing_enabled = true
 script = ExtResource("2_yqpug")
 
 [node name="TimerDisplay" type="Label" parent="Camera2D"]
+modulate = Color(0.9, 0.9, 0.9, 1)
 offset_left = 130.0
 offset_top = 7.0
 offset_right = 193.0
@@ -84,6 +128,7 @@ text = "Time : 0"
 label_settings = SubResource("LabelSettings_r5kar")
 
 [node name="CoinDisplay" type="Label" parent="Camera2D"]
+modulate = Color(0.9, 0.9, 0.9, 1)
 offset_left = 16.0
 offset_top = 7.0
 offset_right = 88.0
@@ -100,6 +145,61 @@ stream = ExtResource("11_87or7")
 volume_db = -5.0
 
 [connection signal="animation_finished" from="CutOutAnimation/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@568233" to="Sections/Level2_Section1/LevelTiles/@Area2D@568233" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@568234" to="Sections/Level2_Section1/LevelTiles/@Area2D@568234" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@568235" to="Sections/Level2_Section1/LevelTiles/@Area2D@568235" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@568236" to="Sections/Level2_Section1/LevelTiles/@Area2D@568236" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@568237" to="Sections/Level2_Section1/LevelTiles/@Area2D@568237" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@568238" to="Sections/Level2_Section1/LevelTiles/@Area2D@568238" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@568239" to="Sections/Level2_Section1/LevelTiles/@Area2D@568239" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@568240" to="Sections/Level2_Section1/LevelTiles/@Area2D@568240" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@568241" to="Sections/Level2_Section1/LevelTiles/@Area2D@568241" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@568242" to="Sections/Level2_Section1/LevelTiles/@Area2D@568242" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@568243" to="Sections/Level2_Section1/LevelTiles/@Area2D@568243" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@568244" to="Sections/Level2_Section1/LevelTiles/@Area2D@568244" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@568245" to="Sections/Level2_Section1/LevelTiles/@Area2D@568245" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@568246" to="Sections/Level2_Section1/LevelTiles/@Area2D@568246" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@568247" to="Sections/Level2_Section1/LevelTiles/@Area2D@568247" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@568248" to="Sections/Level2_Section1/LevelTiles/@Area2D@568248" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@568249" to="Sections/Level2_Section1/LevelTiles/@Area2D@568249" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@568250" to="Sections/Level2_Section1/LevelTiles/@Area2D@568250" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@568251" to="Sections/Level2_Section1/LevelTiles/@Area2D@568251" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@568252" to="Sections/Level2_Section1/LevelTiles/@Area2D@568252" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@568253" to="Sections/Level2_Section1/LevelTiles/@Area2D@568253" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section3/LevelTiles/@Area2D@568254" to="Sections/Level2_Section3/LevelTiles/@Area2D@568254" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section3/LevelTiles/@Area2D@568255" to="Sections/Level2_Section3/LevelTiles/@Area2D@568255" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section3/LevelTiles/@Area2D@568256" to="Sections/Level2_Section3/LevelTiles/@Area2D@568256" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section3/LevelTiles/@Area2D@568257" to="Sections/Level2_Section3/LevelTiles/@Area2D@568257" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section3/LevelTiles/@Area2D@568258" to="Sections/Level2_Section3/LevelTiles/@Area2D@568258" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section3/LevelTiles/@Area2D@568259" to="Sections/Level2_Section3/LevelTiles/@Area2D@568259" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section4/LevelTiles/@Area2D@568260" to="Sections/Level2_Section4/LevelTiles/@Area2D@568260" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section4/LevelTiles/@Area2D@568261" to="Sections/Level2_Section4/LevelTiles/@Area2D@568261" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section4/LevelTiles/@Area2D@568262" to="Sections/Level2_Section4/LevelTiles/@Area2D@568262" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section4/LevelTiles/@Area2D@568263" to="Sections/Level2_Section4/LevelTiles/@Area2D@568263" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section4/LevelTiles/@Area2D@568264" to="Sections/Level2_Section4/LevelTiles/@Area2D@568264" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section4/LevelTiles/@Area2D@568265" to="Sections/Level2_Section4/LevelTiles/@Area2D@568265" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section4/LevelTiles/@Area2D@568266" to="Sections/Level2_Section4/LevelTiles/@Area2D@568266" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section5/LevelTiles/@Area2D@568267" to="Sections/Level2_Section5/LevelTiles/@Area2D@568267" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section5/LevelTiles/@Area2D@568268" to="Sections/Level2_Section5/LevelTiles/@Area2D@568268" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section5/LevelTiles/@Area2D@568269" to="Sections/Level2_Section5/LevelTiles/@Area2D@568269" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section5/LevelTiles/@Area2D@568270" to="Sections/Level2_Section5/LevelTiles/@Area2D@568270" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section5/LevelTiles/@Area2D@568271" to="Sections/Level2_Section5/LevelTiles/@Area2D@568271" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section5/LevelTiles/@Area2D@568272" to="Sections/Level2_Section5/LevelTiles/@Area2D@568272" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section5/LevelTiles/@Area2D@568273" to="Sections/Level2_Section5/LevelTiles/@Area2D@568273" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section5/LevelTiles/@Area2D@568274" to="Sections/Level2_Section5/LevelTiles/@Area2D@568274" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section5/LevelTiles/@Area2D@568275" to="Sections/Level2_Section5/LevelTiles/@Area2D@568275" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level2_Section5/LevelTiles/@Area2D@568276" to="Sections/Level2_Section5/LevelTiles/@Area2D@568276" method="_on_body_entered" flags=18]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="CutOutAnimation"]
+[editable path="Sections/Level2_Section1"]
+[editable path="Sections/Level2_Section1/Entrance"]
+[editable path="Sections/Level2_Section2"]
+[editable path="Sections/Level2_Section2/Entrance"]
+[editable path="Sections/Level2_Section3"]
+[editable path="Sections/Level2_Section3/Entrance"]
+[editable path="Sections/Level2_Section4"]
+[editable path="Sections/Level2_Section4/Entrance"]
+[editable path="Sections/Level2_Section5"]
+[editable path="Sections/Level2_Section5/SummaryScreen"]
+[editable path="Sections/Level2_Section5/SummaryScreen/CutOutAnimation"]
