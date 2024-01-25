@@ -141,6 +141,7 @@ func _physics_process(delta):
 						if collision != null:
 							velocity.y -= JUMP_FORCE_MAX * (elastic);
 							elastic -= sub_elastic;
+							Global.camera.shake(0.2, 1);
 			if velocity.x > 0:
 				ball_sprite.rotate(0.25);
 			elif velocity.x < 0:
@@ -154,6 +155,7 @@ func _physics_process(delta):
 			velocity.y += ADDITIONAL_GRAVITY;
 	if dash_mode and dash_count != 0:
 		if Input.is_action_just_pressed("hold_right_button"):
+			Global.camera.shake(0.2, 2);
 			particles_dash.restart();
 			dash_movement();
 			dash_count = 0;

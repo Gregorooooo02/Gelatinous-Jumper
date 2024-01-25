@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.1")
 Events="*res://Scripts/Events.gd"
 Main="*res://Scripts/main.gd"
 GameManager="*res://Scripts/Core/GameManager.gd"
+Global="*res://Global.gd"
 
 [display]
 
