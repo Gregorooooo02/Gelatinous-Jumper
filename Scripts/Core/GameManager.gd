@@ -9,6 +9,6 @@ func respawn_player():
 		player.position = current_checkpoint.position;
 		player.velocity = Vector2.ZERO;
 		print("Player respawned");
-		Global.camera.shake(0.1, 5);
+		Global.camera.shake(0.1, 4);
 		Global.death_sfx.pitch_scale = randf_range(0.8, 1.5);
 		Global.death_sfx.play();

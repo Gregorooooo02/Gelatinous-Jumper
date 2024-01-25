@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://gtxqcnfsnfx0"]
+[gd_scene load_steps=41 format=3 uid="uid://gtxqcnfsnfx0"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://duyfxe8cokfn2" path="res://textures/Player/player_arrow1.png" id="3_voipp"]
@@ -307,46 +307,19 @@ particles_anim_loop = true
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Curve" id="Curve_nr33x"]
-max_value = 4.0
-_data = [Vector2(0, 0.8), 0.0, 0.0, 0, 0, Vector2(1, 0.168421), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_6ff13"]
+min_value = -180.0
+max_value = 180.0
+_data = [Vector2(0, 183.615), 0.0, 0.0, 0, 0, Vector2(1, -180), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_5la11"]
-curve = SubResource("Curve_nr33x")
+[sub_resource type="Curve" id="Curve_6cqs6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.82725, 0.0, 0, 0]
+point_count = 2
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cx0fn"]
-particle_flag_disable_z = true
-spread = 180.0
-gravity = Vector3(0, 98, 0)
-initial_velocity_min = 50.0
-initial_velocity_max = 100.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-scale_curve = SubResource("CurveTexture_5la11")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_idfrc"]
-emission_shape = 2
-emission_sphere_radius = 10.0
-particle_flag_align_y = true
-particle_flag_disable_z = true
-direction = Vector3(2.08165e-12, -60, 2.08165e-12)
-spread = 30.0
-gravity = Vector3(2.08165e-12, 300, 2.08165e-12)
-initial_velocity_min = 10.0
-initial_velocity_max = 100.0
-orbit_velocity_min = 2.08167e-14
-orbit_velocity_max = 2.08167e-14
-linear_accel_min = 2.08167e-15
-linear_accel_max = 10.0
-scale_min = 0.25
-scale_max = 0.5
-anim_speed_min = 1.0
-anim_speed_max = 10.0
-collision_mode = 1
-collision_friction = 0.0
-collision_bounce = 1.0
-collision_use_scale = true
+[sub_resource type="Curve" id="Curve_2bt4n"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6oyh"]
 size = Vector2(16, 16)
@@ -433,7 +406,6 @@ material = SubResource("CanvasItemMaterial_0uwi0")
 use_parent_material = true
 position = Vector2(-4, 12)
 emitting = false
-amount = 5
 one_shot = true
 explosiveness = 1.0
 randomness = 1.0
@@ -450,30 +422,44 @@ angle_max = 180.0
 scale_amount_min = 0.5
 scale_amount_curve = SubResource("Curve_8rc11")
 
-[node name="DashParticles" type="GPUParticles2D" parent="."]
+[node name="DashParticles" type="CPUParticles2D" parent="."]
 position = Vector2(-4, 4)
 emitting = false
-amount = 20
-process_material = SubResource("ParticleProcessMaterial_cx0fn")
-texture = ExtResource("11_j7bbt")
+amount = 30
 lifetime = 0.6
 one_shot = true
 explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+texture = ExtResource("11_j7bbt")
+direction = Vector2(2.08165e-12, 2.08165e-12)
+spread = 180.0
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+initial_velocity_min = 100.0
+initial_velocity_max = 150.0
+angle_max = 180.0
+angle_curve = SubResource("Curve_6ff13")
+scale_amount_curve = SubResource("Curve_6cqs6")
 
-[node name="DashLandingParticles" type="GPUParticles2D" parent="."]
+[node name="DashLandingParticles" type="CPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_0uwi0")
 use_parent_material = true
 position = Vector2(-4, 12)
 emitting = false
 amount = 5
-process_material = SubResource("ParticleProcessMaterial_idfrc")
-texture = ExtResource("14_sgpe3")
 one_shot = true
 explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
 fixed_fps = 60
-trail_lifetime = 0.1
-trail_sections = 2
-trail_section_subdivisions = 1
+texture = ExtResource("14_sgpe3")
+emission_shape = 2
+emission_sphere_radius = 10.0
+direction = Vector2(1, -10)
+initial_velocity_min = 250.0
+initial_velocity_max = 300.0
+angle_max = 180.0
+scale_amount_curve = SubResource("Curve_2bt4n")
 
 [node name="LandingSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_uaapq")
