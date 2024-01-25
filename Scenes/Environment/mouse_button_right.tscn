@@ -1,0 +1,142 @@
+[gd_scene load_steps=12 format=3 uid="uid://cfu5iblnh5oo4"]
+
+[ext_resource type="Texture2D" uid="uid://n6f62546ijw2" path="res://textures/inputs/tilemap_inputs.png" id="1_hsshh"]
+[ext_resource type="Script" path="res://Scenes/Environment/mouse_button_right.gd" id="2_436ko"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d5wq"]
+atlas = ExtResource("1_hsshh")
+region = Rect2(136, 34, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhtr6"]
+atlas = ExtResource("1_hsshh")
+region = Rect2(170, 34, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ilf0m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d5wq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhtr6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_chbwy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b6e3i"]
+resource_name = "mouse_button_power"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.1),
+"transitions": PackedFloat32Array(0.5, -2, -2, -2, -2, -2, -2, -2, -2, 2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2.08165e-12, 5), Vector2(-1, 5), Vector2(1, 5), Vector2(-1, 5), Vector2(1, 5), Vector2(-1, 5), Vector2(1, 5), Vector2(2.08165e-12, 5), Vector2(2.08165e-12, 2.08165e-12)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b8oqp"]
+_data = {
+"RESET": SubResource("Animation_chbwy"),
+"mouse_button_power": SubResource("Animation_b6e3i")
+}
+
+[sub_resource type="Animation" id="Animation_kteq4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1nt83"]
+resource_name = "fade_away"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0jbn2"]
+_data = {
+"RESET": SubResource("Animation_kteq4"),
+"fade_away": SubResource("Animation_1nt83")
+}
+
+[node name="MouseButtonRight" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ilf0m")
+script = ExtResource("2_436ko")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b8oqp")
+}
+
+[node name="Fade" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0jbn2")
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,143 @@
+[gd_scene load_steps=12 format=3 uid="uid://d1ccqlkan46m0"]
+
+[ext_resource type="Texture2D" uid="uid://n6f62546ijw2" path="res://textures/inputs/tilemap_inputs.png" id="1_qtomd"]
+[ext_resource type="Script" path="res://Scenes/Environment/mouse_button_left.gd" id="2_b47bl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oupth"]
+atlas = ExtResource("1_qtomd")
+region = Rect2(136, 34, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xho62"]
+atlas = ExtResource("1_qtomd")
+region = Rect2(153, 34, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_40ehu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oupth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xho62")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="Animation" id="Animation_ddp3s"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gij58"]
+resource_name = "mouse_movement"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9),
+"transitions": PackedFloat32Array(0.5, -2, -2, 2, -2, -2, -2, -2, -2, -2, 2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(15, 0), Vector2(-15, 2.08165e-12), Vector2(2.08165e-12, 2.08165e-12), Vector2(-1, 2.08165e-12), Vector2(1, 2.08165e-12), Vector2(-1, 2.08165e-12), Vector2(1, 2.08165e-12), Vector2(-1, 2.08165e-12), Vector2(1, 2.08165e-12), Vector2(2.08165e-12, 2.08165e-12)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u3kjk"]
+_data = {
+"RESET": SubResource("Animation_ddp3s"),
+"mouse_movement": SubResource("Animation_gij58")
+}
+
+[sub_resource type="Animation" id="Animation_kteq4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1nt83"]
+resource_name = "fade_away"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0jbn2"]
+_data = {
+"RESET": SubResource("Animation_kteq4"),
+"fade_away": SubResource("Animation_1nt83")
+}
+
+[node name="MouseButtonLeft" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_40ehu")
+script = ExtResource("2_b47bl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_u3kjk")
+}
+
+[node name="Fade" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0jbn2")
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

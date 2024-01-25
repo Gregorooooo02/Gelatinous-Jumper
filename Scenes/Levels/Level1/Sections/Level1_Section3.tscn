@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cbsgw2ltvv6hj"]
+[gd_scene load_steps=32 format=3 uid="uid://cbsgw2ltvv6hj"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/Level_Section.gd" id="1_n2jmu"]
 [ext_resource type="Texture2D" uid="uid://4x4v25mpxcu1" path="res://textures/tilemap_nature.png" id="2_6ytah"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/DeathPit.gd" id="4_yrr5q"]
 [ext_resource type="Script" path="res://Scenes/Levels/Screens/end_box.gd" id="5_q3gk5"]
 [ext_resource type="PackedScene" uid="uid://spwxqcspg5y0" path="res://Scenes/Levels/Entrance.tscn" id="6_oqsgw"]
+[ext_resource type="Texture2D" uid="uid://cd2yu53v67kd5" path="res://textures/Items/Short_Platform.png" id="7_fpfvb"]
+[ext_resource type="Texture2D" uid="uid://segfw41lyf02" path="res://textures/Items/Long_Platform.png" id="7_tg1hu"]
 [ext_resource type="PackedScene" uid="uid://brsvelmtqdu08" path="res://Scenes/Levels/Screens/Summary_Screen.tscn" id="9_qt60a"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n4lgq"]
@@ -840,7 +842,7 @@ size = Vector2(450, 216)
 size = Vector2(472, 74)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_agwyh"]
-size = Vector2(57, 16)
+size = Vector2(54, 18)
 
 [sub_resource type="Animation" id="Animation_2ksn4"]
 length = 0.001
@@ -881,7 +883,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eneum"]
-size = Vector2(40, 15)
+size = Vector2(36, 18)
 
 [sub_resource type="Animation" id="Animation_5cr4m"]
 length = 0.001
@@ -1008,12 +1010,11 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="platform_horizontal"]
 position = Vector2(115, 155)
-texture = ExtResource("2_6ytah")
-region_enabled = true
+texture = ExtResource("7_tg1hu")
 region_rect = Rect2(153.943, 37.3871, 54.6411, 20.4904)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform_horizontal"]
-position = Vector2(115.5, 154)
+position = Vector2(115, 155)
 shape = SubResource("RectangleShape2D_agwyh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platform_horizontal"]
@@ -1029,12 +1030,11 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="platform_vertical"]
 position = Vector2(369, 164)
-texture = ExtResource("2_6ytah")
-region_enabled = true
+texture = ExtResource("7_fpfvb")
 region_rect = Rect2(152.617, 40.263, 37.126, 15.0263)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform_vertical"]
-position = Vector2(369, 164.5)
+position = Vector2(369, 164)
 shape = SubResource("RectangleShape2D_eneum")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platform_vertical"]

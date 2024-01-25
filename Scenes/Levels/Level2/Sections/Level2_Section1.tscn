@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://co1yenm6ipds8"]
+[gd_scene load_steps=35 format=3 uid="uid://co1yenm6ipds8"]
 
 [ext_resource type="Texture2D" uid="uid://4x4v25mpxcu1" path="res://textures/tilemap_nature.png" id="1_dx0dr"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/Level_Section.gd" id="1_jcfkd"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://c5ph3b7x1nhsu" path="res://Scenes/Items/Coin.tscn" id="7_8ix18"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/Background.gd" id="7_qms3t"]
 [ext_resource type="PackedScene" uid="uid://vtunc4ggali7" path="res://Scenes/Items/Dash_PowerUp.tscn" id="9_k58vl"]
+[ext_resource type="Texture2D" uid="uid://cd2yu53v67kd5" path="res://textures/Items/Short_Platform.png" id="10_cqt0x"]
+[ext_resource type="Texture2D" uid="uid://segfw41lyf02" path="res://textures/Items/Long_Platform.png" id="10_misap"]
 [ext_resource type="PackedScene" uid="uid://bps46vvdt6g0t" path="res://Scenes/Interactable/power_up_manager.tscn" id="11_hdhor"]
 [ext_resource type="PackedScene" uid="uid://cmtnhqujxf0cv" path="res://Scenes/Items/Bounce_PowerUp.tscn" id="12_der3f"]
 
@@ -855,7 +857,7 @@ size = Vector2(481, 251)
 size = Vector2(53, 54)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ynn2f"]
-size = Vector2(57, 16)
+size = Vector2(54, 18)
 
 [sub_resource type="Animation" id="Animation_2k5pn"]
 length = 0.001
@@ -884,7 +886,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 2, 4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
 "values": [Vector2(137, 60), Vector2(40, 60), Vector2(137, 60)]
 }
@@ -896,7 +898,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wv8sy"]
-size = Vector2(40, 15)
+size = Vector2(36, 18)
 
 [sub_resource type="Animation" id="Animation_rndx3"]
 resource_name = "move"
@@ -910,7 +912,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
 "values": [Vector2(-207, -107), Vector2(-40, 18), Vector2(-207, -107)]
 }
@@ -1004,12 +1006,11 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="platform_horizontal"]
 position = Vector2(115, 155)
-texture = ExtResource("1_dx0dr")
-region_enabled = true
+texture = ExtResource("10_misap")
 region_rect = Rect2(153.943, 37.3871, 54.6411, 20.4904)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform_horizontal"]
-position = Vector2(115.5, 154)
+position = Vector2(115, 155)
 shape = SubResource("RectangleShape2D_ynn2f")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platform_horizontal"]
@@ -1019,17 +1020,16 @@ libraries = {
 }
 
 [node name="platform_both" type="AnimatableBody2D" parent="."]
-position = Vector2(-40, 18)
+position = Vector2(-207, -107)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="platform_both"]
 position = Vector2(369, 164)
-texture = ExtResource("1_dx0dr")
-region_enabled = true
+texture = ExtResource("10_cqt0x")
 region_rect = Rect2(152.617, 40.263, 37.126, 15.0263)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform_both"]
-position = Vector2(369, 164.5)
+position = Vector2(369, 164)
 shape = SubResource("RectangleShape2D_wv8sy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platform_both"]
@@ -1049,6 +1049,27 @@ spawnling_scene = ExtResource("9_k58vl")
 position = Vector2(36, 76)
 spawnling_scene = ExtResource("12_der3f")
 
+[connection signal="body_entered" from="LevelTiles/KillerWater" to="LevelTiles/KillerWater" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@89567" to="LevelTiles/@Area2D@89567" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@89568" to="LevelTiles/@Area2D@89568" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@89569" to="LevelTiles/@Area2D@89569" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@89570" to="LevelTiles/@Area2D@89570" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@89571" to="LevelTiles/@Area2D@89571" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@89572" to="LevelTiles/@Area2D@89572" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@89573" to="LevelTiles/@Area2D@89573" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@89574" to="LevelTiles/@Area2D@89574" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@89575" to="LevelTiles/@Area2D@89575" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@89576" to="LevelTiles/@Area2D@89576" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@89577" to="LevelTiles/@Area2D@89577" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@89578" to="LevelTiles/@Area2D@89578" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@89579" to="LevelTiles/@Area2D@89579" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@89580" to="LevelTiles/@Area2D@89580" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@89581" to="LevelTiles/@Area2D@89581" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@89582" to="LevelTiles/@Area2D@89582" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@89583" to="LevelTiles/@Area2D@89583" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@89584" to="LevelTiles/@Area2D@89584" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@89585" to="LevelTiles/@Area2D@89585" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@89586" to="LevelTiles/@Area2D@89586" method="_on_body_entered" flags=18]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 
 [editable path="Entrance"]

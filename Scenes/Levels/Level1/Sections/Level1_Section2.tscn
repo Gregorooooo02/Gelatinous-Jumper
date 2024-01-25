@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cxjl73dsiuqkp"]
+[gd_scene load_steps=26 format=3 uid="uid://cxjl73dsiuqkp"]
 
 [ext_resource type="Texture2D" uid="uid://4x4v25mpxcu1" path="res://textures/tilemap_nature.png" id="1_hb84r"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/Level_Section.gd" id="1_soryn"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cyx5ehy0x2f3p" path="res://textures/whiteTex.png" id="5_tj400"]
 [ext_resource type="PackedScene" uid="uid://bps46vvdt6g0t" path="res://Scenes/Interactable/power_up_manager.tscn" id="10_2ox2w"]
 [ext_resource type="PackedScene" uid="uid://cmtnhqujxf0cv" path="res://Scenes/Items/Bounce_PowerUp.tscn" id="11_5dt13"]
+[ext_resource type="Texture2D" uid="uid://cdhgspresgtv2" path="res://textures/inputs/line.png" id="11_ean16"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ielf"]
 size = Vector2(450, 216)
@@ -955,6 +956,19 @@ spawnling_scene = ExtResource("5_6rw3f")
 [node name="PowerUpManager2" parent="." instance=ExtResource("10_2ox2w")]
 position = Vector2(242, 216)
 spawnling_scene = ExtResource("11_5dt13")
+
+[node name="Route" type="Node2D" parent="."]
+position = Vector2(46, 213)
+
+[node name="Line2D" type="Line2D" parent="Route"]
+modulate = Color(1, 1, 1, 0.392157)
+z_index = -1
+texture_filter = 1
+texture_repeat = 2
+points = PackedVector2Array(-30, 25, 25, -44, -28, -91, 25, -128, -29, -172, -13, -185, -7, -187, -1, -188, 7, -188, 14, -186, 20, -183, 24, -179, 28, -174, 33, -166, 37, -159, 40, -151, 42, -139)
+width = 5.0
+texture = ExtResource("11_ean16")
+texture_mode = 1
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 

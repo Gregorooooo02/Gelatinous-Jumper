@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://lq1xupvkcjta"]
+[gd_scene load_steps=35 format=3 uid="uid://lq1xupvkcjta"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/Sections/Level_Section.gd" id="1_5rr7h"]
 [ext_resource type="Texture2D" uid="uid://lu60apvxqde5" path="res://textures/tilemap-backgrounds.png" id="2_kmvjc"]
@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bum0r06ehf2yk" path="res://Scenes/Killing Objects/Water/KillerWater.tscn" id="7_phmln"]
 [ext_resource type="Texture2D" uid="uid://iqeateybqyxx" path="res://textures/tilemap_industrial.png" id="7_x8ivx"]
 [ext_resource type="PackedScene" uid="uid://c5ph3b7x1nhsu" path="res://Scenes/Items/Coin.tscn" id="9_hbl0g"]
+[ext_resource type="Texture2D" uid="uid://cd2yu53v67kd5" path="res://textures/Items/Short_Platform.png" id="10_5ihkh"]
 [ext_resource type="Script" path="res://Scenes/Levels/Screens/end_box.gd" id="10_gkqrx"]
+[ext_resource type="Texture2D" uid="uid://segfw41lyf02" path="res://textures/Items/Long_Platform.png" id="11_6uq7o"]
 [ext_resource type="PackedScene" uid="uid://brsvelmtqdu08" path="res://Scenes/Levels/Screens/Summary_Screen.tscn" id="11_jiw8t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ufkyn"]
@@ -1344,7 +1346,7 @@ sources/3 = SubResource("TileSetScenesCollectionSource_vgiim")
 size = Vector2(481, 251)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gcfui"]
-size = Vector2(40, 15)
+size = Vector2(36, 18)
 
 [sub_resource type="Animation" id="Animation_drs2s"]
 resource_name = "move"
@@ -1358,7 +1360,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(-2, -2),
 "update": 0,
 "values": [Vector2(-174, -24), Vector2(-132, 47)]
 }
@@ -1369,7 +1371,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_36h8v"]
-size = Vector2(57, 16)
+size = Vector2(54, 18)
 
 [sub_resource type="Animation" id="Animation_xq7al"]
 resource_name = "move"
@@ -1383,9 +1385,9 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(-2, -2),
 "update": 0,
-"values": [Vector2(201, 51), Vector2(303, 10)]
+"values": [Vector2(201, 51), Vector2(250, 10)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x8m2m"]
@@ -1394,7 +1396,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbbbs"]
-size = Vector2(44, 54)
+size = Vector2(44, 138)
 
 [node name="Level2_Section5" type="Node2D"]
 script = ExtResource("1_5rr7h")
@@ -1471,12 +1473,11 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="platform_both"]
 position = Vector2(369, 164)
-texture = ExtResource("4_hc7hb")
-region_enabled = true
+texture = ExtResource("10_5ihkh")
 region_rect = Rect2(152.617, 40.263, 37.126, 15.0263)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform_both"]
-position = Vector2(369, 164.5)
+position = Vector2(369, 164)
 shape = SubResource("RectangleShape2D_gcfui")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platform_both"]
@@ -1491,12 +1492,11 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="platform_horizontal"]
 position = Vector2(115, 155)
-texture = ExtResource("4_hc7hb")
-region_enabled = true
+texture = ExtResource("11_6uq7o")
 region_rect = Rect2(153.943, 37.3871, 54.6411, 20.4904)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform_horizontal"]
-position = Vector2(115.5, 154)
+position = Vector2(115, 155)
 shape = SubResource("RectangleShape2D_36h8v")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platform_horizontal"]
@@ -1511,7 +1511,7 @@ collision_mask = 3
 script = ExtResource("10_gkqrx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="end"]
-position = Vector2(467, 119)
+position = Vector2(467, 77)
 shape = SubResource("RectangleShape2D_fbbbs")
 
 [node name="SummaryScreen" parent="." instance=ExtResource("11_jiw8t")]
@@ -1521,14 +1521,14 @@ z_index = 4
 position = Vector2(81, 189)
 
 [connection signal="body_entered" from="LevelTiles/KillerWater" to="LevelTiles/KillerWater" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@500952" to="LevelTiles/@Area2D@500952" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@500953" to="LevelTiles/@Area2D@500953" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@500954" to="LevelTiles/@Area2D@500954" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@500955" to="LevelTiles/@Area2D@500955" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@500956" to="LevelTiles/@Area2D@500956" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@500957" to="LevelTiles/@Area2D@500957" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@500958" to="LevelTiles/@Area2D@500958" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@500959" to="LevelTiles/@Area2D@500959" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@500960" to="LevelTiles/@Area2D@500960" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@93769" to="LevelTiles/@Area2D@93769" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@93770" to="LevelTiles/@Area2D@93770" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@93771" to="LevelTiles/@Area2D@93771" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@93772" to="LevelTiles/@Area2D@93772" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@93773" to="LevelTiles/@Area2D@93773" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@93774" to="LevelTiles/@Area2D@93774" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@93775" to="LevelTiles/@Area2D@93775" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@93776" to="LevelTiles/@Area2D@93776" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@93777" to="LevelTiles/@Area2D@93777" method="_on_body_entered" flags=18]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="end" to="end" method="_on_body_entered"]
