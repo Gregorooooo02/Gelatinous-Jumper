@@ -22,6 +22,8 @@ func _process(delta):
 	if should_start:
 		timer+=delta
 	update_timer_display()
+	if get_node("../World/muza") and get_node("../World/muza").playing == false:
+		get_node("../World/muza").play()
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit();
 

@@ -1477,12 +1477,6 @@ spawnling_scene = ExtResource("14_e1p1c")
 position = Vector2(60, 240)
 spawnling_scene = ExtResource("15_8hchn")
 
-[connection signal="body_entered" from="LevelTiles/@Area2D@48614" to="LevelTiles/@Area2D@48614" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@48615" to="LevelTiles/@Area2D@48615" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@48616" to="LevelTiles/@Area2D@48616" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@48617" to="LevelTiles/@Area2D@48617" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@48618" to="LevelTiles/@Area2D@48618" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@48619" to="LevelTiles/@Area2D@48619" method="_on_body_entered" flags=18]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="DeathPit" to="DeathPit" method="_on_body_entered"]
 

@@ -1049,27 +1049,6 @@ spawnling_scene = ExtResource("9_k58vl")
 position = Vector2(36, 76)
 spawnling_scene = ExtResource("12_der3f")
 
-[connection signal="body_entered" from="LevelTiles/KillerWater" to="LevelTiles/KillerWater" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@89567" to="LevelTiles/@Area2D@89567" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@89568" to="LevelTiles/@Area2D@89568" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@89569" to="LevelTiles/@Area2D@89569" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@89570" to="LevelTiles/@Area2D@89570" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@89571" to="LevelTiles/@Area2D@89571" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@89572" to="LevelTiles/@Area2D@89572" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@89573" to="LevelTiles/@Area2D@89573" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@89574" to="LevelTiles/@Area2D@89574" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@89575" to="LevelTiles/@Area2D@89575" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@89576" to="LevelTiles/@Area2D@89576" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@89577" to="LevelTiles/@Area2D@89577" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@89578" to="LevelTiles/@Area2D@89578" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@89579" to="LevelTiles/@Area2D@89579" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@89580" to="LevelTiles/@Area2D@89580" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@89581" to="LevelTiles/@Area2D@89581" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@89582" to="LevelTiles/@Area2D@89582" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@89583" to="LevelTiles/@Area2D@89583" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@89584" to="LevelTiles/@Area2D@89584" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@89585" to="LevelTiles/@Area2D@89585" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@89586" to="LevelTiles/@Area2D@89586" method="_on_body_entered" flags=18]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 
 [editable path="Entrance"]

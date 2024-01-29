@@ -1399,13 +1399,6 @@ spawnling_scene = ExtResource("14_43uvx")
 position = Vector2(81, 240)
 spawnling_scene = ExtResource("15_mxs5f")
 
-[connection signal="body_entered" from="LevelTiles/KillerWater" to="LevelTiles/KillerWater" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@79464" to="LevelTiles/@Area2D@79464" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@79465" to="LevelTiles/@Area2D@79465" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@79466" to="LevelTiles/@Area2D@79466" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@79467" to="LevelTiles/@Area2D@79467" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@79468" to="LevelTiles/@Area2D@79468" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@79469" to="LevelTiles/@Area2D@79469" method="_on_body_entered" flags=18]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="DeathPit" to="DeathPit" method="_on_body_entered"]
 
