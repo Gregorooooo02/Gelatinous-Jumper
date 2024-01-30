@@ -9,7 +9,7 @@ func _on_body_entered(body):
 	if body is Player:
 		get_tree().paused = true;
 		$"../SummaryScreen".show();
-		$"../SummaryScreen/AnimationPlayer".play("Show");
+		$"../SummaryScreen/AnimationPlayerMain".play("Show");
 		
 		get_node("/root/World/Camera2D/TimerDisplay").visible = false;
 		get_node("/root/World/Camera2D/CoinDisplay").visible = false;

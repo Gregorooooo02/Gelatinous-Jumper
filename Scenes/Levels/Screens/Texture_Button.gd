@@ -3,8 +3,7 @@ extends TextureButton
 
 @export var text : String = "Text button";
 
-@onready var select_sound = $"../../../SelectSFX"
-@onready var animation = $"../../../AnimationPlayer";
+@onready var select_sound = $SelectSFX;
 var select_played = false;
 
 # Called when the node enters the scene tree for the first time.

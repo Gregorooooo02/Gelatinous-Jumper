@@ -1,17 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://bq4tubvsud5s7"]
+[gd_scene load_steps=5 format=3 uid="uid://bq4tubvsud5s7"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Screens/Texture_Button.gd" id="1_kpdkx"]
 [ext_resource type="FontFile" uid="uid://ix5p8my5h1s5" path="res://textures/Fonts/upheavtt.ttf" id="2_2ne4a"]
+[ext_resource type="AudioStream" uid="uid://p01iqgnex4l1" path="res://Sounds/blipSelect.wav" id="3_170jg"]
 
 [sub_resource type="Theme" id="Theme_8xs2m"]
 default_font = ExtResource("2_2ne4a")
 
 [node name="TextureButton" type="TextureButton"]
+process_mode = 3
 custom_minimum_size = Vector2(2.08165e-12, 30)
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
-mouse_filter = 1
+mouse_filter = 2
 script = ExtResource("1_kpdkx")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
@@ -30,6 +32,9 @@ theme_override_constants/shadow_offset_y = 1
 theme_override_constants/shadow_outline_size = 4
 bbcode_enabled = true
 text = "[center] Text button [/center]"
+
+[node name="SelectSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_170jg")
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://brsvelmtqdu08"]
+[gd_scene load_steps=25 format=3 uid="uid://brsvelmtqdu08"]
 
 [ext_resource type="Texture2D" uid="uid://4x4v25mpxcu1" path="res://textures/tilemap_nature.png" id="1_bdyha"]
 [ext_resource type="Script" path="res://Scenes/Levels/Screens/Summary_Screen.gd" id="1_qk6u1"]
@@ -6,7 +6,6 @@
 [ext_resource type="FontFile" uid="uid://ix5p8my5h1s5" path="res://textures/Fonts/upheavtt.ttf" id="3_iax0v"]
 [ext_resource type="Texture2D" uid="uid://cfy4tne3ie57k" path="res://textures/rock.png" id="3_up6dc"]
 [ext_resource type="PackedScene" uid="uid://bq4tubvsud5s7" path="res://Scenes/Levels/Screens/Texture_Button.tscn" id="4_o7gfg"]
-[ext_resource type="AudioStream" uid="uid://p01iqgnex4l1" path="res://Sounds/blipSelect.wav" id="6_e1mvm"]
 [ext_resource type="AudioStream" uid="uid://b2scdilkcbecu" path="res://Sounds/click.wav" id="8_r6vwe"]
 [ext_resource type="AudioStream" uid="uid://cs1tr14c74y5i" path="res://Sounds/transition.wav" id="9_rab0l"]
 [ext_resource type="AudioStream" uid="uid://b2hmkptimgv2d" path="res://Sounds/firework.wav" id="10_ogpbk"]
@@ -452,7 +451,7 @@ layout_mode = 2
 focus_neighbor_left = NodePath("../../NextLevel/Next_Level")
 text = "Main Menu"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayerMain" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ciqts")
 }
@@ -491,6 +490,9 @@ text = "Score : 0"
 label_settings = SubResource("LabelSettings_xb5o4")
 
 [node name="Fireworks" type="GPUParticles2D" parent="."]
+light_mask = 16
+visibility_layer = 16
+z_index = -1
 position = Vector2(78, 71)
 emitting = false
 amount = 200
@@ -506,6 +508,9 @@ trail_sections = 4
 trail_section_subdivisions = 2
 
 [node name="Fireworks2" type="GPUParticles2D" parent="."]
+light_mask = 16
+visibility_layer = 16
+z_index = -1
 position = Vector2(418, 118)
 emitting = false
 amount = 200
@@ -521,6 +526,8 @@ trail_sections = 4
 trail_section_subdivisions = 2
 
 [node name="Fireworks3" type="GPUParticles2D" parent="."]
+light_mask = 16
+visibility_layer = 16
 z_index = -1
 position = Vector2(233, 201)
 emitting = false
@@ -535,9 +542,6 @@ trail_enabled = true
 trail_lifetime = 0.1
 trail_sections = 4
 trail_section_subdivisions = 2
-
-[node name="SelectSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_e1mvm")
 
 [node name="ConfirmSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_r6vwe")
@@ -560,8 +564,7 @@ wait_time = 0.5
 [connection signal="pressed" from="FrontTiles/NextLevel/Next_Level" to="." method="_on_next_level_pressed"]
 [connection signal="mouse_exited" from="FrontTiles/MainMenu/Main_Menu" to="FrontTiles/MainMenu/Main_Menu" method="_on_mouse_exited"]
 [connection signal="pressed" from="FrontTiles/MainMenu/Main_Menu" to="." method="_on_main_menu_pressed"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_main_animation_finished"]
-[connection signal="finished" from="WinSFX" to="." method="_on_win_sfx_finished"]
+[connection signal="animation_finished" from="AnimationPlayerMain" to="." method="_on_animation_player_main_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="CutOutAnimation"]

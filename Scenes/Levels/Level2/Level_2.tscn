@@ -143,8 +143,10 @@ autoplay = true
 [node name="CutOutAnimation" parent="Camera2D" instance=ExtResource("2_ntoi7")]
 z_index = 2
 custom_minimum_size = Vector2(500, 290)
-offset_right = 500.0
+offset_left = -18.0
+offset_right = 482.0
 offset_bottom = 290.0
+scale = Vector2(1.04, 1)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
@@ -153,50 +155,6 @@ wait_time = 2.0
 stream = ExtResource("11_87or7")
 volume_db = -5.0
 
-[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@335153" to="Sections/Level2_Section1/LevelTiles/@Area2D@335153" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@335154" to="Sections/Level2_Section1/LevelTiles/@Area2D@335154" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@335155" to="Sections/Level2_Section1/LevelTiles/@Area2D@335155" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@335156" to="Sections/Level2_Section1/LevelTiles/@Area2D@335156" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@335157" to="Sections/Level2_Section1/LevelTiles/@Area2D@335157" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@335158" to="Sections/Level2_Section1/LevelTiles/@Area2D@335158" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@335159" to="Sections/Level2_Section1/LevelTiles/@Area2D@335159" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@335160" to="Sections/Level2_Section1/LevelTiles/@Area2D@335160" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@335161" to="Sections/Level2_Section1/LevelTiles/@Area2D@335161" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@335162" to="Sections/Level2_Section1/LevelTiles/@Area2D@335162" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@335163" to="Sections/Level2_Section1/LevelTiles/@Area2D@335163" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@335164" to="Sections/Level2_Section1/LevelTiles/@Area2D@335164" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@335165" to="Sections/Level2_Section1/LevelTiles/@Area2D@335165" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@335166" to="Sections/Level2_Section1/LevelTiles/@Area2D@335166" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@335167" to="Sections/Level2_Section1/LevelTiles/@Area2D@335167" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@335168" to="Sections/Level2_Section1/LevelTiles/@Area2D@335168" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@335169" to="Sections/Level2_Section1/LevelTiles/@Area2D@335169" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@335170" to="Sections/Level2_Section1/LevelTiles/@Area2D@335170" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@335171" to="Sections/Level2_Section1/LevelTiles/@Area2D@335171" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@335172" to="Sections/Level2_Section1/LevelTiles/@Area2D@335172" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section1/LevelTiles/@Area2D@335173" to="Sections/Level2_Section1/LevelTiles/@Area2D@335173" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section3/LevelTiles/@Area2D@335174" to="Sections/Level2_Section3/LevelTiles/@Area2D@335174" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section3/LevelTiles/@Area2D@335175" to="Sections/Level2_Section3/LevelTiles/@Area2D@335175" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section3/LevelTiles/@Area2D@335176" to="Sections/Level2_Section3/LevelTiles/@Area2D@335176" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section3/LevelTiles/@Area2D@335177" to="Sections/Level2_Section3/LevelTiles/@Area2D@335177" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section3/LevelTiles/@Area2D@335178" to="Sections/Level2_Section3/LevelTiles/@Area2D@335178" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section3/LevelTiles/@Area2D@335179" to="Sections/Level2_Section3/LevelTiles/@Area2D@335179" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section4/LevelTiles/@Area2D@335180" to="Sections/Level2_Section4/LevelTiles/@Area2D@335180" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section4/LevelTiles/@Area2D@335181" to="Sections/Level2_Section4/LevelTiles/@Area2D@335181" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section4/LevelTiles/@Area2D@335182" to="Sections/Level2_Section4/LevelTiles/@Area2D@335182" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section4/LevelTiles/@Area2D@335183" to="Sections/Level2_Section4/LevelTiles/@Area2D@335183" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section4/LevelTiles/@Area2D@335184" to="Sections/Level2_Section4/LevelTiles/@Area2D@335184" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section4/LevelTiles/@Area2D@335185" to="Sections/Level2_Section4/LevelTiles/@Area2D@335185" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section4/LevelTiles/@Area2D@335186" to="Sections/Level2_Section4/LevelTiles/@Area2D@335186" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section5/LevelTiles/@Area2D@335187" to="Sections/Level2_Section5/LevelTiles/@Area2D@335187" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section5/LevelTiles/@Area2D@335188" to="Sections/Level2_Section5/LevelTiles/@Area2D@335188" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section5/LevelTiles/@Area2D@335189" to="Sections/Level2_Section5/LevelTiles/@Area2D@335189" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section5/LevelTiles/@Area2D@335190" to="Sections/Level2_Section5/LevelTiles/@Area2D@335190" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section5/LevelTiles/@Area2D@335191" to="Sections/Level2_Section5/LevelTiles/@Area2D@335191" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section5/LevelTiles/@Area2D@335192" to="Sections/Level2_Section5/LevelTiles/@Area2D@335192" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section5/LevelTiles/@Area2D@335193" to="Sections/Level2_Section5/LevelTiles/@Area2D@335193" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section5/LevelTiles/@Area2D@335194" to="Sections/Level2_Section5/LevelTiles/@Area2D@335194" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section5/LevelTiles/@Area2D@335195" to="Sections/Level2_Section5/LevelTiles/@Area2D@335195" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level2_Section5/LevelTiles/@Area2D@335196" to="Sections/Level2_Section5/LevelTiles/@Area2D@335196" method="_on_body_entered" flags=18]
 [connection signal="timeout" from="Camera2D/ShakeTimer" to="Camera2D" method="_on_shake_timer_timeout"]
 [connection signal="finished" from="Camera2D/MusicSFX" to="." method="_on_music_sfx_finished"]
 [connection signal="animation_finished" from="Camera2D/CutOutAnimation/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -45,12 +45,8 @@ func _on_animation_player_animation_finished(anim_name):
 		get_tree().change_scene_to_file("res://Main.tscn");
 	
 
-
 func _on_animation_player_main_animation_finished(anim_name):
 	timer.start();
-
-func _on_win_sfx_finished():
-	_on_timer_timeout();
 
 func _on_timer_timeout():
 	fireworks[index].emitting = true;
