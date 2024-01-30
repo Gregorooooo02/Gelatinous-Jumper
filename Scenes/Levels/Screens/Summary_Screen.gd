@@ -4,12 +4,22 @@ extends Node
 @onready var transition_sound = $TransitionSFX;
 @onready var timer = $Timer;
 
+@onready var firework : GPUParticles2D = $Fireworks;
+@onready var firework2 : GPUParticles2D = $Fireworks2;
+@onready var firework3 : GPUParticles2D = $Fireworks3;
+
+var fireworks;
+var played = false;
+
 var is_next_level = false;
 var is_main_menu = false;
+
+var index = 0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$FrontTiles/NextLevel/Next_Level.grab_focus();
+	fireworks = [firework, firework2, firework3]
 
 func _on_next_level_pressed():
 	confirm_sound.play();
@@ -38,24 +48,12 @@ func _on_animation_player_animation_finished(anim_name):
 
 func _on_animation_player_main_animation_finished(anim_name):
 	timer.start();
-	var played = false;
-	var played2 = false;
-	var played3 = false;
+
+func _on_timer_timeout():
+	fireworks[index].emitting = true;
+	fireworks[index].one_shot = false;
+	$FireworkSFX.play();
+	index += 1;
 	
-	var time_left = timer.get_time_left();
-	
-	if time_left == 1.0:
-		$Fireworks.emitting = true;
-		if not played:
-			$FireworkSFX.play();
-			played = true;
-	if time_left >= 0.6 or time_left < 0.7:
-		$Fireworks2.emitting = true;
-		if not played2:
-			$FireworkSFX.play();
-			played2 = true;
-	if time_left <= 0.6:
-		$Fireworks2.emitting = true;
-		if not played3:
-			$FireworkSFX.play();
-			played3 = true;
+	if index > 2:
+		index = 0;

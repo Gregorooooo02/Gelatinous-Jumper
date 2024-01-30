@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://brsvelmtqdu08"]
+[gd_scene load_steps=26 format=3 uid="uid://brsvelmtqdu08"]
 
 [ext_resource type="Texture2D" uid="uid://4x4v25mpxcu1" path="res://textures/tilemap_nature.png" id="1_bdyha"]
 [ext_resource type="Script" path="res://Scenes/Levels/Screens/Summary_Screen.gd" id="1_qk6u1"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://b2scdilkcbecu" path="res://Sounds/click.wav" id="8_r6vwe"]
 [ext_resource type="AudioStream" uid="uid://cs1tr14c74y5i" path="res://Sounds/transition.wav" id="9_rab0l"]
 [ext_resource type="AudioStream" uid="uid://b2hmkptimgv2d" path="res://Sounds/firework.wav" id="10_ogpbk"]
+[ext_resource type="AudioStream" uid="uid://cijps20eilonf" path="res://Sounds/win_jingle.wav" id="11_xdwxy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t3qyu"]
 texture = ExtResource("1_bdyha")
@@ -451,7 +452,7 @@ layout_mode = 2
 focus_neighbor_left = NodePath("../../NextLevel/Next_Level")
 text = "Main Menu"
 
-[node name="AnimationPlayerMain" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ciqts")
 }
@@ -520,6 +521,7 @@ trail_sections = 4
 trail_section_subdivisions = 2
 
 [node name="Fireworks3" type="GPUParticles2D" parent="."]
+z_index = -1
 position = Vector2(233, 201)
 emitting = false
 amount = 200
@@ -547,13 +549,18 @@ volume_db = -5.0
 [node name="FireworkSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_ogpbk")
 
+[node name="WinSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_xdwxy")
+
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
 
 [connection signal="animation_finished" from="CutOutAnimation/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="mouse_exited" from="FrontTiles/NextLevel/Next_Level" to="FrontTiles/NextLevel/Next_Level" method="_on_mouse_exited"]
 [connection signal="pressed" from="FrontTiles/NextLevel/Next_Level" to="." method="_on_next_level_pressed"]
 [connection signal="mouse_exited" from="FrontTiles/MainMenu/Main_Menu" to="FrontTiles/MainMenu/Main_Menu" method="_on_mouse_exited"]
 [connection signal="pressed" from="FrontTiles/MainMenu/Main_Menu" to="." method="_on_main_menu_pressed"]
-[connection signal="animation_finished" from="AnimationPlayerMain" to="." method="_on_animation_player_main_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_main_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="CutOutAnimation"]
