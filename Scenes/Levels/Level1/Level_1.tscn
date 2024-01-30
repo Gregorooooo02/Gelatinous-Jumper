@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://fwnn56twd157"]
+[gd_scene load_steps=15 format=3 uid="uid://fwnn56twd157"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_trglt"]
 [ext_resource type="PackedScene" uid="uid://gtxqcnfsnfx0" path="res://Scenes/Player/Player.tscn" id="2"]
@@ -10,6 +10,7 @@
 [ext_resource type="FontFile" uid="uid://ix5p8my5h1s5" path="res://textures/Fonts/upheavtt.ttf" id="6_wjnoi"]
 [ext_resource type="AudioStream" uid="uid://4g3te7cmnb48" path="res://Sounds/transition_rev.wav" id="9_c3bo7"]
 [ext_resource type="PackedScene" uid="uid://clerf3081iqui" path="res://Scenes/Interactable/checkpoint.tscn" id="10_dj66w"]
+[ext_resource type="AudioStream" uid="uid://cqi5n1gjbhos4" path="res://Sounds/main_theme.mp3" id="11_4s4ln"]
 
 [sub_resource type="Environment" id="Environment_7i0lx"]
 background_mode = 3
@@ -123,6 +124,11 @@ label_settings = SubResource("LabelSettings_a1l6l")
 
 [node name="ShakeTimer" type="Timer" parent="Camera2D"]
 
+[node name="MusicSFX" type="AudioStreamPlayer2D" parent="Camera2D"]
+stream = ExtResource("11_4s4ln")
+volume_db = -5.0
+autoplay = true
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 
@@ -132,13 +138,14 @@ volume_db = -5.0
 
 [connection signal="animation_finished" from="CutOutAnimation/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/KillerWater" to="Sections/Level1_Section1/LevelTiles/KillerWater" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@50820" to="Sections/Level1_Section1/LevelTiles/@Area2D@50820" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@50821" to="Sections/Level1_Section1/LevelTiles/@Area2D@50821" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@50822" to="Sections/Level1_Section1/LevelTiles/@Area2D@50822" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@50823" to="Sections/Level1_Section1/LevelTiles/@Area2D@50823" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@50824" to="Sections/Level1_Section1/LevelTiles/@Area2D@50824" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@50825" to="Sections/Level1_Section1/LevelTiles/@Area2D@50825" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@89114" to="Sections/Level1_Section1/LevelTiles/@Area2D@89114" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@89115" to="Sections/Level1_Section1/LevelTiles/@Area2D@89115" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@89116" to="Sections/Level1_Section1/LevelTiles/@Area2D@89116" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@89117" to="Sections/Level1_Section1/LevelTiles/@Area2D@89117" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@89118" to="Sections/Level1_Section1/LevelTiles/@Area2D@89118" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@89119" to="Sections/Level1_Section1/LevelTiles/@Area2D@89119" method="_on_body_entered" flags=18]
 [connection signal="timeout" from="Camera2D/ShakeTimer" to="Camera2D" method="_on_shake_timer_timeout"]
+[connection signal="finished" from="Camera2D/MusicSFX" to="." method="_on_music_sfx_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="CutOutAnimation"]

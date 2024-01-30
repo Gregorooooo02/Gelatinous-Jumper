@@ -49,6 +49,9 @@ func _on_animation_player_animation_finished(anim_name):
 func _on_animation_player_main_animation_finished(anim_name):
 	timer.start();
 
+func _on_win_sfx_finished():
+	_on_timer_timeout();
+
 func _on_timer_timeout():
 	fireworks[index].emitting = true;
 	fireworks[index].one_shot = false;

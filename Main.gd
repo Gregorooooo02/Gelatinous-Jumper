@@ -12,3 +12,7 @@ func _ready():
 
 func _on_animation_player_animation_finished(anim_name):
 	menu_transition.play("Start");
+
+
+func _on_main_music_sfx_finished():
+	$MainMenu/MainMusicSFX.play();

@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://b2scdilkcbecu" path="res://Sounds/click.wav" id="8_r6vwe"]
 [ext_resource type="AudioStream" uid="uid://cs1tr14c74y5i" path="res://Sounds/transition.wav" id="9_rab0l"]
 [ext_resource type="AudioStream" uid="uid://b2hmkptimgv2d" path="res://Sounds/firework.wav" id="10_ogpbk"]
-[ext_resource type="AudioStream" uid="uid://cijps20eilonf" path="res://Sounds/win_jingle.wav" id="11_xdwxy"]
+[ext_resource type="AudioStream" uid="uid://tlwrlwbwmwgf" path="res://Sounds/win_jingle.mp3" id="11_bca7g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t3qyu"]
 texture = ExtResource("1_bdyha")
@@ -550,7 +550,7 @@ volume_db = -5.0
 stream = ExtResource("10_ogpbk")
 
 [node name="WinSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("11_xdwxy")
+stream = ExtResource("11_bca7g")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
@@ -561,6 +561,7 @@ wait_time = 0.5
 [connection signal="mouse_exited" from="FrontTiles/MainMenu/Main_Menu" to="FrontTiles/MainMenu/Main_Menu" method="_on_mouse_exited"]
 [connection signal="pressed" from="FrontTiles/MainMenu/Main_Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_main_animation_finished"]
+[connection signal="finished" from="WinSFX" to="." method="_on_win_sfx_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="CutOutAnimation"]

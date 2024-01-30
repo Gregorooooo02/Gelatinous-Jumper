@@ -48,3 +48,7 @@ func _on_timer_timeout():
 
 func _on_animation_player_animation_finished(anim_name):
 	should_start = true;
+
+
+func _on_music_sfx_finished():
+	$Camera2D/MusicSFX.play();

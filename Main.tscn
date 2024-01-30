@@ -37,7 +37,11 @@ grow_vertical = 1
 offset_right = 34080.0
 offset_bottom = 19470.0
 
+[node name="MainMusicSFX" parent="MainMenu" index="8"]
+volume_db = -5.0
+
 [connection signal="animation_finished" from="CutOutAnimation/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="finished" from="MainMenu/MainMusicSFX" to="." method="_on_main_music_sfx_finished"]
 
 [editable path="CutOutAnimation"]
 [editable path="MainMenu"]
