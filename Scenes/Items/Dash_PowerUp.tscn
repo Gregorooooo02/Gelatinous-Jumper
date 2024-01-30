@@ -1,8 +1,30 @@
-[gd_scene load_steps=10 format=3 uid="uid://vtunc4ggali7"]
+[gd_scene load_steps=13 format=3 uid="uid://vtunc4ggali7"]
 
 [ext_resource type="Script" path="res://Scenes/Items/Dash_PowerUp.gd" id="1_iuid1"]
 [ext_resource type="Texture2D" uid="uid://cwuudt110g4nh" path="res://textures/Items/Dash_PowerUp.png" id="1_o16vn"]
-[ext_resource type="Texture2D" uid="uid://c4c0tho7pwwrv" path="res://textures/inputs/spacebar.png" id="3_el250"]
+[ext_resource type="Texture2D" uid="uid://c67vi1287qei8" path="res://textures/inputs/dash_input.png" id="3_5itw0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yc787"]
+atlas = ExtResource("3_5itw0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qx71"]
+atlas = ExtResource("3_5itw0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_458jc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yc787")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qx71")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7shwc"]
 radius = 9.0
@@ -135,10 +157,11 @@ script = ExtResource("1_iuid1")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_o16vn")
 
-[node name="InputSprite" type="Sprite2D" parent="."]
+[node name="InputSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("3_el250")
+sprite_frames = SubResource("SpriteFrames_458jc")
+frame_progress = 0.399226
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 2

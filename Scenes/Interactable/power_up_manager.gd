@@ -6,8 +6,8 @@ signal spawned(spawn);
 var can_spawn;
 
 func _ready():
-	Global.is_gone = false;
 	_spawn();
+	Global.is_gone = false;
 	
 func _process(delta):
 	if Global.is_gone:
