@@ -451,7 +451,7 @@ layout_mode = 2
 focus_neighbor_left = NodePath("../../NextLevel/Next_Level")
 text = "Main Menu"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayerMain" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ciqts")
 }
@@ -520,7 +520,7 @@ trail_sections = 4
 trail_section_subdivisions = 2
 
 [node name="Fireworks3" type="GPUParticles2D" parent="."]
-position = Vector2(144, 220)
+position = Vector2(233, 201)
 emitting = false
 amount = 200
 process_material = SubResource("ParticleProcessMaterial_uy8hj")
@@ -548,12 +548,12 @@ volume_db = -5.0
 stream = ExtResource("10_ogpbk")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
 
 [connection signal="animation_finished" from="CutOutAnimation/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="mouse_exited" from="FrontTiles/NextLevel/Next_Level" to="FrontTiles/NextLevel/Next_Level" method="_on_mouse_exited"]
 [connection signal="pressed" from="FrontTiles/NextLevel/Next_Level" to="." method="_on_next_level_pressed"]
 [connection signal="mouse_exited" from="FrontTiles/MainMenu/Main_Menu" to="FrontTiles/MainMenu/Main_Menu" method="_on_mouse_exited"]
 [connection signal="pressed" from="FrontTiles/MainMenu/Main_Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="animation_finished" from="AnimationPlayerMain" to="." method="_on_animation_player_main_animation_finished"]
 
 [editable path="CutOutAnimation"]

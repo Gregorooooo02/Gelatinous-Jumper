@@ -34,8 +34,8 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="VBoxContainer" parent="MainMenu" index="3"]
-offset_right = 32160.0
-offset_bottom = 18390.0
+offset_right = 33120.0
+offset_bottom = 18930.0
 
 [connection signal="animation_finished" from="CutOutAnimation/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 
