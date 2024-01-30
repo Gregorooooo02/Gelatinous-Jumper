@@ -38,17 +38,6 @@ script = ExtResource("1_trglt")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7i0lx")
 
-[node name="CutOutAnimation" parent="." instance=ExtResource("2_xsg4p")]
-z_index = 1
-custom_minimum_size = Vector2(500, 290)
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 490.0
-offset_bottom = 280.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-metadata/_edit_use_anchors_ = true
-
 [node name="Player" parent="." instance=ExtResource("2")]
 position = Vector2(70, 202)
 slide_on_ceiling = false
@@ -129,6 +118,17 @@ stream = ExtResource("11_4s4ln")
 volume_db = -5.0
 autoplay = true
 
+[node name="CutOutAnimation" parent="Camera2D" instance=ExtResource("2_xsg4p")]
+z_index = 1
+custom_minimum_size = Vector2(500, 290)
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 490.0
+offset_bottom = 280.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+metadata/_edit_use_anchors_ = true
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 
@@ -136,19 +136,11 @@ wait_time = 2.0
 stream = ExtResource("9_c3bo7")
 volume_db = -5.0
 
-[connection signal="animation_finished" from="CutOutAnimation/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/KillerWater" to="Sections/Level1_Section1/LevelTiles/KillerWater" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@89114" to="Sections/Level1_Section1/LevelTiles/@Area2D@89114" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@89115" to="Sections/Level1_Section1/LevelTiles/@Area2D@89115" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@89116" to="Sections/Level1_Section1/LevelTiles/@Area2D@89116" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@89117" to="Sections/Level1_Section1/LevelTiles/@Area2D@89117" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@89118" to="Sections/Level1_Section1/LevelTiles/@Area2D@89118" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@89119" to="Sections/Level1_Section1/LevelTiles/@Area2D@89119" method="_on_body_entered" flags=18]
 [connection signal="timeout" from="Camera2D/ShakeTimer" to="Camera2D" method="_on_shake_timer_timeout"]
 [connection signal="finished" from="Camera2D/MusicSFX" to="." method="_on_music_sfx_finished"]
+[connection signal="animation_finished" from="Camera2D/CutOutAnimation/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
-[editable path="CutOutAnimation"]
 [editable path="Sections/Level1_Section1"]
 [editable path="Sections/Level1_Section1/Entrance"]
 [editable path="Sections/Level1_Section1/InputJump/MouseButtonLeft"]
@@ -157,3 +149,4 @@ volume_db = -5.0
 [editable path="Sections/Level1_Section3"]
 [editable path="Sections/Level1_Section3/SummaryScreen"]
 [editable path="Sections/Level1_Section3/SummaryScreen/CutOutAnimation"]
+[editable path="Camera2D/CutOutAnimation"]
