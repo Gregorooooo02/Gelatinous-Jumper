@@ -38,17 +38,6 @@ script = ExtResource("1_trglt")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7i0lx")
 
-[node name="CutOutAnimation" parent="." instance=ExtResource("2_xsg4p")]
-z_index = 1
-custom_minimum_size = Vector2(500, 290)
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 490.0
-offset_bottom = 280.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-metadata/_edit_use_anchors_ = true
-
 [node name="Player" parent="." instance=ExtResource("2")]
 position = Vector2(72, 198)
 slide_on_ceiling = false
@@ -124,6 +113,18 @@ label_settings = SubResource("LabelSettings_a1l6l")
 
 [node name="ShakeTimer" type="Timer" parent="Camera2D"]
 
+[node name="CutOutAnimation" parent="Camera2D" instance=ExtResource("2_xsg4p")]
+z_index = 1
+custom_minimum_size = Vector2(500, 290)
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 482.0
+offset_bottom = 272.0
+scale = Vector2(1.02175, 1.04)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+metadata/_edit_use_anchors_ = true
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 
@@ -136,11 +137,10 @@ stream = ExtResource("11_rhi5b")
 volume_db = -10.0
 autoplay = true
 
-[connection signal="animation_finished" from="CutOutAnimation/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Camera2D/ShakeTimer" to="Camera2D" method="_on_shake_timer_timeout"]
+[connection signal="animation_finished" from="Camera2D/CutOutAnimation/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
-[editable path="CutOutAnimation"]
 [editable path="Sections/Level1_Section1"]
 [editable path="Sections/Level1_Section1/Entrance"]
 [editable path="Sections/Level1_Section1/InputJump/MouseButtonLeft"]
@@ -149,3 +149,4 @@ autoplay = true
 [editable path="Sections/Level1_Section3"]
 [editable path="Sections/Level1_Section3/SummaryScreen"]
 [editable path="Sections/Level1_Section3/SummaryScreen/CutOutAnimation"]
+[editable path="Camera2D/CutOutAnimation"]

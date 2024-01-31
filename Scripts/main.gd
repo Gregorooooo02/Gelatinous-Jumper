@@ -1,7 +1,8 @@
 extends Node2D;
 class_name World;
 
-@onready var transition = $CutOutAnimation/AnimationPlayer;
+@onready var cutout = $Camera2D/CutOutAnimation;
+@onready var transition = $Camera2D/CutOutAnimation/AnimationPlayer;
 @onready var transition_sound = $TransitionSFX;
 
 var timer = 0
@@ -27,6 +28,8 @@ func _process(delta):
 	if get_node("../World/MusicSFX") and get_node("../World/MusicSFX").playing == false:
 		get_node("../World/MusicSFX").play()
 	if Input.is_action_just_pressed("ui_cancel"):
+		if cutout:
+			cutout.visible = true;
 		is_main_menu = true;
 		if transition:
 			transition.play("FadeToBlack");
@@ -56,6 +59,7 @@ func _on_timer_timeout():
 	pass # Replace with function body.
 
 func _on_animation_player_animation_finished(anim_name):
+	cutout.visible = false;
 	should_start = true;
 	
 	if is_main_menu:
