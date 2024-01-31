@@ -470,6 +470,7 @@ custom_minimum_size = Vector2(2.08165e-12, 50)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/CenterContainer"]
+modulate = Color(0.9, 0.9, 0.9, 1)
 layout_mode = 2
 text = "COMPLETED!"
 label_settings = SubResource("LabelSettings_p2pkp")
@@ -478,6 +479,7 @@ label_settings = SubResource("LabelSettings_p2pkp")
 layout_mode = 2
 
 [node name="TimeLabel" type="Label" parent="VBoxContainer/CenterContainer2"]
+modulate = Color(0.9, 0.9, 0.9, 1)
 layout_mode = 2
 text = "Time : 0"
 label_settings = SubResource("LabelSettings_i2bko")
@@ -486,6 +488,7 @@ label_settings = SubResource("LabelSettings_i2bko")
 layout_mode = 2
 
 [node name="ScoreLabel" type="Label" parent="VBoxContainer/CenterContainer3"]
+modulate = Color(0.9, 0.9, 0.9, 1)
 layout_mode = 2
 text = "Score : 0"
 label_settings = SubResource("LabelSettings_xb5o4")

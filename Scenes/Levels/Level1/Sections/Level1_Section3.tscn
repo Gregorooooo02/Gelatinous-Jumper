@@ -1064,7 +1064,6 @@ shape = SubResource("RectangleShape2D_aar6r")
 position = Vector2(-56, 0)
 
 [node name="SummaryScreen" parent="." instance=ExtResource("9_qt60a")]
-visible = false
 z_index = 5
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

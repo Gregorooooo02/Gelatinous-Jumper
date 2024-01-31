@@ -31,7 +31,7 @@ func _process(delta):
 		if transition:
 			transition.play("FadeToBlack");
 			transition_sound.play();
-			print("Pressed main menu");
+			print("Pressed escape button");
 
 func update_timer_display():
 	var time_label = get_node("../World/Camera2D/TimerDisplay")

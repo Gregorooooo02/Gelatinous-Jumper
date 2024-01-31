@@ -8,7 +8,6 @@ extends Area2D
 func _on_body_entered(body):
 	if body is Player:
 		get_tree().paused = true;
-		$"../SummaryScreen".show();
 		$"../SummaryScreen/AnimationPlayerMain".play("Show");
 		
 		get_node("/root/World/Camera2D/TimerDisplay").visible = false;

@@ -1402,6 +1402,7 @@ size = Vector2(44, 138)
 script = ExtResource("1_5rr7h")
 
 [node name="Background" type="TileMap" parent="."]
+modulate = Color(0.9, 0.9, 0.9, 1)
 material = SubResource("ShaderMaterial_ufkyn")
 tile_set = SubResource("TileSet_a6uta")
 format = 2
@@ -1518,7 +1519,6 @@ shape = SubResource("RectangleShape2D_fbbbs")
 position = Vector2(81, 189)
 
 [node name="SummaryScreen" parent="." instance=ExtResource("11_jiw8t")]
-visible = false
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="end" to="end" method="_on_body_entered"]
