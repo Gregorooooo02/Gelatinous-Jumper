@@ -24,8 +24,8 @@ func _process(delta):
 	if should_start:
 		timer+=delta
 	update_timer_display()
-	if get_node("../World/muza") and get_node("../World/muza").playing == false:
-		get_node("../World/muza").play()
+	if get_node("../World/MusicSFX") and get_node("../World/MusicSFX").playing == false:
+		get_node("../World/MusicSFX").play()
 	if Input.is_action_just_pressed("ui_cancel"):
 		is_main_menu = true;
 		if transition:

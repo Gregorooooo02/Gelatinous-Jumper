@@ -9,6 +9,7 @@ var is_main_menu = false;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$FrontTiles/NextLevel/Next_Level.grab_focus();
+	$MusicSFX.play(0.5);
 	
 
 func _on_next_level_pressed():
