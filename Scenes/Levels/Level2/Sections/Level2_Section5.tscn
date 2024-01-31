@@ -1520,5 +1520,15 @@ position = Vector2(81, 189)
 
 [node name="SummaryScreen" parent="." instance=ExtResource("11_jiw8t")]
 
+[connection signal="body_entered" from="LevelTiles/KillerWater" to="LevelTiles/KillerWater" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@28156" to="LevelTiles/@Area2D@28156" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@28157" to="LevelTiles/@Area2D@28157" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@28158" to="LevelTiles/@Area2D@28158" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@28159" to="LevelTiles/@Area2D@28159" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@28160" to="LevelTiles/@Area2D@28160" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@28161" to="LevelTiles/@Area2D@28161" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@28162" to="LevelTiles/@Area2D@28162" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@28163" to="LevelTiles/@Area2D@28163" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="LevelTiles/@Area2D@28164" to="LevelTiles/@Area2D@28164" method="_on_body_entered" flags=18]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="end" to="end" method="_on_body_entered"]

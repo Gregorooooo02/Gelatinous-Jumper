@@ -63,15 +63,6 @@ position = Vector2(966, 0)
 [node name="Background" parent="Sections/Level1_Section3" index="2"]
 modulate = Color(0.901961, 0.901961, 0.901961, 1)
 
-[node name="Label" parent="Sections/Level1_Section3/SummaryScreen/VBoxContainer/CenterContainer" index="0"]
-modulate = Color(0.9, 0.9, 0.9, 1)
-
-[node name="TimeLabel" parent="Sections/Level1_Section3/SummaryScreen/VBoxContainer/CenterContainer2" index="0"]
-modulate = Color(0.9, 0.9, 0.9, 1)
-
-[node name="ScoreLabel" parent="Sections/Level1_Section3/SummaryScreen/VBoxContainer/CenterContainer3" index="0"]
-modulate = Color(0.9, 0.9, 0.9, 1)
-
 [node name="Checkpoints" type="Node2D" parent="."]
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("10_dj66w")]
@@ -133,12 +124,12 @@ stream = ExtResource("9_c3bo7")
 volume_db = -5.0
 
 [connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/KillerWater" to="Sections/Level1_Section1/LevelTiles/KillerWater" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@63636" to="Sections/Level1_Section1/LevelTiles/@Area2D@63636" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@63637" to="Sections/Level1_Section1/LevelTiles/@Area2D@63637" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@63638" to="Sections/Level1_Section1/LevelTiles/@Area2D@63638" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@63639" to="Sections/Level1_Section1/LevelTiles/@Area2D@63639" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@63640" to="Sections/Level1_Section1/LevelTiles/@Area2D@63640" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@63641" to="Sections/Level1_Section1/LevelTiles/@Area2D@63641" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@39575" to="Sections/Level1_Section1/LevelTiles/@Area2D@39575" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@39576" to="Sections/Level1_Section1/LevelTiles/@Area2D@39576" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@39577" to="Sections/Level1_Section1/LevelTiles/@Area2D@39577" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@39578" to="Sections/Level1_Section1/LevelTiles/@Area2D@39578" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@39579" to="Sections/Level1_Section1/LevelTiles/@Area2D@39579" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@39580" to="Sections/Level1_Section1/LevelTiles/@Area2D@39580" method="_on_body_entered" flags=18]
 [connection signal="timeout" from="Camera2D/ShakeTimer" to="Camera2D" method="_on_shake_timer_timeout"]
 [connection signal="finished" from="Camera2D/MusicSFX" to="." method="_on_music_sfx_finished"]
 [connection signal="animation_finished" from="Camera2D/CutOutAnimation/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -12,7 +12,6 @@ var is_main_menu = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.is_paused = false;
 	reset_coins();
 	if transition:
 		transition.play("FadeFromBlack");

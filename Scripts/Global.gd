@@ -7,5 +7,3 @@ var death_sfx : AudioStreamPlayer2D;
 
 var is_gone : bool;
 var spawned_nr = 0;
-
-var is_paused : bool;

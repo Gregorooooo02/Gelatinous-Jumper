@@ -34,8 +34,8 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="VBoxContainer" parent="MainMenu" index="3"]
-offset_right = 46080.0
-offset_bottom = 26220.0
+offset_right = 46560.0
+offset_bottom = 26490.0
 
 [node name="MainMusicSFX" parent="MainMenu" index="8"]
 volume_db = -5.0
