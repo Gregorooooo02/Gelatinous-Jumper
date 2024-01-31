@@ -18,12 +18,6 @@ func _on_start_pressed():
 	$AnimationPlayer.play("To_Levels");
 
 
-func _on_options_pressed():
-	confirm_sound.play();
-	print("Options pressed");
-	
-
-
 func _on_exit_pressed():
 	confirm_sound.play();
 	get_tree().quit();

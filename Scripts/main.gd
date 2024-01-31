@@ -8,6 +8,8 @@ var timer = 0
 var should_start = false;
 var coins = 0
 
+var is_main_menu = false;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	reset_coins();
@@ -25,7 +27,12 @@ func _process(delta):
 	if get_node("../World/muza") and get_node("../World/muza").playing == false:
 		get_node("../World/muza").play()
 	if Input.is_action_just_pressed("ui_cancel"):
-		get_tree().quit();
+		is_main_menu = true;
+		if transition:
+			transition.play("FadeToBlack");
+			transition_sound.play();
+		else:
+			pass;
 
 func update_timer_display():
 	var time_label = get_node("../World/Camera2D/TimerDisplay")
@@ -50,3 +57,6 @@ func _on_timer_timeout():
 
 func _on_animation_player_animation_finished(anim_name):
 	should_start = true;
+	
+	if is_main_menu:
+		get_tree().change_scene_to_file("res://Main.tscn");
