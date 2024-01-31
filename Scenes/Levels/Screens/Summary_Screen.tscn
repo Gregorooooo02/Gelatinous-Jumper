@@ -435,9 +435,9 @@ offset_right = 234.0
 offset_bottom = 198.0
 
 [node name="Next_Level" parent="FrontTiles/NextLevel" instance=ExtResource("4_o7gfg")]
+process_mode = 2
 layout_mode = 2
-focus_neighbor_right = NodePath("../../MainMenu/Main_Menu")
-stretch_mode = 5
+mouse_filter = 1
 text = "Next Level"
 
 [node name="MainMenu" type="VBoxContainer" parent="FrontTiles"]
@@ -447,8 +447,9 @@ offset_right = 342.0
 offset_bottom = 198.0
 
 [node name="Main_Menu" parent="FrontTiles/MainMenu" instance=ExtResource("4_o7gfg")]
+process_mode = 2
 layout_mode = 2
-focus_neighbor_left = NodePath("../../NextLevel/Next_Level")
+mouse_filter = 1
 text = "Main Menu"
 
 [node name="AnimationPlayerMain" type="AnimationPlayer" parent="."]
@@ -493,7 +494,7 @@ label_settings = SubResource("LabelSettings_xb5o4")
 light_mask = 16
 visibility_layer = 16
 z_index = -1
-position = Vector2(78, 71)
+position = Vector2(-440, 76)
 emitting = false
 amount = 200
 process_material = SubResource("ParticleProcessMaterial_uy8hj")
@@ -511,7 +512,7 @@ trail_section_subdivisions = 2
 light_mask = 16
 visibility_layer = 16
 z_index = -1
-position = Vector2(418, 118)
+position = Vector2(-100, 123)
 emitting = false
 amount = 200
 process_material = SubResource("ParticleProcessMaterial_uy8hj")
@@ -529,7 +530,7 @@ trail_section_subdivisions = 2
 light_mask = 16
 visibility_layer = 16
 z_index = -1
-position = Vector2(233, 201)
+position = Vector2(-285, 206)
 emitting = false
 amount = 200
 process_material = SubResource("ParticleProcessMaterial_uy8hj")
@@ -560,9 +561,7 @@ stream = ExtResource("11_bca7g")
 wait_time = 0.5
 
 [connection signal="animation_finished" from="CutOutAnimation/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="mouse_exited" from="FrontTiles/NextLevel/Next_Level" to="FrontTiles/NextLevel/Next_Level" method="_on_mouse_exited"]
 [connection signal="pressed" from="FrontTiles/NextLevel/Next_Level" to="." method="_on_next_level_pressed"]
-[connection signal="mouse_exited" from="FrontTiles/MainMenu/Main_Menu" to="FrontTiles/MainMenu/Main_Menu" method="_on_mouse_exited"]
 [connection signal="pressed" from="FrontTiles/MainMenu/Main_Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="animation_finished" from="AnimationPlayerMain" to="." method="_on_animation_player_main_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

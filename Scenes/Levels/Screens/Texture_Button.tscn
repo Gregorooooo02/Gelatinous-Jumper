@@ -8,12 +8,10 @@
 default_font = ExtResource("2_2ne4a")
 
 [node name="TextureButton" type="TextureButton"]
-process_mode = 3
 custom_minimum_size = Vector2(2.08165e-12, 30)
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
-mouse_filter = 2
 script = ExtResource("1_kpdkx")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
@@ -39,3 +37,4 @@ stream = ExtResource("3_170jg")
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
