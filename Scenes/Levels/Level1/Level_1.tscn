@@ -137,13 +137,6 @@ volume_db = -10.0
 autoplay = true
 
 [connection signal="animation_finished" from="CutOutAnimation/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/KillerWater" to="Sections/Level1_Section1/LevelTiles/KillerWater" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@79771" to="Sections/Level1_Section1/LevelTiles/@Area2D@79771" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@79772" to="Sections/Level1_Section1/LevelTiles/@Area2D@79772" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@79773" to="Sections/Level1_Section1/LevelTiles/@Area2D@79773" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@79774" to="Sections/Level1_Section1/LevelTiles/@Area2D@79774" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@79775" to="Sections/Level1_Section1/LevelTiles/@Area2D@79775" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@79776" to="Sections/Level1_Section1/LevelTiles/@Area2D@79776" method="_on_body_entered" flags=18]
 [connection signal="timeout" from="Camera2D/ShakeTimer" to="Camera2D" method="_on_shake_timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 

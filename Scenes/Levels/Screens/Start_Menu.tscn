@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://by88c0fse0bjf"]
+[gd_scene load_steps=34 format=3 uid="uid://by88c0fse0bjf"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Screens/Start_Menu.gd" id="1_fi836"]
 [ext_resource type="PackedScene" uid="uid://olunq2dnys21" path="res://Scenes/Levels/Screens/Cut_Out_Animation.tscn" id="2_qwssh"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://p01iqgnex4l1" path="res://Sounds/blipSelect.wav" id="13_1cdjs"]
 [ext_resource type="AudioStream" uid="uid://b2scdilkcbecu" path="res://Sounds/click.wav" id="14_efaqi"]
 [ext_resource type="AudioStream" uid="uid://cs1tr14c74y5i" path="res://Sounds/transition.wav" id="16_063q7"]
+[ext_resource type="AudioStream" uid="uid://bypw07yeqqgar" path="res://Sounds/menu_theme.mp3" id="17_kxxdx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_87pji"]
 texture = ExtResource("2_y38uw")
@@ -1130,8 +1131,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 300.0
-offset_right = 480.0
-offset_bottom = 570.0
+offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -1176,6 +1176,11 @@ stream = ExtResource("14_efaqi")
 [node name="TransitionSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_063q7")
 volume_db = -5.0
+
+[node name="MusicSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_kxxdx")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="animation_finished" from="CutOutAnimation/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="mouse_exited" from="FrontTiles/Level 1/Level_1_Text" to="FrontTiles/Level 1/Level_1_Text" method="_on_mouse_exited"]
