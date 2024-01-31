@@ -1514,21 +1514,11 @@ script = ExtResource("10_gkqrx")
 position = Vector2(467, 77)
 shape = SubResource("RectangleShape2D_fbbbs")
 
-[node name="SummaryScreen" parent="." instance=ExtResource("11_jiw8t")]
-z_index = 4
-
 [node name="Coin" parent="." instance=ExtResource("9_hbl0g")]
 position = Vector2(81, 189)
 
-[connection signal="body_entered" from="LevelTiles/KillerWater" to="LevelTiles/KillerWater" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@93769" to="LevelTiles/@Area2D@93769" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@93770" to="LevelTiles/@Area2D@93770" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@93771" to="LevelTiles/@Area2D@93771" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@93772" to="LevelTiles/@Area2D@93772" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@93773" to="LevelTiles/@Area2D@93773" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@93774" to="LevelTiles/@Area2D@93774" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@93775" to="LevelTiles/@Area2D@93775" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@93776" to="LevelTiles/@Area2D@93776" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="LevelTiles/@Area2D@93777" to="LevelTiles/@Area2D@93777" method="_on_body_entered" flags=18]
+[node name="SummaryScreen" parent="." instance=ExtResource("11_jiw8t")]
+visible = false
+
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="end" to="end" method="_on_body_entered"]

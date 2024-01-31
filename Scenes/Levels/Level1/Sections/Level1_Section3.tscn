@@ -1064,11 +1064,9 @@ shape = SubResource("RectangleShape2D_aar6r")
 position = Vector2(-56, 0)
 
 [node name="SummaryScreen" parent="." instance=ExtResource("9_qt60a")]
-z_index = 4
+visible = false
+z_index = 5
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="DeathPit" to="DeathPit" method="_on_body_entered"]
 [connection signal="body_entered" from="end" to="end" method="_on_body_entered"]
-
-[editable path="SummaryScreen"]
-[editable path="SummaryScreen/CutOutAnimation"]

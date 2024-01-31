@@ -18,6 +18,7 @@ var index = 0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	set_process_input(true);
 	$FrontTiles/NextLevel/Next_Level.grab_focus();
 	fireworks = [firework, firework2, firework3]
 
