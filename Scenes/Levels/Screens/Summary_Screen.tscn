@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://brsvelmtqdu08"]
+[gd_scene load_steps=26 format=3 uid="uid://brsvelmtqdu08"]
 
 [ext_resource type="Texture2D" uid="uid://4x4v25mpxcu1" path="res://textures/tilemap_nature.png" id="1_bdyha"]
 [ext_resource type="Script" path="res://Scenes/Levels/Screens/Summary_Screen.gd" id="1_qk6u1"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://b2scdilkcbecu" path="res://Sounds/click.wav" id="8_r6vwe"]
 [ext_resource type="AudioStream" uid="uid://cs1tr14c74y5i" path="res://Sounds/transition.wav" id="9_rab0l"]
 [ext_resource type="AudioStream" uid="uid://buckwmd5vcdfm" path="res://Sounds/win_jingle.mp3" id="10_436sc"]
+[ext_resource type="AudioStream" uid="uid://dh13sgnre5q15" path="res://Sounds/firework.wav" id="11_xldf8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t3qyu"]
 texture = ExtResource("1_bdyha")
@@ -370,6 +371,39 @@ shadow_size = 2
 shadow_color = Color(0.160784, 0.156863, 0.207843, 1)
 shadow_offset = Vector2(2, 2)
 
+[sub_resource type="Curve" id="Curve_3bmr2"]
+min_value = -1.0
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vly7u"]
+curve = SubResource("Curve_3bmr2")
+
+[sub_resource type="Curve" id="Curve_tqtpu"]
+min_value = 2.13163e-14
+max_value = 1.5
+_data = [Vector2(0, 1.5), 0.0, 0.0, 0, 0, Vector2(1, 2.13163e-14), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kgdjb"]
+curve = SubResource("Curve_tqtpu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k05xv"]
+particle_flag_disable_z = true
+direction = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+spread = 180.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_max = 720.0
+scale_curve = SubResource("CurveTexture_kgdjb")
+color = Color(1, 0, 1, 1)
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("CurveTexture_vly7u")
+
 [node name="SummaryScreen" type="Control"]
 process_mode = 2
 process_priority = 1
@@ -464,10 +498,50 @@ volume_db = -5.0
 [node name="MusicSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_436sc")
 
+[node name="FireworkSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_xldf8")
+
+[node name="Fireworks" type="GPUParticles2D" parent="."]
+position = Vector2(82, 75)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_k05xv")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.5
+fixed_fps = 60
+trail_enabled = true
+
+[node name="Fireworks2" type="GPUParticles2D" parent="."]
+position = Vector2(387, 112)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_k05xv")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.5
+fixed_fps = 60
+trail_enabled = true
+
+[node name="Fireworks3" type="GPUParticles2D" parent="."]
+z_index = -1
+position = Vector2(199, 199)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_k05xv")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.5
+fixed_fps = 60
+trail_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="CutOutAnimation/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="mouse_exited" from="FrontTiles/NextLevel/Next_Level" to="FrontTiles/NextLevel/Next_Level" method="_on_mouse_exited"]
 [connection signal="pressed" from="FrontTiles/NextLevel/Next_Level" to="." method="_on_next_level_pressed"]
 [connection signal="mouse_exited" from="FrontTiles/MainMenu/Main_Menu" to="FrontTiles/MainMenu/Main_Menu" method="_on_mouse_exited"]
 [connection signal="pressed" from="FrontTiles/MainMenu/Main_Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="CutOutAnimation"]

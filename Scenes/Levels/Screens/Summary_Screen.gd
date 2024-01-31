@@ -3,13 +3,23 @@ extends Node
 @onready var confirm_sound = $ConfirmSFX;
 @onready var transition_sound = $TransitionSFX;
 
+@onready var timer = $Timer;
+@onready var firework : GPUParticles2D = $Fireworks;
+@onready var firework2 : GPUParticles2D = $Fireworks2;
+@onready var firework3 : GPUParticles2D = $Fireworks3;
+
+var fireworks;
+var index = 0;
+
 var is_next_level = false;
 var is_main_menu = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	timer.start();
 	$FrontTiles/NextLevel/Next_Level.grab_focus();
 	$MusicSFX.play(0.5);
+	fireworks = [firework, firework2, firework3]
 	
 
 func _on_next_level_pressed():
@@ -35,3 +45,12 @@ func _on_animation_player_animation_finished(anim_name):
 	elif is_main_menu:
 		get_tree().change_scene_to_file("res://Main.tscn");
 	
+
+func _on_timer_timeout():
+	fireworks[index].emitting = true;
+	fireworks[index].one_shot = false;
+	$FireworkSFX.play();
+	index += 1;
+	
+	if index > 2:
+		index = 0;
