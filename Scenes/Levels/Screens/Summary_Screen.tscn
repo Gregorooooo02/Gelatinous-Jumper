@@ -11,6 +11,44 @@
 [ext_resource type="AudioStream" uid="uid://b2hmkptimgv2d" path="res://Sounds/firework.wav" id="10_ogpbk"]
 [ext_resource type="AudioStream" uid="uid://tlwrlwbwmwgf" path="res://Sounds/win_jingle.mp3" id="11_bca7g"]
 
+[sub_resource type="Curve" id="Curve_5t5s0"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, -1), 11.9596, 11.9596, 0, 0, Vector2(0.497042, 0.102008), 5.20015, 5.20015, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_kigd2"]
+curve = SubResource("Curve_5t5s0")
+
+[sub_resource type="Curve" id="Curve_b20y7"]
+max_value = 2.0
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(0.999908, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7qfja"]
+curve = SubResource("Curve_b20y7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uy8hj"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+direction = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+spread = 180.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+angular_velocity_min = 100.0
+angular_velocity_max = 500.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = 2.08167e-15
+linear_accel_max = 2.08167e-15
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+scale_curve = SubResource("CurveTexture_7qfja")
+color = Color(1, 0, 1, 1)
+hue_variation_min = 1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("CurveTexture_kigd2")
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t3qyu"]
 texture = ExtResource("1_bdyha")
 separation = Vector2i(1, 1)
@@ -370,50 +408,66 @@ shadow_size = 2
 shadow_color = Color(0.160784, 0.156863, 0.207843, 1)
 shadow_offset = Vector2(2, 2)
 
-[sub_resource type="Curve" id="Curve_5t5s0"]
-min_value = -1.0
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, -1), 11.9596, 11.9596, 0, 0, Vector2(0.497042, 0.102008), 5.20015, 5.20015, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="CurveTexture" id="CurveTexture_kigd2"]
-curve = SubResource("Curve_5t5s0")
-
-[sub_resource type="Curve" id="Curve_b20y7"]
-max_value = 2.0
-_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(0.999908, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_7qfja"]
-curve = SubResource("Curve_b20y7")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uy8hj"]
-lifetime_randomness = 1.0
-particle_flag_disable_z = true
-direction = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
-spread = 180.0
-gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
-initial_velocity_min = 20.0
-initial_velocity_max = 50.0
-angular_velocity_min = 100.0
-angular_velocity_max = 500.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-linear_accel_min = 2.08167e-15
-linear_accel_max = 2.08167e-15
-radial_accel_min = -10.0
-radial_accel_max = 10.0
-scale_curve = SubResource("CurveTexture_7qfja")
-color = Color(1, 0, 1, 1)
-hue_variation_min = 1.0
-hue_variation_max = 1.0
-hue_variation_curve = SubResource("CurveTexture_kigd2")
-
 [node name="SummaryScreen" type="Control"]
 process_mode = 2
 process_priority = 1
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_qk6u1")
+
+[node name="Fireworks" type="GPUParticles2D" parent="."]
+light_mask = 16
+visibility_layer = 16
+z_index = -1
+position = Vector2(64, 76)
+emitting = false
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_uy8hj")
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+trail_enabled = true
+trail_lifetime = 0.1
+trail_sections = 4
+trail_section_subdivisions = 2
+
+[node name="Fireworks2" type="GPUParticles2D" parent="."]
+light_mask = 16
+visibility_layer = 16
+z_index = -1
+position = Vector2(404, 123)
+emitting = false
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_uy8hj")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+trail_enabled = true
+trail_lifetime = 0.1
+trail_sections = 4
+trail_section_subdivisions = 2
+
+[node name="Fireworks3" type="GPUParticles2D" parent="."]
+light_mask = 16
+visibility_layer = 16
+z_index = -1
+position = Vector2(219, 206)
+emitting = false
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_uy8hj")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+trail_enabled = true
+trail_lifetime = 0.1
+trail_sections = 4
+trail_section_subdivisions = 2
 
 [node name="CutOutAnimation" parent="." instance=ExtResource("2_tnbam")]
 z_index = 2
@@ -492,60 +546,6 @@ modulate = Color(0.9, 0.9, 0.9, 1)
 layout_mode = 2
 text = "Score : 0"
 label_settings = SubResource("LabelSettings_xb5o4")
-
-[node name="Fireworks" type="GPUParticles2D" parent="."]
-light_mask = 16
-visibility_layer = 16
-z_index = -1
-position = Vector2(64, 76)
-emitting = false
-amount = 200
-process_material = SubResource("ParticleProcessMaterial_uy8hj")
-lifetime = 3.0
-one_shot = true
-explosiveness = 1.0
-randomness = 1.0
-fixed_fps = 60
-trail_enabled = true
-trail_lifetime = 0.1
-trail_sections = 4
-trail_section_subdivisions = 2
-
-[node name="Fireworks2" type="GPUParticles2D" parent="."]
-light_mask = 16
-visibility_layer = 16
-z_index = -1
-position = Vector2(404, 123)
-emitting = false
-amount = 200
-process_material = SubResource("ParticleProcessMaterial_uy8hj")
-lifetime = 2.0
-one_shot = true
-explosiveness = 1.0
-randomness = 1.0
-fixed_fps = 60
-trail_enabled = true
-trail_lifetime = 0.1
-trail_sections = 4
-trail_section_subdivisions = 2
-
-[node name="Fireworks3" type="GPUParticles2D" parent="."]
-light_mask = 16
-visibility_layer = 16
-z_index = -1
-position = Vector2(219, 206)
-emitting = false
-amount = 200
-process_material = SubResource("ParticleProcessMaterial_uy8hj")
-lifetime = 2.0
-one_shot = true
-explosiveness = 1.0
-randomness = 1.0
-fixed_fps = 60
-trail_enabled = true
-trail_lifetime = 0.1
-trail_sections = 4
-trail_section_subdivisions = 2
 
 [node name="ConfirmSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_r6vwe")
