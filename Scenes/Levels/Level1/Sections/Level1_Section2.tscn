@@ -16,7 +16,7 @@
 size = Vector2(450, 216)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0s326"]
-size = Vector2(20, 54)
+size = Vector2(14, 54)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n4lgq"]
 
@@ -877,7 +877,7 @@ debug_color = Color(0.886275, 0, 0.698039, 0.203922)
 position = Vector2(-45, 225)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entrance"]
-position = Vector2(10, 207)
+position = Vector2(7, 207)
 shape = SubResource("RectangleShape2D_0s326")
 
 [node name="LevelTiles" type="TileMap" parent="."]

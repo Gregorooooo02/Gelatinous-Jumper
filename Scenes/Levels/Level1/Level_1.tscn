@@ -137,9 +137,17 @@ stream = ExtResource("11_rhi5b")
 volume_db = -10.0
 autoplay = true
 
+[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@23228" to="Sections/Level1_Section1/LevelTiles/@Area2D@23228" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@23229" to="Sections/Level1_Section1/LevelTiles/@Area2D@23229" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@23230" to="Sections/Level1_Section1/LevelTiles/@Area2D@23230" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@23231" to="Sections/Level1_Section1/LevelTiles/@Area2D@23231" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@23232" to="Sections/Level1_Section1/LevelTiles/@Area2D@23232" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@23233" to="Sections/Level1_Section1/LevelTiles/@Area2D@23233" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="Sections/Level1_Section1/LevelTiles/@Area2D@23234" to="Sections/Level1_Section1/LevelTiles/@Area2D@23234" method="_on_body_entered" flags=18]
 [connection signal="timeout" from="Camera2D/ShakeTimer" to="Camera2D" method="_on_shake_timer_timeout"]
 [connection signal="animation_finished" from="Camera2D/CutOutAnimation/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="MusicSFX" to="." method="_on_music_sfx_finished"]
 
 [editable path="Sections/Level1_Section1"]
 [editable path="Sections/Level1_Section1/Entrance"]

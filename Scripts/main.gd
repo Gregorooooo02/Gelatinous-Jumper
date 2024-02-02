@@ -64,3 +64,7 @@ func _on_animation_player_animation_finished(anim_name):
 	
 	if is_main_menu:
 		get_tree().change_scene_to_file("res://Main.tscn");
+
+
+func _on_music_sfx_finished():
+	get_node("../World/MusicSFX").play()
